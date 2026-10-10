@@ -8,22 +8,22 @@ An end-to-end, design-based epidemiological investigation examining the enduring
 
 ---
 
-## 📋 Table of Contents
-1. [Overview & Key Empirical Findings](#-overview--key-empirical-findings)
-2. [Prerequisites & System Requirements](#-prerequisites--system-requirements)
-3. [Installation & Environment Setup](#-installation--environment-setup)
-4. [Dataset Setup](#-dataset-setup)
-5. [Instructions to Run the Application](#-instructions-to-run-the-application)
+## Table of Contents
+1. [Overview and Key Empirical Findings](#overview-and-key-empirical-findings)
+2. [Prerequisites and System Requirements](#prerequisites-and-system-requirements)
+3. [Installation and Environment Setup](#installation-and-environment-setup)
+4. [Dataset Setup](#dataset-setup)
+5. [Instructions to Run the Application](#instructions-to-run-the-application)
    - [Option A: One-Command Master Execution](#option-a-one-command-master-execution-recommended)
    - [Option B: Step-by-Step Script Execution](#option-b-step-by-step-script-execution)
    - [Option C: Compiling the LaTeX Report to PDF](#option-c-compiling-the-latex-report-to-pdf)
-6. [Repository Structure](#-repository-structure)
-7. [Statistical Methodology & Guardrails](#-statistical-methodology--guardrails)
-8. [Data Access & Acknowledgments](#-data-access--acknowledgments)
+6. [Repository Structure](#repository-structure)
+7. [Statistical Methodology and Guardrails](#statistical-methodology-and-guardrails)
+8. [Data Access and Acknowledgments](#data-access-and-acknowledgments)
 
 ---
 
-## 📌 Overview & Key Empirical Findings
+## Overview and Key Empirical Findings
 
 Using survey-weighted modified Poisson regression with stratified cluster-robust variance estimation (72 strata, 2,428 sampling clusters, $df = 2,356$), this study evaluates life-course epidemiological paradigms (**biological scarring** vs. **accumulation of disadvantage**) in an upper-middle and low-to-middle income country setting.
 
@@ -45,7 +45,7 @@ Using survey-weighted modified Poisson regression with stratified cluster-robust
 
 ---
 
-## 💻 Prerequisites & System Requirements
+## Prerequisites and System Requirements
 
 - **Operating System:** Linux, macOS, or Windows (WSL recommended)
 - **Python:** Python 3.10, 3.11, or 3.12
@@ -53,12 +53,12 @@ Using survey-weighted modified Poisson regression with stratified cluster-robust
 
 ---
 
-## ⚙️ Installation & Environment Setup
+## Installation and Environment Setup
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/lasi-life-course-ageing.git
-cd lasi-life-course-ageing
+git clone https://github.com/Harsheeee/SOC450.git
+cd SOC450
 ```
 
 ### 2. Create and Activate a Virtual Environment
@@ -80,7 +80,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📂 Dataset Setup
+## Dataset Setup
 
 The replication pipeline analyzes microdata from the **Longitudinal Ageing Study in India (LASI) Wave 1 (2017–2018)**.
 
@@ -101,7 +101,7 @@ If you wish to re-run the extraction from the original raw survey files:
 
 ---
 
-## 🚀 Instructions to Run the Application
+## Instructions to Run the Application
 
 ### Option A: One-Command Master Execution (Recommended)
 
@@ -124,14 +124,14 @@ This single command will:
 
 If you prefer to execute each analytical phase independently:
 
-#### 1. Extract & Build Analytic Cohort (Optional if using included parquet)
+#### 1. Extract and Build Analytic Cohort (Optional if using included parquet)
 ```bash
 python code/07_build_dataset_v2.py
 ```
 * **Input:** `dataset/3_LASI_W1_Individual_v4.dta`
 * **Output:** `data_analysis/lasi_clean_v2.parquet` (66,606 respondents aged 45+)
 
-#### 2. Fit Survey-Weighted Regression Models & Sensitivity Analyses
+#### 2. Fit Survey-Weighted Regression Models and Sensitivity Analyses
 ```bash
 python code/08_models_v2.py
 ```
@@ -180,7 +180,7 @@ The pre-compiled 18-page vector PDF is also directly accessible at:
 
 ---
 
-## 🗂 Repository Structure
+## Repository Structure
 
 ```
 ├── README.md                               <-- Master replication guide and documentation
@@ -225,7 +225,7 @@ The pre-compiled 18-page vector PDF is also directly accessible at:
 
 ---
 
-## 🔬 Statistical Methodology & Guardrails
+## Statistical Methodology and Guardrails
 
 1. **Design-Based Survey Linearization:** Standard errors are calculated using stratified cluster Taylor series linearization across 72 strata (State $\times$ Rural/Urban) and 2,428 clusters (`ssuid`), utilizing $t$-distribution critical values with $df = 2,356$.
 2. **Modified Poisson vs. Logistic Odds Ratios:** Log-binomial / modified Poisson models with sandwich robust estimators are employed to avoid Odds Ratio inflation for common outcomes (depression prevalence = 28.2%).
@@ -235,7 +235,7 @@ The pre-compiled 18-page vector PDF is also directly accessible at:
 
 ---
 
-## 📚 Data Access & Acknowledgments
+## Data Access and Acknowledgments
 
 Data collected by the **International Institute for Population Sciences (IIPS)**, Mumbai, in collaboration with the **Harvard T.H. Chan School of Public Health** and the **University of Southern California (USC)**, funded by the **Ministry of Health and Family Welfare (MoHFW)**, Government of India, and the **National Institute on Aging (NIA/NIH)**.
 
