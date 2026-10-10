@@ -86,26 +86,44 @@ t2_str = "\n".join(t2_latex)
 t3_piv = t3.copy()
 t3_piv['cell'] = t3_piv.apply(lambda r: f"{r['Estimate']:.2f} ({r['CI_lower']:.2f}--{r['CI_upper']:.2f})" + (r" \textit{p}$<$0.001" if r['p_value']<0.001 else f" \\textit{{p}}={r['p_value']:.3f}"), axis=1)
 t3_piv['Model'] = t3_piv['Model'].apply(lambda x: x.split(':')[0])
-t3_mat = t3_piv.pivot(index='Exposure', columns='Model', values='cell')[['Model 0', 'Model 1', 'Model 2', 'Model 3']]
+t3_mat = t3_piv.pivot(index='Exposure', columns='Model', values='cell')[['Model 0', 'Model A', 'Model B', 'Model C']]
 t3_latex = []
 for exp_name, row in t3_mat.iterrows():
     clean_exp = tex_escape(exp_name.split(' (')[0])
-    t3_latex.append(f"{clean_exp} & {row['Model 0']} & {row['Model 1']} & {row['Model 2']} & {row['Model 3']} \\\\")
+    t3_latex.append(f"{clean_exp} & {row['Model 0']} & {row['Model A']} & {row['Model B']} & {row['Model C']} \\\\")
 t3_str = "\n".join(t3_latex)
 
 # Table 4 LaTeX (Depression) - Compact formatting
 t4_piv = t4.copy()
 t4_piv['cell'] = t4_piv.apply(lambda r: f"{r['Estimate']:.2f} ({r['CI_lower']:.2f}--{r['CI_upper']:.2f})" + (r" \textit{p}$<$0.001" if r['p_value']<0.001 else f" \\textit{{p}}={r['p_value']:.3f}"), axis=1)
 t4_piv['Model'] = t4_piv['Model'].apply(lambda x: x.split(':')[0])
-t4_mat = t4_piv.pivot(index='Exposure', columns='Model', values='cell')[['Model 0', 'Model 1', 'Model 2', 'Model 3']]
+t4_mat = t4_piv.pivot(index='Exposure', columns='Model', values='cell')[['Model 0', 'Model A', 'Model B', 'Model C']]
 t4_latex = []
 for exp_name, row in t4_mat.iterrows():
     clean_exp = tex_escape(exp_name.split(' (')[0])
-    t4_latex.append(f"{clean_exp} & {row['Model 0']} & {row['Model 1']} & {row['Model 2']} & {row['Model 3']} \\\\")
+    t4_latex.append(f"{clean_exp} & {row['Model 0']} & {row['Model A']} & {row['Model B']} & {row['Model C']} \\\\")
 t4_str = "\n".join(t4_latex)
 
 # Table 6 LaTeX (Mutually Adjusted) - Split by Outcome Panels
+
 t6_latex = []
+try:
+    tdemo = pd.read_csv(os.path.join(TABLES_DIR, "table_demographic_study.csv"))
+    demo_latex = []
+    demo_latex.append(r"\toprule")
+    demo_latex.append(r"\textbf{Outcome} & \textbf{Demographic Factor} & \textbf{Prevalence Ratio (95\% CI)} & \textbf{\textit{p}-value} \\")
+    demo_latex.append(r"\midrule")
+    for _, row in tdemo.iterrows():
+        out = tex_escape(row['Outcome'])
+        fact = tex_escape(row['Demographic_Factor'])
+        pr_ci = f"{row['PR']:.2f} ({row['CI_lower']:.2f}--{row['CI_upper']:.2f})"
+        p_str = format_p(row['p_value'])
+        demo_latex.append(f"{out} & {fact} & {pr_ci} & {p_str} \\\\\\\\")
+    demo_latex.append(r"\bottomrule")
+    demo_str = "\n".join(demo_latex)
+except FileNotFoundError:
+    demo_str = "Demographic study not generated yet."
+
 t6_cog = t6[t6['Outcome'] == 'Cognitive impairment']
 t6_dep = t6[t6['Outcome'] == 'Depressive symptoms']
 
@@ -168,7 +186,7 @@ t5c_str = "\n".join(t5c_latex)
 
 # Table S2 LaTeX (IPW)
 s2_latex = []
-s2_sub = s2[s2['Model'].str.contains('Model 2') & ~s2['Exposure'].str.contains(r'\[joint')].copy()
+s2_sub = s2[s2['Model'].str.contains('Model B') & ~s2['Exposure'].str.contains(r'\[joint')].copy()
 for exp_name, grp in s2_sub.groupby('Exposure', sort=False):
     clean_exp = tex_escape(exp_name.split(' (')[0])
     cc_row = grp[grp['Weights'] == 'Complete-case'].iloc[0]
@@ -248,7 +266,7 @@ India is experiencing an unprecedented demographic transition. Driven by sustain
 \subsection{Life-Course Epidemiological Paradigms}
 Life-course epidemiology provides three foundational, non-mutually exclusive conceptual models to explain how exposures operating decades earlier influence late-life functional health:
 \begin{enumerate}[label=(\alph*)]
-    \item \textbf{Sensitive/Critical Period Model (Biological Scarring):} Adverse exposures during intrauterine development, infancy, or early childhood permanently alter organ system structure, neurodevelopmental architecture, or physiological set-points (e.g., hypothalamic-pituitary-adrenal [HPA] axis programming and chronic systemic inflammation). These biological scars persist across the life span regardless of subsequent adult socioeconomic success.
+    \item \textbf{Sensitive/Critical Period Model (Biological Vulnerability):} Adverse exposures during intrauterine development, infancy, or early childhood permanently alter organ system structure, neurodevelopmental architecture, or physiological set-points (e.g., hypothalamic-pituitary-adrenal [HPA] axis programming and chronic systemic inflammation). These biological scars persist across the life span regardless of subsequent adult socioeconomic success.
     \item \textbf{Accumulation of Disadvantage Model:} Health insults accumulate incrementally over time. Childhood disadvantage initiates a chain of unfavorable exposures (lower schooling, hazardous occupational environments, lower income, poor diet, and chronic disease) that together compromise late-life health.
     \item \textbf{Pathway / Mobility Model:} Early socioeconomic disadvantage influences late-life health primarily because it determines adult socioeconomic attainment. If adult education and material wealth act as perfect intermediaries, controlling for adult socioeconomic attainment should fully attenuate the crude association between childhood disadvantage and late-life health.
 \end{enumerate}
@@ -260,7 +278,7 @@ Per the pre-registered study protocol (\texttt{protocol.md}), this investigation
     \item[\textbf{Hypothesis 2:}] Poorer reported childhood health (Fair/Poor/Very poor vs. Good/Very good) is associated with poorer cognitive performance and elevated depressive symptoms.
     \item[\textbf{Hypothesis 3:}] Severe childhood illness resulting in being bedridden for one month or more before age 16 is independently associated with poorer cognitive performance and elevated depressive symptoms.
     \item[\textbf{Hypothesis 4:}] The magnitude of association between childhood disadvantage and cognitive/mental health outcomes varies systematically across older adulthood (45--59, 60--74, and 75+ years), reflecting age-graded cumulative divergence or mortality selection.
-    \item[\textbf{Hypothesis 5:}] Early socioeconomic associations will substantially attenuate upon sequential adjustment for adult educational attainment and household per-capita consumption expenditure, demonstrating pathway attenuation.
+    \item[\textbf{Hypothesis 5:}] Early socioeconomic associations will substantially attenuate upon sequential adjustment for adult educational attainment and household per-capita consumption expenditure, demonstrating downstream health attenuation.
 \end{itemize}
 
 \subsection{Methodological Audit and Protocol Amendment}
@@ -272,7 +290,7 @@ To ensure that the empirical findings of this report are accessible to non-speci
 
 \subsection{Life-Course Epidemiology and Ageing Paradigms}
 \begin{description}[leftmargin=0.5cm, style=nextline]
-    \item[\textbf{Biological Scarring (Sensitive / Critical Period Model):}]
+    \item[\textbf{Biological Vulnerability (Sensitive / Critical Period Model):}]
     The biological principle that severe physical shocks, malnutrition, or infectious illnesses during early childhood permanently alter the body's physiological set-points (such as chronic immune inflammation, vascular stiffness, or neuroendocrine stress regulation). These physiological alterations remain dormant or active throughout adult life, re-emerging decades later in old age as elevated risks of depression, disability, or physical frailty, even if the individual achieved upward socioeconomic mobility in adulthood.
 
     \item[\textbf{Accumulation of Disadvantage (Cumulative Adversity):}]
@@ -503,7 +521,7 @@ On the continuous memory and orientation score (Table~\ref{tab:cog_cont}), poor 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Childhood Exposure Parameter} & \textbf{Model 0: Unadj.} & \textbf{Model 1: Demog.+State} & \textbf{Model 2: +Adult SES (Primary)} & \textbf{Model 3: +Adult Health} \\
+\textbf{Childhood Exposure Parameter} & \textbf{Model 0: Unadj.} & \textbf{Model A: Demog.+State} & \textbf{Model B: +Adult SES (Primary)} & \textbf{Model C: +Adult Health} \\
 \midrule
 """ + t3_str + r"""
 \bottomrule
@@ -519,7 +537,7 @@ On the continuous memory and orientation score (Table~\ref{tab:cog_cont}), poor 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Exposure (vs. Reference)} & \textbf{Model 0: Unadjusted} & \textbf{Model 1: Demog.+State} & \textbf{Model 2: +Adult SES} & \textbf{Model 3: +Adult Health} \\
+\textbf{Exposure (vs. Reference)} & \textbf{Model 0: Unadjusted} & \textbf{Model A: Demog.+State} & \textbf{Model B: +Adult SES} & \textbf{Model C: +Adult Health} \\
 \midrule
 Childhood SES: Poor & $-1.65$ ($-1.95$--$-1.34$) & $-1.28$ ($-1.54$--$-1.02$) & $-0.32$ ($-0.56$--$-0.09$) & $-0.25$ ($-0.48$--$-0.01$) \\
 Childhood Health: Poor & $-0.02$ ($-0.43$--$0.39$) & $-0.05$ ($-0.29$--$0.18$) & $+0.01$ ($-0.23$--$0.25$) & $+0.04$ ($-0.19$--$0.27$) \\
@@ -542,7 +560,7 @@ Even after further conditioning on adult chronic multimorbidity and concurrent s
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Childhood Exposure Parameter} & \textbf{Model 0: Unadj.} & \textbf{Model 1: Demog.+State} & \textbf{Model 2: +Adult SES (Primary)} & \textbf{Model 3: +Adult Health} \\
+\textbf{Childhood Exposure Parameter} & \textbf{Model 0: Unadj.} & \textbf{Model A: Demog.+State} & \textbf{Model B: +Adult SES (Primary)} & \textbf{Model C: +Adult Health} \\
 \midrule
 """ + t4_str + r"""
 \bottomrule
@@ -578,7 +596,23 @@ Evaluating the \textbf{Cumulative Disadvantage Index} demonstrated a clear linea
 }
 \end{table}
 
+
+\section{Demographic Variations (New Analysis)}
+Table~\ref{tab:demo} summarizes the demographic predictors across outcomes.
+\begin{table}[H]
+\centering
+\small
+\caption{\textbf{Associations of Demographic Factors with Key Outcomes (Model A specification)}}
+\label{tab:demo}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcc}
+""" + demo_str + r"""
+\end{tabular}%
+}
+\end{table}
+
 \section{Age Heterogeneity and Interaction Analysis}
+
 
 \subsection{Formal Tests of Effect Modification (Hypothesis 4)}
 To test Hypothesis 4 (that early disadvantage compounds across ageing stages or diminishes due to mortality selection), we conducted joint Wald $F$ tests across all exposure-by-age interactions (Table~\ref{tab:joint_test}).
@@ -703,7 +737,7 @@ Table~\ref{tab:hypo_summary} summarizes the empirical verdicts for all five pre-
 \addlinespace
 \textbf{H4: Age Heterogeneity} & \textbf{Not supported}: One nominal test ($p=0.045$) in opposite direction in oldest-old. & \textbf{Not supported}: Uniform across age groups (all joint $p > 0.70$). \\
 \addlinespace
-\textbf{H5: Adult Attenuation} & Strong attenuation for childhood SES; caution against over-interpreting as causal mediation. & Partial attenuation for SES ($\approx 30\%$); minimal attenuation for childhood health. \\
+\textbf{H5: Adult Attenuation} & Strong attenuation for childhood SES; caution against over-interpreting as associational mediation. & Partial attenuation for SES ($\approx 30\%$); minimal attenuation for childhood health. \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -720,14 +754,14 @@ Table~\ref{tab:hypo_summary} summarizes the empirical verdicts for all five pre-
 
 \subsubsection{Study Limitations}
 \begin{itemize}
-    \item \textbf{Cross-Sectional Baseline:} LASI Wave 1 cannot establish individual longitudinal trajectories, disease incidence, or causal mediation over time.
+    \item \textbf{Cross-Sectional Baseline:} LASI Wave 1 cannot establish individual longitudinal trajectories, disease incidence, or associational mediation over time.
     \item \textbf{Retrospective Recall Bias:} Childhood conditions were recalled at older ages, creating potential for mood-congruent recall error among currently depressed individuals.
     \item \textbf{Mortality / Survivor Selection:} Disadvantaged cohorts in LMICs experienced high childhood and mid-life mortality regimes, potentially biasing observed late-life associations toward the null.
     \item \textbf{Cognitive Non-Response:} Proxy interviews ($N = 705$) were excluded from cognitive testing, omitting the most severely impaired older adults.
 \end{itemize}
 
 \subsection{Public Health and Policy Implications}
-Current ageing policies in India, including the National Programme for the Health Care of the Elderly (NPHCE), focus predominantly on late-life tertiary geriatric care and chronic disease management. While vital, our findings demonstrate that healthy cognitive and mental ageing begins decades before adulthood. Preventing late-life depression requires upstream investments in maternal-child health, childhood disease prevention, and family economic security. Simultaneously, expanding universal secondary and higher education provides the most robust institutional pathway for building long-term cognitive resilience in developing nations.
+Current ageing policies in India, including the National Programme for the Health Care of the Elderly (NPHCE), focus predominantly on late-life tertiary geriatric care and chronic disease management. While vital, our findings demonstrate that healthy cognitive and mental ageing begins decades before adulthood. Preventing late-life depression requires upstream investments in maternal-child health, childhood disease prevention, and family economic security. Simultaneously, expanding universal secondary and higher education provides the most robust institutional downstream health for building long-term cognitive resilience in developing nations.
 
 \section{Conclusions with Empirical Evidence}
 \begin{enumerate}

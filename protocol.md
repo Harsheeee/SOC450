@@ -196,3 +196,18 @@ The original protocol (Sections 1–11) is retained unchanged. A post-hoc audit 
 | A7 | Interaction: continuous age retained; **joint Wald test** and average-marginal-standardized predictions replace single-profile predictions. | v1 Table 5 profile was unrepresentative; no test performed. |
 | A8 | Inverse-probability weighting for missing cognition scores (complete-case kept as comparison). | Informative missingness. |
 | A9 | Reporting: associational language only; mechanisms labelled speculative; Hypothesis 4 judged by joint test. | Guardrail §2 breach in v1 report. |
+
+---
+
+## 13. Protocol Amendment 2 (dated 2026-10-10) — Second Critical Review & Demographic Expansion
+
+A second critical review identified remaining phrasing issues, ambiguity in childhood health coding, and called for framing adjustments. Additionally, a demographic variations study was requested.
+
+| # | Change | Reason |
+|---|---|---|
+| B1 | **Childhood Health Recoding:** Rerun primary models using the original published dichotomy (Poor/Very poor vs. Very good/Good/Fair) as a sensitivity check alongside the previous coding. | The v1 coding (Fair/Poor/Very poor) created a much larger "disadvantaged" group (12.5% vs 1.6%). |
+| B2 | **Outcome Renaming:** The binary cognitive impairment flag is renamed to **"low memory-orientation performance"**. | To avoid implying a clinically validated diagnosis. |
+| B3 | **Model Restructuring:** Depression and cognition models are explicitly separated into Model A (Demographic confounders / Total association), Model B (Adult SES adjusted), and Model C (Exploratory downstream health). | To prevent interpreting adult SES adjustment as strict causal mediation without formal tests. |
+| B4 | **Reframing Findings:** Depression findings are explicitly framed as a replication/extension of prior literature (Khanal & Selvamani). | The cognitive measurement critique is positioned as the primary original contribution. |
+| B5 | **Terminology Scrub:** Removed all remaining causal, "scarring", "protection", and "mediation" terminology. | Strict adherence to cross-sectional limits. |
+| B6 | **Demographic Study (New):** Addition of descriptive and regression analyses evaluating the effects of demographic factors (state, caste, residence, sex, age group) on the key outcomes. | Requested by the user to analyze variations across the Indian demographic landscape. |

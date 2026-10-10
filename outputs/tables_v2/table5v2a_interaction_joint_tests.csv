@@ -1,7 +1,9 @@
 Outcome,Exposure,joint_F,df_num,joint_p,N
 Cognitive impairment,Childhood SES,2.439,4,0.0451,57245
 Cognitive impairment,Childhood health,0.322,2,0.7249,57245
+Cognitive impairment,Childhood health (orig),0.323,2,0.7239,57245
 Cognitive impairment,Childhood bedridden,0.271,2,0.7628,57245
 Depressive symptoms,Childhood SES,0.34,4,0.8513,62047
 Depressive symptoms,Childhood health,0.306,2,0.7361,62047
+Depressive symptoms,Childhood health (orig),1.781,2,0.1687,62047
 Depressive symptoms,Childhood bedridden,0.021,2,0.9795,62047

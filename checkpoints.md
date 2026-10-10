@@ -287,3 +287,23 @@ When beginning the next session, start directly at **Presentation Slide Deck Ass
    git push -u origin main
    ```
 
+---
+
+## Milestone 11 — Second Critical Review Fixes & Demographic Expansion — 2026-10-10
+
+**Current active checkpoint:** Data rebuilt with updated parameters; next step is updating the models script.
+
+**What was done**
+1. Analyzed the second critical review and drafted an implementation plan (`implementation_plan_fixes.md`).
+2. Appended Protocol Amendment 2 (Section 13) to `protocol.md` to capture new definitions (e.g. `low_memory_orientation`), restructuring of models (A, B, C), and the new demographic analysis requirement.
+3. Updated `code/07_build_dataset_v2.py`:
+   - Added `childhood_health_poor_original` calculation matching the published paper's logic (Poor/Very poor vs. the rest).
+   - Renamed `imp_mo` to `low_memory_orientation` to strictly avoid diagnostic terminology.
+   - Re-ran the dataset builder to regenerate `data_analysis/lasi_clean_v2.parquet` successfully.
+
+**Next starting point**
+1. Open and refactor `code/08_models_v2.py` to:
+   - Run the sensitivity test comparing `childhood_health` and `childhood_health_poor_original`.
+   - Separate models cleanly into Model A, Model B, and Model C.
+   - Add the new Demographic Variations section (analyzing state, caste, residence, sex).
+

@@ -28,6 +28,14 @@ df['caste'] = df['dm013'].map(caste_map)
 # A3: age >= 100 flag
 df['age_ge100'] = (df['age'] >= 100).astype(int)
 
+# Priority 1: Recode childhood health using the published study's definition
+# Original paper: Poor/Very poor = 1; Very good/Good/Fair = 0
+df['childhood_health_poor_original'] = np.where(
+    df['childhood_health_5cat'].isna(),
+    np.nan,
+    df['childhood_health_5cat'].isin(['Poor', 'Very poor']).astype(float)
+)
+
 # 'Varied' SES retained for sensitivity (v1 file had it as 'Varied')
 direct = df['direct_interview'] == 1
 
@@ -77,7 +85,7 @@ def add_impairment(score, name):
     print(f"{score}: weighted p10 cutoff <= {cut:.2f}; weighted prevalence {wprev*100:.1f}%; n={m.sum():,}")
     return cut
 
-cut_mo = add_impairment('mem_orient', 'imp_mo')
+cut_mo = add_impairment('mem_orient', 'low_memory_orientation')
 cut_bat = add_impairment('battery_pct', 'imp_battery')
 
 # Education-stratum-specific cut-offs for mem_orient (sensitivity)
@@ -85,17 +93,17 @@ df['edu3'] = df['education'].map({'No formal education': 'None', 'Less than prim
                                   'Primary completed': 'Low', 'Middle completed': 'Mid',
                                   'Secondary completed': 'Mid', 'Higher secondary/Diploma': 'High',
                                   'Graduate and above': 'High'})
-df['imp_mo_edustrat'] = np.nan
+df['low_memory_orientation_edustrat'] = np.nan
 for g, sub in df[df['mem_orient'].notna() & df['edu3'].notna()].groupby('edu3'):
     cut = wquantile(sub['mem_orient'].values, sub['survey_weight'].values, 0.10)
-    df.loc[sub.index, 'imp_mo_edustrat'] = (sub['mem_orient'] <= cut).astype(float)
+    df.loc[sub.index, 'low_memory_orientation_edustrat'] = (sub['mem_orient'] <= cut).astype(float)
     print(f"  edu stratum {g}: cutoff <= {cut:.1f}, n={len(sub):,}")
 
 # Response indicator for IPW (A8): direct interview but mem_orient missing
 df['cog_observed'] = np.where(direct, df['mem_orient'].notna().astype(float), np.nan)
 
 # Education / schooling descriptive check
-print(df[df['mem_orient'].notna()].groupby('education')[['mem_orient', 'imp_mo']].mean().round(3))
+print(df[df['mem_orient'].notna()].groupby('education')[['mem_orient', 'low_memory_orientation']].mean().round(3))
 print("mem_orient missing among direct:", int(direct.sum() - df['mem_orient'].notna().sum()))
 
 df.to_parquet(OUT, index=False)

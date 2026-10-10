@@ -1,0 +1,13 @@
+Outcome,Demographic_Factor,PR,CI_lower,CI_upper,p_value
+Low memory-orientation performance,"C(sex, Treatment('Male'))[T.Female]",1.925,1.774,2.088,0.0
+Low memory-orientation performance,"C(residence_cat, Treatment('Rural'))[T.Urban]",0.444,0.375,0.527,0.0
+Low memory-orientation performance,"C(caste, Treatment('General/None'))[T.OBC]",1.236,1.103,1.385,0.0003
+Low memory-orientation performance,"C(caste, Treatment('General/None'))[T.SC]",1.63,1.449,1.834,0.0
+Low memory-orientation performance,"C(caste, Treatment('General/None'))[T.ST]",2.118,1.847,2.429,0.0
+Low memory-orientation performance,age,1.047,1.045,1.05,0.0
+Depressive symptoms,"C(sex, Treatment('Male'))[T.Female]",1.188,1.122,1.257,0.0
+Depressive symptoms,"C(residence_cat, Treatment('Rural'))[T.Urban]",0.937,0.847,1.036,0.2029
+Depressive symptoms,"C(caste, Treatment('General/None'))[T.OBC]",1.136,1.045,1.235,0.0026
+Depressive symptoms,"C(caste, Treatment('General/None'))[T.SC]",1.258,1.162,1.362,0.0
+Depressive symptoms,"C(caste, Treatment('General/None'))[T.ST]",1.011,0.889,1.15,0.8657
+Depressive symptoms,age,1.008,1.005,1.011,0.0

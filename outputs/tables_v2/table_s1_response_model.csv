@@ -1,5 +1,4 @@
 term,OR,p
-Intercept,43.656,0.0
 "C(sex, Treatment('Male'))[T.Female]",0.9034,0.003
 "C(residence_cat, Treatment('Rural'))[T.Urban]",1.1879,0.0
 "C(caste, Treatment('General/None'))[T.OBC]",1.0166,0.7112

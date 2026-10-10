@@ -54,3 +54,5 @@ tmp/
 scratch/
 *.zip
 report/*.html
+paper.pdf
+report_critical_review.md

@@ -30,6 +30,7 @@ d['state_fe'] = d['stateid'].astype(int)
 d['ses_avg'] = np.where(d.childhood_ses.isin(['Pretty well-off', 'Average', 'Poor']), (d.childhood_ses == 'Average').astype(float), np.nan)
 d['ses_poor'] = np.where(d.childhood_ses.isin(['Pretty well-off', 'Average', 'Poor']), (d.childhood_ses == 'Poor').astype(float), np.nan)
 d['hlth_poor'] = np.where(d.childhood_health.notna(), (d.childhood_health == 'Poor').astype(float), np.nan)
+d['hlth_poor_orig'] = np.where(d.childhood_health_poor_original.notna(), d.childhood_health_poor_original, np.nan)
 d['bed_yes'] = np.where(d.childhood_bedridden.notna(), (d.childhood_bedridden == 'Yes').astype(float), np.nan)
 d['age_c'] = d['age']
 
@@ -37,10 +38,10 @@ DEMO = "age + C(sex, Treatment('Male')) + C(residence_cat, Treatment('Rural')) +
 EDU = "C(education, Treatment('No formal education')) + C(mpce_quintile)"
 HLTH = "chronic_count + C(srh, Treatment('Excellent'))"
 FORM = {'M0': "", 'M1': DEMO, 'M2': f"{DEMO} + {EDU}", 'M3': f"{DEMO} + {EDU} + {HLTH}"}
-MLAB = {'M0': 'Model 0: Unadjusted', 'M1': 'Model 1: Demographics + state', 'M2': 'Model 2: + Adult SES (Primary)', 'M3': 'Model 3: + Adult health (Pathway)'}
+MLAB = {'M0': 'Model 0: Unadjusted', 'M1': 'Model A: Demographics + state (Total association)', 'M2': 'Model B: + Adult SES', 'M3': 'Model C: + Adult health (Exploratory)'}
 EXPO = {'ses_avg': 'Childhood SES: Average (vs well-off)', 'ses_poor': 'Childhood SES: Poor (vs well-off)',
-        'hlth_poor': 'Childhood health: Fair/Poor/Very poor (vs Good/Very good)', 'bed_yes': 'Childhood bedridden ≥1 month (vs No)'}
-CORE = ['ses_avg', 'ses_poor', 'hlth_poor', 'bed_yes', 'age', 'sex', 'residence_cat', 'caste', 'married_binary', 'state_fe',
+        'hlth_poor': 'Childhood health: Fair/Poor/Very poor (vs Good/Very good)', 'hlth_poor_orig': 'Childhood health: Poor/Very poor (Original metric)', 'bed_yes': 'Childhood bedridden ≥1 month (vs No)'}
+CORE = ['ses_avg', 'ses_poor', 'hlth_poor', 'hlth_poor_orig', 'bed_yes', 'age', 'sex', 'residence_cat', 'caste', 'married_binary', 'state_fe',
         'education', 'mpce_quintile', 'chronic_count', 'srh', 'survey_weight', 'cluster_psu', 'stratum']
 
 def sample(outcome, extra=None, base=None):
@@ -55,7 +56,7 @@ def fam_of(outcome):
     return 'gaussian' if outcome in ('mem_orient', 'battery_pct') else 'poisson'
 
 samples = {
-    'Cognition (memory+orientation)': ('imp_mo', sample('imp_mo', base=d[d.direct_interview == 1])),
+    'Cognition (memory+orientation)': ('low_memory_orientation', sample('low_memory_orientation', base=d[d.direct_interview == 1])),
     'Depressive symptoms': ('cesd_depression', sample('cesd_depression')),
 }
 cont_cog = ('mem_orient', samples['Cognition (memory+orientation)'][1])
@@ -82,18 +83,18 @@ def run_single(label, outcome, s, family):
                                  CI_upper=round(r['hi'], 3), p_value=round(r['p'], 4), Metric='PR' if exp_ else 'Mean diff (beta)', N=f.nobs))
     return rows
 
-t3 = run_single('Cognitive impairment (lowest weighted decile, mem+orient)', 'imp_mo', samples['Cognition (memory+orientation)'][1], 'poisson')
+t3 = run_single('Cognitive impairment (lowest weighted decile, mem+orient)', 'low_memory_orientation', samples['Cognition (memory+orientation)'][1], 'poisson')
 pd.DataFrame(t3).to_csv(f"{T}/table3v2_cognition_impairment.csv", index=False)
 t3c = run_single('Memory+orientation score (0-28)', 'mem_orient', cont_cog[1], 'gaussian')
 pd.DataFrame(t3c).to_csv(f"{T}/table3v2b_cognition_continuous.csv", index=False)
 t4 = run_single('Depressive symptoms (CES-D>=4)', 'cesd_depression', samples['Depressive symptoms'][1], 'poisson')
 pd.DataFrame(t4).to_csv(f"{T}/table4v2_depression.csv", index=False)
-print(pd.DataFrame(t3)[lambda x: x.Model.str.contains('Model 1|Model 2')].to_string())
-print(pd.DataFrame(t4)[lambda x: x.Model.str.contains('Model 2')].to_string())
+print(pd.DataFrame(t3)[lambda x: x.Model.str.contains('Model A|Model B')].to_string())
+print(pd.DataFrame(t4)[lambda x: x.Model.str.contains('Model B')].to_string())
 
 # Single-exposure estimates with Average SES term only partially shown; also add Poor-SES + Average joint (same model)
 rows = []
-for label, outcome, s in [('Cognitive impairment', 'imp_mo', samples['Cognition (memory+orientation)'][1]),
+for label, outcome, s in [('Cognitive impairment', 'low_memory_orientation', samples['Cognition (memory+orientation)'][1]),
                           ('Depressive symptoms', 'cesd_depression', samples['Depressive symptoms'][1])]:
     for m in ['M0', 'M1', 'M2', 'M3']:
         f = svy_glm(f"{outcome} ~ ses_avg + ses_poor + {FORM[m] if FORM[m] else '1'}", s, 'poisson')
@@ -106,11 +107,11 @@ pd.DataFrame(rows).to_csv(f"{T}/table3v2c_ses_joint_categories.csv", index=False
 # TABLE 6: mutually adjusted models (A6) at M2 and M3, plus cumulative index
 # ----------------------------------------------------------------------------
 rows = []
-for label, outcome, s in [('Cognitive impairment', 'imp_mo', samples['Cognition (memory+orientation)'][1]),
+for label, outcome, s in [('Cognitive impairment', 'low_memory_orientation', samples['Cognition (memory+orientation)'][1]),
                           ('Depressive symptoms', 'cesd_depression', samples['Depressive symptoms'][1])]:
     for m in ['M1', 'M2', 'M3']:
         f = svy_glm(f"{outcome} ~ ses_avg + ses_poor + hlth_poor + bed_yes + {FORM[m]}", s, 'poisson')
-        for e in EXPO:
+        for e in ['ses_avg', 'ses_poor', 'hlth_poor', 'bed_yes']:
             r = term_row(f, e)
             rows.append(dict(Outcome=label, Model=MLAB[m] + ' [mutually adjusted]', Exposure=EXPO[e], PR=round(r['est'], 3),
                              CI_lower=round(r['lo'], 3), CI_upper=round(r['hi'], 3), p_value=round(r['p'], 4), N=f.nobs))
@@ -164,12 +165,13 @@ def interaction(label, outcome, s, expo_cols, expo_name, ndraw=400):
 LEVELS = {
     'Childhood SES': {'Pretty well-off': (0, 0), 'Average': (1, 0), 'Poor': (0, 1)},
     'Childhood health': {'Good': (0,), 'Poor': (1,)},
+    'Childhood health (orig)': {'Good': (0,), 'Poor': (1,)},
     'Childhood bedridden': {'No': (0,), 'Yes': (1,)},
 }
-EXPCOLS = {'Childhood SES': ['ses_avg', 'ses_poor'], 'Childhood health': ['hlth_poor'], 'Childhood bedridden': ['bed_yes']}
+EXPCOLS = {'Childhood SES': ['ses_avg', 'ses_poor'], 'Childhood health': ['hlth_poor'], 'Childhood health (orig)': ['hlth_poor_orig'], 'Childhood bedridden': ['bed_yes']}
 
 jt, pred_rows, rd_rows = [], [], []
-for label, outcome, s in [('Cognitive impairment', 'imp_mo', samples['Cognition (memory+orientation)'][1]),
+for label, outcome, s in [('Cognitive impairment', 'low_memory_orientation', samples['Cognition (memory+orientation)'][1]),
                           ('Depressive symptoms', 'cesd_depression', samples['Depressive symptoms'][1])]:
     for en in LEVELS:
         o, pr, rd = interaction(label, outcome, s, EXPCOLS[en], en)
@@ -214,21 +216,21 @@ resp['w_ipw'] = resp['survey_weight'] * resp['ipw']
 resp['w_ipw'] = resp['w_ipw'] / resp['w_ipw'].mean() * resp['survey_weight'].mean()
 # response model summary
 imp_tab = pd.DataFrame({'term': lg.params.index, 'OR': np.exp(lg.params.values), 'p': lg.pvalues.values})
-imp_tab = imp_tab[~imp_tab.term.str.contains('state_fe')]
+imp_tab = imp_tab[~imp_tab.term.str.contains('state_fe|Intercept')]
 imp_tab.round(4).to_csv(f"{T}/table_s1_response_model.csv", index=False)
 rows = []
 for e in list(EXPO) + ['joint_ses']:
     for m in ['M1', 'M2', 'M3']:
         for wcol, wl in [('survey_weight', 'Complete-case'), ('w_ipw', 'IPW-adjusted')]:
             if e == 'joint_ses':
-                f = svy_glm(f"imp_mo ~ ses_avg + ses_poor + {FORM[m]}", resp, 'poisson', wcol)
+                f = svy_glm(f"low_memory_orientation ~ ses_avg + ses_poor + {FORM[m]}", resp, 'poisson', wcol)
                 r = term_row(f, 'ses_poor'); nm = EXPO['ses_poor'] + ' [joint SES model]'
             else:
                 pre = 'ses_avg + ses_poor' if e in ('ses_avg', 'ses_poor') else e
-                f = svy_glm(f"imp_mo ~ {pre} + {FORM[m]}", resp, 'poisson', wcol); r = term_row(f, e); nm = EXPO[e]
+                f = svy_glm(f"low_memory_orientation ~ {pre} + {FORM[m]}", resp, 'poisson', wcol); r = term_row(f, e); nm = EXPO[e]
             rows.append(dict(Exposure=nm, Model=MLAB[m], Weights=wl, PR=round(r['est'], 3), CI_lower=round(r['lo'], 3), CI_upper=round(r['hi'], 3), p_value=round(r['p'], 4), N=f.nobs))
 pd.DataFrame(rows).to_csv(f"{T}/table_s2_ipw_cognition.csv", index=False)
-print(pd.DataFrame(rows)[lambda x: x.Model.str.contains('Model 2')].to_string())
+print(pd.DataFrame(rows)[lambda x: x.Model.str.contains('Model B')].to_string())
 
 # Missingness diagnostics
 dm = d[d.direct_interview == 1].copy(); dm['cog_miss'] = 1 - dm['cog_observed']
@@ -249,9 +251,9 @@ def add(sens, outcome_label, f, term, exp=True, extra=''):
     rows.append(dict(Analysis=sens, Outcome=outcome_label, Term=term, Estimate=round(r['est'], 3), CI_lower=round(r['lo'], 3), CI_upper=round(r['hi'], 3), p_value=round(r['p'], 4), N=f.nobs, Note=extra))
 
 # S4a: alternative cognitive outcomes (common exposure/covariate sample per outcome), SES poor, M1 & M2 (joint SES model)
-alts = [('imp_mo', 'Primary: lowest weighted decile mem+orient', 'poisson'),
+alts = [('low_memory_orientation', 'Primary: lowest weighted decile mem+orient', 'poisson'),
         ('imp_battery', 'Skip-aware full battery (% of max), lowest decile', 'poisson'),
-        ('imp_mo_edustrat', 'Mem+orient, schooling-stratum-specific decile', 'poisson'),
+        ('low_memory_orientation_edustrat', 'Mem+orient, schooling-stratum-specific decile', 'poisson'),
         ('cognitive_impairment', 'Original v1 composite (skips scored 0)', 'poisson'),
         ('mem_orient', 'Mem+orient continuous (beta, points)', 'gaussian'),
         ('battery_pct', 'Skip-aware battery continuous (beta, % of max)', 'gaussian')]
@@ -267,7 +269,7 @@ for o, lab, fam in alts:
 s = samples['Cognition (memory+orientation)'][1]
 for grp, sub, form in [('Never attended school', s[s.education == 'No formal education'], f"{DEMO} + C(mpce_quintile)"),
                        ('Any schooling', s[s.education != 'No formal education'], f"{DEMO} + C(education, Treatment('Less than primary')) + C(mpce_quintile)")]:
-    for o, lab in [('imp_mo', 'Cognitive impairment (primary)'), ('imp_mo_edustrat', 'Cognitive impairment (school-stratum decile)')]:
+    for o, lab in [('low_memory_orientation', 'Cognitive impairment (primary)'), ('low_memory_orientation_edustrat', 'Cognitive impairment (school-stratum decile)')]:
         sub2 = sub.dropna(subset=[o])
         f = svy_glm(f"{o} ~ ses_avg + ses_poor + {form}", sub2, 'poisson')
         add(f"S4b Schooling stratum: {grp}", lab, f, 'ses_poor')
@@ -277,7 +279,7 @@ for grp, sub, form in [('Never attended school', s[s.education == 'No formal edu
     add(f"S4b Schooling stratum: {grp}", 'Mem+orient continuous (beta)', f, 'ses_poor', exp=False)
 
 # S4c: 'Varied' SES as separate category and combined with Poor (Depression & cognition, M2)
-for label, o, base_ in [('Cognitive impairment', 'imp_mo', dd), ('Depressive symptoms', 'cesd_depression', d)]:
+for label, o, base_ in [('Cognitive impairment', 'low_memory_orientation', dd), ('Depressive symptoms', 'cesd_depression', d)]:
     b = base_.copy()
     b = b[b.childhood_ses.notna()].copy()
     b['v_avg'] = (b.childhood_ses == 'Average').astype(float); b['v_poor'] = (b.childhood_ses == 'Poor').astype(float); b['v_var'] = (b.childhood_ses == 'Varied').astype(float)
@@ -286,7 +288,7 @@ for label, o, base_ in [('Cognitive impairment', 'imp_mo', dd), ('Depressive sym
     add('S4c SES incl. Varied category / M2', label, f, 'v_poor'); add('S4c SES incl. Varied category / M2', label, f, 'v_var')
 
 # S4d: exclude ages >= 100
-for label, o, s in [('Cognitive impairment', 'imp_mo', samples['Cognition (memory+orientation)'][1]), ('Depressive symptoms', 'cesd_depression', samples['Depressive symptoms'][1])]:
+for label, o, s in [('Cognitive impairment', 'low_memory_orientation', samples['Cognition (memory+orientation)'][1]), ('Depressive symptoms', 'cesd_depression', samples['Depressive symptoms'][1])]:
     s2 = s[s.age < 100]
     f = svy_glm(f"{o} ~ ses_avg + ses_poor + {FORM['M2']}", s2, 'poisson'); add('S4d Exclude age>=100 / M2', label, f, 'ses_poor')
     f = svy_glm(f"{o} ~ hlth_poor + {FORM['M2']}", s2, 'poisson'); add('S4d Exclude age>=100 / M2', label, f, 'hlth_poor')
@@ -303,11 +305,11 @@ sdep5['h5'] = sdep5['childhood_health_5cat'].map({'Very good': 0, 'Good': 1, 'Fa
 f = svy_glm(f"cesd_depression ~ h5 + {FORM['M2']}", sdep5, 'poisson'); add('S4e Childhood health 5-level, per-level trend / M2', 'CES-D>=4', f, 'h5')
 scog5 = samples['Cognition (memory+orientation)'][1].dropna(subset=['childhood_health_5cat']).copy()
 scog5['h5'] = scog5['childhood_health_5cat'].map({'Very good': 0, 'Good': 1, 'Fair': 2, 'Poor': 3, 'Very poor': 4})
-f = svy_glm(f"imp_mo ~ h5 + {FORM['M2']}", scog5, 'poisson'); add('S4e Childhood health 5-level, per-level trend / M2', 'Cognitive impairment', f, 'h5')
+f = svy_glm(f"low_memory_orientation ~ h5 + {FORM['M2']}", scog5, 'poisson'); add('S4e Childhood health 5-level, per-level trend / M2', 'Cognitive impairment', f, 'h5')
 
 # S4f: Sex-stratified depression and cognition (exploratory)
 for sx in ['Female', 'Male']:
-    for label, o, s in [('Cognitive impairment', 'imp_mo', samples['Cognition (memory+orientation)'][1]), ('Depressive symptoms', 'cesd_depression', samples['Depressive symptoms'][1])]:
+    for label, o, s in [('Cognitive impairment', 'low_memory_orientation', samples['Cognition (memory+orientation)'][1]), ('Depressive symptoms', 'cesd_depression', samples['Depressive symptoms'][1])]:
         s2 = s[s.sex == sx]
         form = FORM['M2'].replace("C(sex, Treatment('Male')) + ", "")
         f = svy_glm(f"{o} ~ ses_avg + ses_poor + hlth_poor + bed_yes + {form}", s2, 'poisson')
@@ -322,18 +324,18 @@ print(pd.DataFrame(rows).to_string())
 rows = []
 for ag in AGE_CATS + ['All']:
     g = d if ag == 'All' else d[d.age_group == ag]
-    for o, lab in [('imp_mo', 'Cognitive impairment (%)'), ('cesd_depression', 'Depressive symptoms (%)'), ('mem_orient', 'Mem+orient score (mean, 0-28)'), ('cesd_score', 'CES-D score (mean)')]:
+    for o, lab in [('low_memory_orientation', 'Cognitive impairment (%)'), ('cesd_depression', 'Depressive symptoms (%)'), ('mem_orient', 'Mem+orient score (mean, 0-28)'), ('cesd_score', 'CES-D score (mean)')]:
         est, lo, hi, n = wmean_ci(g, o)
-        k = 100 if o in ('imp_mo', 'cesd_depression') else 1
+        k = 100 if o in ('low_memory_orientation', 'cesd_depression') else 1
         rows.append(dict(Age_group=ag, Outcome=lab, Estimate=round(est * k, 2), CI_lower=round(lo * k, 2), CI_upper=round(hi * k, 2), N=n))
 pd.DataFrame(rows).to_csv(f"{T}/table2v2_outcomes_by_age.csv", index=False)
 
 # education gradient: v1 vs v2
 cmp = []
 for lvl, g in d[d.education.notna()].groupby('education'):
-    a = g[g.cognitive_impairment.notna()]; b = g[g.imp_mo.notna()]; c = g[g.imp_battery.notna()]
+    a = g[g.cognitive_impairment.notna()]; b = g[g.low_memory_orientation.notna()]; c = g[g.imp_battery.notna()]
     cmp.append(dict(Education=lvl, v1_composite_impaired_pct=round(np.average(a.cognitive_impairment, weights=a.survey_weight) * 100, 1),
-                    v2_mem_orient_impaired_pct=round(np.average(b.imp_mo, weights=b.survey_weight) * 100, 1),
+                    v2_mem_orient_impaired_pct=round(np.average(b.low_memory_orientation, weights=b.survey_weight) * 100, 1),
                     v2_battery_impaired_pct=round(np.average(c.imp_battery, weights=c.survey_weight) * 100, 1), n_v2=len(b)))
 cmp = pd.DataFrame(cmp)
 order = ['No formal education', 'Less than primary', 'Primary completed', 'Middle completed', 'Secondary completed', 'Higher secondary/Diploma', 'Graduate and above']
@@ -362,15 +364,33 @@ fig.tight_layout(); fig.savefig(f"{F}/figureA2_cognition_missingness.png"); plt.
 fig, axes = plt.subplots(1, 2, figsize=(11, 5), dpi=200, sharey=True)
 for ax, tt, ttl in [(axes[0], pd.DataFrame(t3), 'Cognitive impairment (mem+orient)'), (axes[1], pd.DataFrame(t4), 'Depressive symptoms (CES-D ≥ 4)')]:
     ylabels = []; y = 0
-    colors = {'Model 0': '#999999', 'Model 1': '#2b8cbe', 'Model 2': '#d95f0e', 'Model 3': '#31a354'}
-    for e in ['ses_poor', 'hlth_poor', 'bed_yes']:
+    colors = {'Model 0': '#999999', 'Model A': '#2b8cbe', 'Model B': '#d95f0e', 'Model C': '#31a354'}
+    for e in ['ses_poor', 'hlth_poor', 'hlth_poor_orig', 'bed_yes']:
         for m in ['M0', 'M1', 'M2', 'M3']:
             r = tt[(tt.Exposure == EXPO[e]) & (tt.Model == MLAB[m])].iloc[0]
-            ax.errorbar(r.Estimate, y, xerr=[[r.Estimate - r.CI_lower], [r.CI_upper - r.Estimate]], fmt='o', color=colors[m[:1] + 'odel ' + m[1]], capsize=2)
-            ylabels.append(f"{EXPO[e].split(' (')[0]} | {m}"); y += 1
+            m_label = 'Model ' + m[1].replace('1','A').replace('2','B').replace('3','C')
+            ax.errorbar(r.Estimate, y, xerr=[[r.Estimate - r.CI_lower], [r.CI_upper - r.Estimate]], fmt='o', color=colors[m_label], capsize=2)
+            ylabels.append(f"{EXPO[e].split(' (')[0]} | {m_label}"); y += 1
         y += 1; ylabels.append('')
     ax.axvline(1, color='k', lw=.8, ls='--'); ax.set_xscale('log'); ax.xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter()); ax.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter()); ax.set_xticks([0.8, 1, 1.25, 1.5, 2]); ax.set_title(ttl, fontsize=10, fontweight='bold'); ax.set_xlabel('Prevalence ratio (log scale), 95% CI')
     ax.set_yticks(range(len(ylabels))); ax.set_yticklabels(ylabels, fontsize=7); ax.invert_yaxis()
 fig.suptitle('Figure 6 (v2): Sequential models on a common sample (M0 unadjusted → M3 + adult health)', fontsize=10, fontweight='bold')
 fig.tight_layout(); fig.savefig(f"{F}/figure6v2_forest_sequential.png"); plt.close(fig)
+
+# ----------------------------------------------------------------------------
+# Demographic Variations Study (New Request)
+# ----------------------------------------------------------------------------
+print("\n--- Demographic Study ---")
+demo_rows = []
+for label, outcome, s in [('Low memory-orientation performance', 'low_memory_orientation', samples['Cognition (memory+orientation)'][1]),
+                          ('Depressive symptoms', 'cesd_depression', samples['Depressive symptoms'][1])]:
+    f = svy_glm(f"{outcome} ~ age + C(sex, Treatment('Male')) + C(residence_cat, Treatment('Rural')) + C(caste, Treatment('General/None'))", s, 'poisson')
+    for term in f.names:
+        if term == 'Intercept': continue
+        r = term_row(f, term, exp=True)
+        demo_rows.append(dict(Outcome=label, Demographic_Factor=term, PR=round(r['est'], 3), CI_lower=round(r['lo'], 3), CI_upper=round(r['hi'], 3), p_value=round(r['p'], 4)))
+
+pd.DataFrame(demo_rows).to_csv(f"{T}/table_demographic_study.csv", index=False)
+print("Demographic study table saved to table_demographic_study.csv")
+
 print("DONE")

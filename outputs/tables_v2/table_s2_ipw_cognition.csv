@@ -1,31 +1,37 @@
 Exposure,Model,Weights,PR,CI_lower,CI_upper,p_value,N
-Childhood SES: Average (vs well-off),Model 1: Demographics + state,Complete-case,0.978,0.841,1.138,0.7766,57245
-Childhood SES: Average (vs well-off),Model 1: Demographics + state,IPW-adjusted,0.964,0.834,1.115,0.6226,57245
-Childhood SES: Average (vs well-off),Model 2: + Adult SES (Primary),Complete-case,0.797,0.703,0.905,0.0004,57245
-Childhood SES: Average (vs well-off),Model 2: + Adult SES (Primary),IPW-adjusted,0.799,0.708,0.903,0.0003,57245
-Childhood SES: Average (vs well-off),Model 3: + Adult health (Pathway),Complete-case,0.804,0.71,0.912,0.0007,57245
-Childhood SES: Average (vs well-off),Model 3: + Adult health (Pathway),IPW-adjusted,0.807,0.715,0.911,0.0006,57245
-Childhood SES: Poor (vs well-off),Model 1: Demographics + state,Complete-case,1.356,1.156,1.59,0.0002,57245
-Childhood SES: Poor (vs well-off),Model 1: Demographics + state,IPW-adjusted,1.323,1.133,1.543,0.0004,57245
-Childhood SES: Poor (vs well-off),Model 2: + Adult SES (Primary),Complete-case,0.928,0.818,1.052,0.241,57245
-Childhood SES: Poor (vs well-off),Model 2: + Adult SES (Primary),IPW-adjusted,0.928,0.821,1.049,0.2331,57245
-Childhood SES: Poor (vs well-off),Model 3: + Adult health (Pathway),Complete-case,0.912,0.805,1.033,0.1477,57245
-Childhood SES: Poor (vs well-off),Model 3: + Adult health (Pathway),IPW-adjusted,0.914,0.809,1.033,0.1508,57245
-Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 1: Demographics + state,Complete-case,0.975,0.85,1.118,0.7193,57245
-Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 1: Demographics + state,IPW-adjusted,0.967,0.843,1.108,0.6267,57245
-Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 2: + Adult SES (Primary),Complete-case,0.949,0.82,1.099,0.4867,57245
-Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 2: + Adult SES (Primary),IPW-adjusted,0.942,0.811,1.094,0.4314,57245
-Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 3: + Adult health (Pathway),Complete-case,0.948,0.823,1.092,0.4576,57245
-Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 3: + Adult health (Pathway),IPW-adjusted,0.942,0.817,1.087,0.4122,57245
-Childhood bedridden ≥1 month (vs No),Model 1: Demographics + state,Complete-case,0.938,0.808,1.09,0.4044,57245
-Childhood bedridden ≥1 month (vs No),Model 1: Demographics + state,IPW-adjusted,0.938,0.81,1.085,0.3866,57245
-Childhood bedridden ≥1 month (vs No),Model 2: + Adult SES (Primary),Complete-case,1.005,0.86,1.176,0.9466,57245
-Childhood bedridden ≥1 month (vs No),Model 2: + Adult SES (Primary),IPW-adjusted,1.003,0.861,1.169,0.9687,57245
-Childhood bedridden ≥1 month (vs No),Model 3: + Adult health (Pathway),Complete-case,0.986,0.838,1.161,0.8682,57245
-Childhood bedridden ≥1 month (vs No),Model 3: + Adult health (Pathway),IPW-adjusted,0.984,0.839,1.154,0.8428,57245
-Childhood SES: Poor (vs well-off) [joint SES model],Model 1: Demographics + state,Complete-case,1.356,1.156,1.59,0.0002,57245
-Childhood SES: Poor (vs well-off) [joint SES model],Model 1: Demographics + state,IPW-adjusted,1.323,1.133,1.543,0.0004,57245
-Childhood SES: Poor (vs well-off) [joint SES model],Model 2: + Adult SES (Primary),Complete-case,0.928,0.818,1.052,0.241,57245
-Childhood SES: Poor (vs well-off) [joint SES model],Model 2: + Adult SES (Primary),IPW-adjusted,0.928,0.821,1.049,0.2331,57245
-Childhood SES: Poor (vs well-off) [joint SES model],Model 3: + Adult health (Pathway),Complete-case,0.912,0.805,1.033,0.1477,57245
-Childhood SES: Poor (vs well-off) [joint SES model],Model 3: + Adult health (Pathway),IPW-adjusted,0.914,0.809,1.033,0.1508,57245
+Childhood SES: Average (vs well-off),Model A: Demographics + state (Total association),Complete-case,0.978,0.841,1.138,0.7766,57245
+Childhood SES: Average (vs well-off),Model A: Demographics + state (Total association),IPW-adjusted,0.964,0.834,1.115,0.6226,57245
+Childhood SES: Average (vs well-off),Model B: + Adult SES,Complete-case,0.797,0.703,0.905,0.0004,57245
+Childhood SES: Average (vs well-off),Model B: + Adult SES,IPW-adjusted,0.799,0.708,0.903,0.0003,57245
+Childhood SES: Average (vs well-off),Model C: + Adult health (Exploratory),Complete-case,0.804,0.71,0.912,0.0007,57245
+Childhood SES: Average (vs well-off),Model C: + Adult health (Exploratory),IPW-adjusted,0.807,0.715,0.911,0.0006,57245
+Childhood SES: Poor (vs well-off),Model A: Demographics + state (Total association),Complete-case,1.356,1.156,1.59,0.0002,57245
+Childhood SES: Poor (vs well-off),Model A: Demographics + state (Total association),IPW-adjusted,1.323,1.133,1.543,0.0004,57245
+Childhood SES: Poor (vs well-off),Model B: + Adult SES,Complete-case,0.928,0.818,1.052,0.241,57245
+Childhood SES: Poor (vs well-off),Model B: + Adult SES,IPW-adjusted,0.928,0.821,1.049,0.2331,57245
+Childhood SES: Poor (vs well-off),Model C: + Adult health (Exploratory),Complete-case,0.912,0.805,1.033,0.1477,57245
+Childhood SES: Poor (vs well-off),Model C: + Adult health (Exploratory),IPW-adjusted,0.914,0.809,1.033,0.1508,57245
+Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model A: Demographics + state (Total association),Complete-case,0.975,0.85,1.118,0.7193,57245
+Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model A: Demographics + state (Total association),IPW-adjusted,0.967,0.843,1.108,0.6267,57245
+Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model B: + Adult SES,Complete-case,0.949,0.82,1.099,0.4867,57245
+Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model B: + Adult SES,IPW-adjusted,0.942,0.811,1.094,0.4314,57245
+Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model C: + Adult health (Exploratory),Complete-case,0.948,0.823,1.092,0.4576,57245
+Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model C: + Adult health (Exploratory),IPW-adjusted,0.942,0.817,1.087,0.4122,57245
+Childhood health: Poor/Very poor (Original metric),Model A: Demographics + state (Total association),Complete-case,1.025,0.782,1.344,0.8563,57245
+Childhood health: Poor/Very poor (Original metric),Model A: Demographics + state (Total association),IPW-adjusted,1.011,0.775,1.319,0.938,57245
+Childhood health: Poor/Very poor (Original metric),Model B: + Adult SES,Complete-case,1.07,0.813,1.408,0.6292,57245
+Childhood health: Poor/Very poor (Original metric),Model B: + Adult SES,IPW-adjusted,1.051,0.801,1.378,0.7207,57245
+Childhood health: Poor/Very poor (Original metric),Model C: + Adult health (Exploratory),Complete-case,0.992,0.749,1.313,0.9528,57245
+Childhood health: Poor/Very poor (Original metric),Model C: + Adult health (Exploratory),IPW-adjusted,0.976,0.741,1.287,0.8653,57245
+Childhood bedridden ≥1 month (vs No),Model A: Demographics + state (Total association),Complete-case,0.938,0.808,1.09,0.4044,57245
+Childhood bedridden ≥1 month (vs No),Model A: Demographics + state (Total association),IPW-adjusted,0.938,0.81,1.085,0.3866,57245
+Childhood bedridden ≥1 month (vs No),Model B: + Adult SES,Complete-case,1.005,0.86,1.176,0.9466,57245
+Childhood bedridden ≥1 month (vs No),Model B: + Adult SES,IPW-adjusted,1.003,0.861,1.169,0.9687,57245
+Childhood bedridden ≥1 month (vs No),Model C: + Adult health (Exploratory),Complete-case,0.986,0.838,1.161,0.8682,57245
+Childhood bedridden ≥1 month (vs No),Model C: + Adult health (Exploratory),IPW-adjusted,0.984,0.839,1.154,0.8428,57245
+Childhood SES: Poor (vs well-off) [joint SES model],Model A: Demographics + state (Total association),Complete-case,1.356,1.156,1.59,0.0002,57245
+Childhood SES: Poor (vs well-off) [joint SES model],Model A: Demographics + state (Total association),IPW-adjusted,1.323,1.133,1.543,0.0004,57245
+Childhood SES: Poor (vs well-off) [joint SES model],Model B: + Adult SES,Complete-case,0.928,0.818,1.052,0.241,57245
+Childhood SES: Poor (vs well-off) [joint SES model],Model B: + Adult SES,IPW-adjusted,0.928,0.821,1.049,0.2331,57245
+Childhood SES: Poor (vs well-off) [joint SES model],Model C: + Adult health (Exploratory),Complete-case,0.912,0.805,1.033,0.1477,57245
+Childhood SES: Poor (vs well-off) [joint SES model],Model C: + Adult health (Exploratory),IPW-adjusted,0.914,0.809,1.033,0.1508,57245

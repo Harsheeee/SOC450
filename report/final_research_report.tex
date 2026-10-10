@@ -67,7 +67,7 @@ India is experiencing an unprecedented demographic transition. Driven by sustain
 \subsection{Life-Course Epidemiological Paradigms}
 Life-course epidemiology provides three foundational, non-mutually exclusive conceptual models to explain how exposures operating decades earlier influence late-life functional health:
 \begin{enumerate}[label=(\alph*)]
-    \item \textbf{Sensitive/Critical Period Model (Biological Scarring):} Adverse exposures during intrauterine development, infancy, or early childhood permanently alter organ system structure, neurodevelopmental architecture, or physiological set-points (e.g., hypothalamic-pituitary-adrenal [HPA] axis programming and chronic systemic inflammation). These biological scars persist across the life span regardless of subsequent adult socioeconomic success.
+    \item \textbf{Sensitive/Critical Period Model (Biological Vulnerability):} Adverse exposures during intrauterine development, infancy, or early childhood permanently alter organ system structure, neurodevelopmental architecture, or physiological set-points (e.g., hypothalamic-pituitary-adrenal [HPA] axis programming and chronic systemic inflammation). These biological scars persist across the life span regardless of subsequent adult socioeconomic success.
     \item \textbf{Accumulation of Disadvantage Model:} Health insults accumulate incrementally over time. Childhood disadvantage initiates a chain of unfavorable exposures (lower schooling, hazardous occupational environments, lower income, poor diet, and chronic disease) that together compromise late-life health.
     \item \textbf{Pathway / Mobility Model:} Early socioeconomic disadvantage influences late-life health primarily because it determines adult socioeconomic attainment. If adult education and material wealth act as perfect intermediaries, controlling for adult socioeconomic attainment should fully attenuate the crude association between childhood disadvantage and late-life health.
 \end{enumerate}
@@ -79,7 +79,7 @@ Per the pre-registered study protocol (\texttt{protocol.md}), this investigation
     \item[\textbf{Hypothesis 2:}] Poorer reported childhood health (Fair/Poor/Very poor vs. Good/Very good) is associated with poorer cognitive performance and elevated depressive symptoms.
     \item[\textbf{Hypothesis 3:}] Severe childhood illness resulting in being bedridden for one month or more before age 16 is independently associated with poorer cognitive performance and elevated depressive symptoms.
     \item[\textbf{Hypothesis 4:}] The magnitude of association between childhood disadvantage and cognitive/mental health outcomes varies systematically across older adulthood (45--59, 60--74, and 75+ years), reflecting age-graded cumulative divergence or mortality selection.
-    \item[\textbf{Hypothesis 5:}] Early socioeconomic associations will substantially attenuate upon sequential adjustment for adult educational attainment and household per-capita consumption expenditure, demonstrating pathway attenuation.
+    \item[\textbf{Hypothesis 5:}] Early socioeconomic associations will substantially attenuate upon sequential adjustment for adult educational attainment and household per-capita consumption expenditure, demonstrating downstream health attenuation.
 \end{itemize}
 
 \subsection{Methodological Audit and Protocol Amendment}
@@ -91,7 +91,7 @@ To ensure that the empirical findings of this report are accessible to non-speci
 
 \subsection{Life-Course Epidemiology and Ageing Paradigms}
 \begin{description}[leftmargin=0.5cm, style=nextline]
-    \item[\textbf{Biological Scarring (Sensitive / Critical Period Model):}]
+    \item[\textbf{Biological Vulnerability (Sensitive / Critical Period Model):}]
     The biological principle that severe physical shocks, malnutrition, or infectious illnesses during early childhood permanently alter the body's physiological set-points (such as chronic immune inflammation, vascular stiffness, or neuroendocrine stress regulation). These physiological alterations remain dormant or active throughout adult life, re-emerging decades later in old age as elevated risks of depression, disability, or physical frailty, even if the individual achieved upward socioeconomic mobility in adulthood.
 
     \item[\textbf{Accumulation of Disadvantage (Cumulative Adversity):}]
@@ -375,12 +375,13 @@ On the continuous memory and orientation score (Table~\ref{tab:cog_cont}), poor 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Childhood Exposure Parameter} & \textbf{Model 0: Unadj.} & \textbf{Model 1: Demog.+State} & \textbf{Model 2: +Adult SES (Primary)} & \textbf{Model 3: +Adult Health} \\
+\textbf{Childhood Exposure Parameter} & \textbf{Model 0: Unadj.} & \textbf{Model A: Demog.+State} & \textbf{Model B: +Adult SES (Primary)} & \textbf{Model C: +Adult Health} \\
 \midrule
 Childhood SES: Average & 0.97 (0.82--1.15) \textit{p}=0.711 & 0.98 (0.84--1.14) \textit{p}=0.777 & 0.80 (0.70--0.91) \textit{p}$<$0.001 & 0.80 (0.71--0.91) \textit{p}$<$0.001 \\
 Childhood SES: Poor & 1.61 (1.33--1.96) \textit{p}$<$0.001 & 1.36 (1.16--1.59) \textit{p}$<$0.001 & 0.93 (0.82--1.05) \textit{p}=0.241 & 0.91 (0.81--1.03) \textit{p}=0.148 \\
 Childhood bedridden $\ge$1 month & 0.90 (0.77--1.06) \textit{p}=0.222 & 0.94 (0.81--1.09) \textit{p}=0.404 & 1.00 (0.86--1.18) \textit{p}=0.947 & 0.99 (0.84--1.16) \textit{p}=0.868 \\
 Childhood health: Fair/Poor/Very poor & 0.97 (0.81--1.17) \textit{p}=0.773 & 0.97 (0.85--1.12) \textit{p}=0.719 & 0.95 (0.82--1.10) \textit{p}=0.487 & 0.95 (0.82--1.09) \textit{p}=0.458 \\
+Childhood health: Poor/Very poor & 1.15 (0.86--1.53) \textit{p}=0.338 & 1.02 (0.78--1.34) \textit{p}=0.856 & 1.07 (0.81--1.41) \textit{p}=0.629 & 0.99 (0.75--1.31) \textit{p}=0.953 \\
 \bottomrule
 \end{tabular}%
 }
@@ -394,7 +395,7 @@ Childhood health: Fair/Poor/Very poor & 0.97 (0.81--1.17) \textit{p}=0.773 & 0.9
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Exposure (vs. Reference)} & \textbf{Model 0: Unadjusted} & \textbf{Model 1: Demog.+State} & \textbf{Model 2: +Adult SES} & \textbf{Model 3: +Adult Health} \\
+\textbf{Exposure (vs. Reference)} & \textbf{Model 0: Unadjusted} & \textbf{Model A: Demog.+State} & \textbf{Model B: +Adult SES} & \textbf{Model C: +Adult Health} \\
 \midrule
 Childhood SES: Poor & $-1.65$ ($-1.95$--$-1.34$) & $-1.28$ ($-1.54$--$-1.02$) & $-0.32$ ($-0.56$--$-0.09$) & $-0.25$ ($-0.48$--$-0.01$) \\
 Childhood Health: Poor & $-0.02$ ($-0.43$--$0.39$) & $-0.05$ ($-0.29$--$0.18$) & $+0.01$ ($-0.23$--$0.25$) & $+0.04$ ($-0.19$--$0.27$) \\
@@ -417,12 +418,13 @@ Even after further conditioning on adult chronic multimorbidity and concurrent s
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Childhood Exposure Parameter} & \textbf{Model 0: Unadj.} & \textbf{Model 1: Demog.+State} & \textbf{Model 2: +Adult SES (Primary)} & \textbf{Model 3: +Adult Health} \\
+\textbf{Childhood Exposure Parameter} & \textbf{Model 0: Unadj.} & \textbf{Model A: Demog.+State} & \textbf{Model B: +Adult SES (Primary)} & \textbf{Model C: +Adult Health} \\
 \midrule
 Childhood SES: Average & 1.10 (0.94--1.30) \textit{p}=0.233 & 1.20 (1.01--1.44) \textit{p}=0.039 & 1.15 (0.99--1.33) \textit{p}=0.072 & 1.14 (0.99--1.32) \textit{p}=0.071 \\
 Childhood SES: Poor & 1.17 (1.00--1.37) \textit{p}=0.044 & 1.31 (1.09--1.58) \textit{p}=0.004 & 1.21 (1.03--1.42) \textit{p}=0.019 & 1.15 (0.99--1.34) \textit{p}=0.068 \\
 Childhood bedridden $\ge$1 month & 1.14 (1.01--1.29) \textit{p}=0.037 & 1.14 (1.01--1.27) \textit{p}=0.034 & 1.16 (1.05--1.28) \textit{p}=0.004 & 1.11 (1.01--1.23) \textit{p}=0.029 \\
 Childhood health: Fair/Poor/Very poor & 1.33 (1.20--1.47) \textit{p}$<$0.001 & 1.21 (1.08--1.36) \textit{p}=0.002 & 1.20 (1.07--1.34) \textit{p}=0.002 & 1.19 (1.06--1.33) \textit{p}=0.002 \\
+Childhood health: Poor/Very poor & 1.51 (1.26--1.80) \textit{p}$<$0.001 & 1.42 (1.21--1.67) \textit{p}$<$0.001 & 1.42 (1.21--1.66) \textit{p}$<$0.001 & 1.25 (1.06--1.48) \textit{p}=0.008 \\
 \bottomrule
 \end{tabular}%
 }
@@ -452,41 +454,72 @@ Evaluating the \textbf{Cumulative Disadvantage Index} demonstrated a clear linea
 \midrule
 \multicolumn{4}{l}{\textbf{Panel A: Cognitive Impairment ($N = 57,245$)}} \\
 \midrule
-Model 1: Demographics + state & Childhood SES: Average & 0.98 (0.84--1.14) & $0.792$ \\
-Model 1: Demographics + state & Childhood SES: Poor & 1.36 (1.15--1.60) & $<0.001$ \\
-Model 1: Demographics + state & Childhood health: Fair/Poor/Very poor & 0.97 (0.84--1.12) & $0.681$ \\
-Model 1: Demographics + state & Childhood bedridden $\ge$1 month & 0.94 (0.81--1.10) & $0.430$ \\
-Model 2: + Adult SES (Primary) & Childhood SES: Average & 0.80 (0.70--0.91) & $<0.001$ \\
-Model 2: + Adult SES (Primary) & Childhood SES: Poor & 0.93 (0.82--1.06) & $0.277$ \\
-Model 2: + Adult SES (Primary) & Childhood health: Fair/Poor/Very poor & 0.95 (0.82--1.10) & $0.533$ \\
-Model 2: + Adult SES (Primary) & Childhood bedridden $\ge$1 month & 1.01 (0.86--1.18) & $0.941$ \\
-Model 3: + Adult health (Pathway) & Childhood SES: Average & 0.81 (0.71--0.92) & $0.001$ \\
-Model 3: + Adult health (Pathway) & Childhood SES: Poor & 0.91 (0.81--1.04) & $0.171$ \\
-Model 3: + Adult health (Pathway) & Childhood health: Fair/Poor/Very poor & 0.95 (0.83--1.10) & $0.514$ \\
-Model 3: + Adult health (Pathway) & Childhood bedridden $\ge$1 month & 0.99 (0.84--1.17) & $0.892$ \\
-Model 2: + Adult SES (Primary) (Cumulative) & Per additional childhood adversity & 1.05 (0.99--1.12) & $0.071$ \\
+Model A: Demographics + state (Total association) & Childhood SES: Average & 0.98 (0.84--1.14) & $0.792$ \\
+Model A: Demographics + state (Total association) & Childhood SES: Poor & 1.36 (1.15--1.60) & $<0.001$ \\
+Model A: Demographics + state (Total association) & Childhood health: Fair/Poor/Very poor & 0.97 (0.84--1.12) & $0.681$ \\
+Model A: Demographics + state (Total association) & Childhood bedridden $\ge$1 month & 0.94 (0.81--1.10) & $0.430$ \\
+Model B: + Adult SES & Childhood SES: Average & 0.80 (0.70--0.91) & $<0.001$ \\
+Model B: + Adult SES & Childhood SES: Poor & 0.93 (0.82--1.06) & $0.277$ \\
+Model B: + Adult SES & Childhood health: Fair/Poor/Very poor & 0.95 (0.82--1.10) & $0.533$ \\
+Model B: + Adult SES & Childhood bedridden $\ge$1 month & 1.01 (0.86--1.18) & $0.941$ \\
+Model C: + Adult health (Exploratory) & Childhood SES: Average & 0.81 (0.71--0.92) & $0.001$ \\
+Model C: + Adult health (Exploratory) & Childhood SES: Poor & 0.91 (0.81--1.04) & $0.171$ \\
+Model C: + Adult health (Exploratory) & Childhood health: Fair/Poor/Very poor & 0.95 (0.83--1.10) & $0.514$ \\
+Model C: + Adult health (Exploratory) & Childhood bedridden $\ge$1 month & 0.99 (0.84--1.17) & $0.892$ \\
+Model B: + Adult SES (Cumulative) & Per additional childhood adversity & 1.05 (0.99--1.12) & $0.071$ \\
 \midrule
 \multicolumn{4}{l}{\textbf{Panel B: Depressive Symptoms ($N = 62,047$)}} \\
 \midrule
-Model 1: Demographics + state & Childhood SES: Average & 1.18 (1.00--1.39) & $0.044$ \\
-Model 1: Demographics + state & Childhood SES: Poor & 1.29 (1.08--1.54) & $0.005$ \\
-Model 1: Demographics + state & Childhood health: Fair/Poor/Very poor & 1.19 (1.05--1.34) & $0.005$ \\
-Model 1: Demographics + state & Childhood bedridden $\ge$1 month & 1.10 (0.97--1.25) & $0.147$ \\
-Model 2: + Adult SES (Primary) & Childhood SES: Average & 1.13 (0.98--1.29) & $0.090$ \\
-Model 2: + Adult SES (Primary) & Childhood SES: Poor & 1.19 (1.02--1.38) & $0.026$ \\
-Model 2: + Adult SES (Primary) & Childhood health: Fair/Poor/Very poor & 1.18 (1.05--1.32) & $0.006$ \\
-Model 2: + Adult SES (Primary) & Childhood bedridden $\ge$1 month & 1.12 (1.00--1.26) & $0.044$ \\
-Model 3: + Adult health (Pathway) & Childhood SES: Average & 1.12 (0.98--1.29) & $0.087$ \\
-Model 3: + Adult health (Pathway) & Childhood SES: Poor & 1.13 (0.98--1.31) & $0.089$ \\
-Model 3: + Adult health (Pathway) & Childhood health: Fair/Poor/Very poor & 1.17 (1.05--1.31) & $0.006$ \\
-Model 3: + Adult health (Pathway) & Childhood bedridden $\ge$1 month & 1.08 (0.97--1.21) & $0.157$ \\
-Model 2: + Adult SES (Primary) (Cumulative) & Per additional childhood adversity & 1.11 (1.07--1.16) & $<0.001$ \\
+Model A: Demographics + state (Total association) & Childhood SES: Average & 1.18 (1.00--1.39) & $0.044$ \\
+Model A: Demographics + state (Total association) & Childhood SES: Poor & 1.29 (1.08--1.54) & $0.005$ \\
+Model A: Demographics + state (Total association) & Childhood health: Fair/Poor/Very poor & 1.19 (1.05--1.34) & $0.005$ \\
+Model A: Demographics + state (Total association) & Childhood bedridden $\ge$1 month & 1.10 (0.97--1.25) & $0.147$ \\
+Model B: + Adult SES & Childhood SES: Average & 1.13 (0.98--1.29) & $0.090$ \\
+Model B: + Adult SES & Childhood SES: Poor & 1.19 (1.02--1.38) & $0.026$ \\
+Model B: + Adult SES & Childhood health: Fair/Poor/Very poor & 1.18 (1.05--1.32) & $0.006$ \\
+Model B: + Adult SES & Childhood bedridden $\ge$1 month & 1.12 (1.00--1.26) & $0.044$ \\
+Model C: + Adult health (Exploratory) & Childhood SES: Average & 1.12 (0.98--1.29) & $0.087$ \\
+Model C: + Adult health (Exploratory) & Childhood SES: Poor & 1.13 (0.98--1.31) & $0.089$ \\
+Model C: + Adult health (Exploratory) & Childhood health: Fair/Poor/Very poor & 1.17 (1.05--1.31) & $0.006$ \\
+Model C: + Adult health (Exploratory) & Childhood bedridden $\ge$1 month & 1.08 (0.97--1.21) & $0.157$ \\
+Model B: + Adult SES (Cumulative) & Per additional childhood adversity & 1.11 (1.07--1.16) & $<0.001$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+
+\section{Demographic Variations (New Analysis)}
+Table~\ref{tab:demo} summarizes the demographic predictors across outcomes.
+\begin{table}[H]
+\centering
+\small
+\caption{\textbf{Associations of Demographic Factors with Key Outcomes (Model A specification)}}
+\label{tab:demo}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcc}
+\toprule
+\textbf{Outcome} & \textbf{Demographic Factor} & \textbf{Prevalence Ratio (95\% CI)} & \textbf{\textit{p}-value} \\
+\midrule
+Low memory-orientation performance & C(sex, Treatment('Male'))[T.Female] & 1.93 (1.77--2.09) & $<0.001$ \\\\
+Low memory-orientation performance & C(residence\_cat, Treatment('Rural'))[T.Urban] & 0.44 (0.38--0.53) & $<0.001$ \\\\
+Low memory-orientation performance & C(caste, Treatment('General/None'))[T.OBC] & 1.24 (1.10--1.39) & $<0.001$ \\\\
+Low memory-orientation performance & C(caste, Treatment('General/None'))[T.SC] & 1.63 (1.45--1.83) & $<0.001$ \\\\
+Low memory-orientation performance & C(caste, Treatment('General/None'))[T.ST] & 2.12 (1.85--2.43) & $<0.001$ \\\\
+Low memory-orientation performance & age & 1.05 (1.04--1.05) & $<0.001$ \\\\
+Depressive symptoms & C(sex, Treatment('Male'))[T.Female] & 1.19 (1.12--1.26) & $<0.001$ \\\\
+Depressive symptoms & C(residence\_cat, Treatment('Rural'))[T.Urban] & 0.94 (0.85--1.04) & $0.203$ \\\\
+Depressive symptoms & C(caste, Treatment('General/None'))[T.OBC] & 1.14 (1.04--1.24) & $0.003$ \\\\
+Depressive symptoms & C(caste, Treatment('General/None'))[T.SC] & 1.26 (1.16--1.36) & $<0.001$ \\\\
+Depressive symptoms & C(caste, Treatment('General/None'))[T.ST] & 1.01 (0.89--1.15) & $0.866$ \\\\
+Depressive symptoms & age & 1.01 (1.00--1.01) & $<0.001$ \\\\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
 \section{Age Heterogeneity and Interaction Analysis}
+
 
 \subsection{Formal Tests of Effect Modification (Hypothesis 4)}
 To test Hypothesis 4 (that early disadvantage compounds across ageing stages or diminishes due to mortality selection), we conducted joint Wald $F$ tests across all exposure-by-age interactions (Table~\ref{tab:joint_test}).
@@ -507,9 +540,11 @@ For cognitive impairment, the joint interaction between Childhood SES and Age re
 \midrule
 Cognitive impairment & Childhood SES & 2.439 & 4 & $0.045$ & 57,245 \\
 Cognitive impairment & Childhood health & 0.322 & 2 & $0.725$ & 57,245 \\
+Cognitive impairment & Childhood health (orig) & 0.323 & 2 & $0.724$ & 57,245 \\
 Cognitive impairment & Childhood bedridden & 0.271 & 2 & $0.763$ & 57,245 \\
 Depressive symptoms & Childhood SES & 0.340 & 4 & $0.851$ & 62,047 \\
 Depressive symptoms & Childhood health & 0.306 & 2 & $0.736$ & 62,047 \\
+Depressive symptoms & Childhood health (orig) & 1.781 & 2 & $0.169$ & 62,047 \\
 Depressive symptoms & Childhood bedridden & 0.021 & 2 & $0.980$ & 62,047 \\
 \bottomrule
 \end{tabular}%
@@ -534,21 +569,27 @@ Childhood SES & 75+ & Poor - Pretty well-off & -8.83 (-16.21 to -1.38) \\
 Childhood health & 45-59 & Poor - Good & -0.72 (-2.39 to +1.02) \\
 Childhood health & 60-74 & Poor - Good & -0.12 (-2.54 to +2.64) \\
 Childhood health & 75+ & Poor - Good & -2.42 (-8.63 to +4.82) \\
-Childhood bedridden & 45-59 & Yes - No & +0.56 (-0.90 to +2.26) \\
-Childhood bedridden & 60-74 & Yes - No & -0.62 (-3.65 to +2.95) \\
-Childhood bedridden & 75+ & Yes - No & -0.04 (-10.44 to +16.22) \\
+Childhood health (orig) & 45-59 & Poor - Good & +0.47 (-1.91 to +4.70) \\
+Childhood health (orig) & 60-74 & Poor - Good & +3.35 (-3.53 to +13.83) \\
+Childhood health (orig) & 75+ & Poor - Good & -3.32 (-14.65 to +15.20) \\
+Childhood bedridden & 45-59 & Yes - No & +0.56 (-0.99 to +2.45) \\
+Childhood bedridden & 60-74 & Yes - No & -0.62 (-3.63 to +2.87) \\
+Childhood bedridden & 75+ & Yes - No & -0.04 (-10.58 to +15.75) \\
 \midrule
 \multicolumn{4}{l}{\textbf{Panel B: Depressive Symptoms ($N = 62,047$)}} \\
 \midrule
-Childhood SES & 45-59 & Poor - Pretty well-off & +4.32 (+0.57 to +7.77) \\
-Childhood SES & 60-74 & Poor - Pretty well-off & +6.20 (+0.92 to +10.95) \\
-Childhood SES & 75+ & Poor - Pretty well-off & +3.98 (-5.54 to +11.52) \\
-Childhood health & 45-59 & Poor - Good & +5.00 (+0.90 to +10.16) \\
-Childhood health & 60-74 & Poor - Good & +6.82 (+2.42 to +11.87) \\
-Childhood health & 75+ & Poor - Good & +2.25 (-6.71 to +12.89) \\
-Childhood bedridden & 45-59 & Yes - No & +3.91 (-1.01 to +8.94) \\
-Childhood bedridden & 60-74 & Yes - No & +4.28 (+0.19 to +8.10) \\
-Childhood bedridden & 75+ & Yes - No & +6.73 (-6.68 to +27.94) \\
+Childhood SES & 45-59 & Poor - Pretty well-off & +4.32 (+0.43 to +7.99) \\
+Childhood SES & 60-74 & Poor - Pretty well-off & +6.20 (-0.41 to +10.51) \\
+Childhood SES & 75+ & Poor - Pretty well-off & +3.98 (-6.80 to +11.18) \\
+Childhood health & 45-59 & Poor - Good & +5.00 (+0.71 to +9.65) \\
+Childhood health & 60-74 & Poor - Good & +6.82 (+2.01 to +11.59) \\
+Childhood health & 75+ & Poor - Good & +2.25 (-5.63 to +13.49) \\
+Childhood health (orig) & 45-59 & Poor - Good & +13.08 (+6.36 to +20.23) \\
+Childhood health (orig) & 60-74 & Poor - Good & +6.14 (+0.53 to +11.92) \\
+Childhood health (orig) & 75+ & Poor - Good & +19.69 (+2.52 to +39.32) \\
+Childhood bedridden & 45-59 & Yes - No & +3.91 (-0.09 to +9.39) \\
+Childhood bedridden & 60-74 & Yes - No & +4.28 (+0.62 to +8.78) \\
+Childhood bedridden & 75+ & Yes - No & +6.73 (-6.50 to +27.23) \\
 \bottomrule
 \end{tabular}%
 }
@@ -589,6 +630,7 @@ To evaluate whether informative missingness in direct cognitive assessments intr
 Childhood SES: Average & 0.797 (0.703--0.905) & 0.799 (0.708--0.903) \\
 Childhood SES: Poor & 0.928 (0.818--1.052) & 0.928 (0.821--1.049) \\
 Childhood health: Fair/Poor/Very poor & 0.949 (0.820--1.099) & 0.942 (0.811--1.094) \\
+Childhood health: Poor/Very poor & 1.070 (0.813--1.408) & 1.051 (0.801--1.378) \\
 Childhood bedridden $\ge$1 month & 1.005 (0.860--1.176) & 1.003 (0.861--1.169) \\
 \bottomrule
 \end{tabular}%
@@ -641,7 +683,7 @@ Table~\ref{tab:hypo_summary} summarizes the empirical verdicts for all five pre-
 \addlinespace
 \textbf{H4: Age Heterogeneity} & \textbf{Not supported}: One nominal test ($p=0.045$) in opposite direction in oldest-old. & \textbf{Not supported}: Uniform across age groups (all joint $p > 0.70$). \\
 \addlinespace
-\textbf{H5: Adult Attenuation} & Strong attenuation for childhood SES; caution against over-interpreting as causal mediation. & Partial attenuation for SES ($\approx 30\%$); minimal attenuation for childhood health. \\
+\textbf{H5: Adult Attenuation} & Strong attenuation for childhood SES; caution against over-interpreting as associational mediation. & Partial attenuation for SES ($\approx 30\%$); minimal attenuation for childhood health. \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -658,14 +700,14 @@ Table~\ref{tab:hypo_summary} summarizes the empirical verdicts for all five pre-
 
 \subsubsection{Study Limitations}
 \begin{itemize}
-    \item \textbf{Cross-Sectional Baseline:} LASI Wave 1 cannot establish individual longitudinal trajectories, disease incidence, or causal mediation over time.
+    \item \textbf{Cross-Sectional Baseline:} LASI Wave 1 cannot establish individual longitudinal trajectories, disease incidence, or associational mediation over time.
     \item \textbf{Retrospective Recall Bias:} Childhood conditions were recalled at older ages, creating potential for mood-congruent recall error among currently depressed individuals.
     \item \textbf{Mortality / Survivor Selection:} Disadvantaged cohorts in LMICs experienced high childhood and mid-life mortality regimes, potentially biasing observed late-life associations toward the null.
     \item \textbf{Cognitive Non-Response:} Proxy interviews ($N = 705$) were excluded from cognitive testing, omitting the most severely impaired older adults.
 \end{itemize}
 
 \subsection{Public Health and Policy Implications}
-Current ageing policies in India, including the National Programme for the Health Care of the Elderly (NPHCE), focus predominantly on late-life tertiary geriatric care and chronic disease management. While vital, our findings demonstrate that healthy cognitive and mental ageing begins decades before adulthood. Preventing late-life depression requires upstream investments in maternal-child health, childhood disease prevention, and family economic security. Simultaneously, expanding universal secondary and higher education provides the most robust institutional pathway for building long-term cognitive resilience in developing nations.
+Current ageing policies in India, including the National Programme for the Health Care of the Elderly (NPHCE), focus predominantly on late-life tertiary geriatric care and chronic disease management. While vital, our findings demonstrate that healthy cognitive and mental ageing begins decades before adulthood. Preventing late-life depression requires upstream investments in maternal-child health, childhood disease prevention, and family economic security. Simultaneously, expanding universal secondary and higher education provides the most robust institutional downstream health for building long-term cognitive resilience in developing nations.
 
 \section{Conclusions with Empirical Evidence}
 \begin{enumerate}

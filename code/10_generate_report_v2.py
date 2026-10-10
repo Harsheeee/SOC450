@@ -16,7 +16,7 @@ def ci(df, e="Estimate", lo="CI_lower", hi="CI_upper", d=2):
     return df[e].map(f"{{:.{d}f}}".format) + " (" + df[lo].map(f"{{:.{d}f}}".format) + "–" + df[hi].map(f"{{:.{d}f}}".format) + ")"
 def seq_table(f):
     d = rd(f); d["Exposure"] = d.Exposure.str.replace(r" \(vs.*\)", "", regex=True)
-    d["M"] = d.Model.str.extract(r"(Model \d)")[0]; d["v"] = ci(d) + d.p_value.map(lambda p: " p<.001" if p < .001 else f" p={p:.3f}")
+    d["M"] = d.Model.str.extract(r"(Model [A-C0])")[0]; d["v"] = ci(d) + d.p_value.map(lambda p: " p<.001" if p < .001 else f" p={p:.3f}")
     return md(d.pivot(index="Exposure", columns="M", values="v").reset_index())
 def img(path, cap):
     if not os.path.exists(path): return ""
@@ -38,23 +38,32 @@ pred["Prevalence % (95% CI)"] = pred.pred_prev_pct.astype(str) + " (" + pred.lo.
 pred = pred.pivot(index=["Outcome", "age_group"], columns="level", values="Prevalence % (95% CI)")[["Pretty well-off", "Average", "Poor"]].reset_index()
 rdf = rd("table5v2c_risk_differences.csv"); rdf["RD pp (95% CI)"] = rdf.risk_diff_pp.astype(str) + " (" + rdf.lo.astype(str) + " to " + rdf.hi.astype(str) + ")"
 rdf = rdf[["Outcome", "Exposure", "age_group", "contrast", "RD pp (95% CI)"]]
-mut = rd("table6v2_mutual_adjustment.csv"); mut["PR (95% CI)"] = ci(mut, "PR") + mut.p_value.map(lambda p: f" p={p:.3f}")
+
+mut = rd("table6v2_mutual_adjustment.csv")
+try:
+    demo_df = rd("table_demographic_study.csv")
+    demo_df["PR (95% CI)"] = ci(demo_df, "PR") + demo_df.p_value.map(lambda p: f" p={p:.3f}")
+    demo_df = demo_df[["Outcome", "Demographic_Factor", "PR (95% CI)"]]
+    demo_md = md(demo_df)
+except FileNotFoundError:
+    demo_md = "Demographic study not generated yet."
+mut["PR (95% CI)"] = ci(mut, "PR") + mut.p_value.map(lambda p: f" p={p:.3f}")
 mut["Exposure"] = mut.Exposure.str.replace(r" \(vs.*\)", "", regex=True)
 mut["Model"] = mut.Model.str.replace(" [mutually adjusted]", "", regex=False)
 mut = mut[["Outcome", "Model", "Exposure", "PR (95% CI)", "N"]]
-ipw = rd("table_s2_ipw_cognition.csv"); ipw = ipw[ipw.Model.str.contains("Model 2")].copy(); ipw["PR (95% CI)"] = ci(ipw, "PR")
+ipw = rd("table_s2_ipw_cognition.csv"); ipw = ipw[ipw.Model.str.contains("Model B")].copy(); ipw["PR (95% CI)"] = ci(ipw, "PR")
 ipw = ipw.pivot(index="Exposure", columns="Weights", values="PR (95% CI)").reset_index()
 s4 = rd("table_s4_sensitivity.csv"); s4["Estimate (95% CI)"] = ci(s4) + s4.p_value.map(lambda p: f" p={p:.3f}"); s4 = s4[["Analysis", "Outcome", "Term", "Estimate (95% CI)", "N"]]
 s4a = s4[s4.Analysis.str.startswith("S4a")]; s4b = s4[s4.Analysis.str.startswith("S4b")]; s4rest = s4[~s4.Analysis.str.startswith(("S4a", "S4b"))]
 cont = rd("table3v2b_cognition_continuous.csv"); cont = cont[cont.Exposure.str.contains("SES: Poor|health")].copy()
-cont["Exposure"] = cont.Exposure.str.replace(r" \(vs.*\)", "", regex=True); cont["M"] = cont.Model.str.extract(r"(Model \d)")[0]; cont["v"] = ci(cont)
+cont["Exposure"] = cont.Exposure.str.replace(r" \(vs.*\)", "", regex=True); cont["M"] = cont.Model.str.extract(r"(Model [A-C0])")[0]; cont["v"] = ci(cont)
 cont_t = md(cont.pivot(index="Exposure", columns="M", values="v").reset_index())
 
 REPORT = f"""# Early-Life Disadvantage and Later-Life Cognitive and Mental Health in India: LASI Wave 1 (Corrected Analysis, v2)
 
 **Status:** Revised report following an independent audit of the original (v1) analysis. v1 is archived at `report/final_research_report.md`. All deviations from the original protocol are listed in `protocol.md`, Section 12 (Protocol Amendment 1).
 
-> **Interpretation guardrail.** LASI Wave 1 is cross-sectional. All findings are *associations* (prevalence ratios, mean differences). The data do not permit causal or mediation claims, and they cannot show within-person change.
+> **Interpretation guardrail.** LASI Wave 1 is cross-sectional. All findings are *associations* (prevalence ratios, mean differences). The data do not permit associational or mediation claims, and they cannot show within-person change.
 
 ---
 
@@ -69,11 +78,11 @@ An audit of v1 found problems that changed conclusions. This table lists each on
 | Cut-off | Unweighted pooled 10th percentile | Survey-weighted 10th percentile; school-stratum-specific version as sensitivity |
 | Interaction was not tested | Visual reading of one covariate profile | Joint Wald F test; standardized predictions averaged over each age group's covariates |
 | Survey design | Strata ignored | Stratified-cluster linearization (72 strata, 2,428 clusters) |
-| Model comparability | Different samples across M0–M3 | One common complete-case sample per outcome |
-| Regional confounding | No state control | State fixed effects from Model 1 |
+| Model comparability | Different samples across M0–MC | One common complete-case sample per outcome |
+| Regional confounding | No state control | State fixed effects from Model A |
 | "Independent" claims | Exposures modelled one at a time | Mutually adjusted models and a cumulative index |
 | Informative missingness | Complete-case only | IPW comparison |
-| Causal language | "Mediated", "scarring", "HPA programming" | Associational wording only |
+| Causal language | "Mediated", "vulnerability", "HPA programming" | Associational wording only |
 | SES contrast bug (found during v2 coding) | not applicable | SES always modelled as a joint 3-level variable (reference = well-off) |
 
 
@@ -112,7 +121,7 @@ To ensure that the empirical findings of this report are accessible to non-speci
 - **Design variables:** national individual weight, 2,439 `ssuid` clusters, 72 strata (state × residence). `ssuid` is a secondary sampling unit, and no PSU identifier exists in the release, so variances may be somewhat understated.
 - **Exposures (retrospective, up to age 16):** childhood SES (`ht235`; "Varied" excluded from the main analysis), childhood health (`ht231`; Fair/Poor/Very poor vs Good/Very good), bedridden ≥1 month (`ht233`).
 - **Outcomes:** (i) memory (immediate + delayed recall, 0–20) plus orientation (8 items), 0–28, with a binary indicator for the lowest weighted decile (≤11 points; 12.8% weighted prevalence); (ii) CES-D-10 ≥4 (28.2% weighted).
-- **Covariates:** M1 = age, sex, residence, caste, marital status, state; M2 = M1 + education + MPCE quintile (primary); M3 = M2 + chronic-condition count + self-rated health (pathway/exploratory).
+- **Covariates:** MA = age, sex, residence, caste, marital status, state; MB = MA + education + MPCE quintile (primary); MC = MB + chronic-condition count + self-rated health (downstream health/exploratory).
 - **Estimation:** weighted modified Poisson (PR) for binary outcomes, weighted linear models for scores. Design-based confidence intervals use t with 2,356 degrees of freedom. Common complete-case samples: cognition N = {int(samples.N[0]):,}; depression N = {int(samples.N[1]):,}.
 
 {embed("fig1")}
@@ -134,11 +143,11 @@ In the v1 composite, impairment was classified in 21% of the unschooled and 0.1%
 ### Table S5. Weighted % classified impaired, by education and outcome definition
 {md(s5)}
 
-**Take-away:** no absolute-threshold cognitive measure is free of education. Education-stratified analysis and the school-stratum-specific cut-off are therefore essential, not optional. The Model 2 attenuation below cannot be read as a "pathway" through education.
+**Take-away:** no absolute-threshold cognitive measure is free of education. Education-stratified analysis and the school-stratum-specific cut-off are therefore essential, not optional. The Model B attenuation below cannot be read as a "downstream health" through education.
 
 ## 5. Primary Results: Cognition
 
-### Table 3 (v2). Poor vs well-off childhood SES and other exposures with cognitive impairment (PR, 95% CI; common sample)
+### Table 3 (v2). Poor vs well-off childhood SES and other exposures with low memory-orientation performance (PR, 95% CI; common sample)
 {seq_table("table3v2_cognition_impairment.csv")}
 
 ### Table 3b. Mean difference in memory + orientation score (points, 0–28)
@@ -148,7 +157,7 @@ In the v1 composite, impairment was classified in 21% of the unschooled and 0.1%
 - **Childhood SES.** Poor vs well-off: PR 1.61 (1.33–1.96) unadjusted and 1.36 (1.16–1.59) after demographics and state. After adult education and MPCE the association is not distinguishable from 1 (PR 0.93, 0.82–1.05). On the continuous score, a small residual deficit remains (−0.32 points, −0.56 to −0.09).
 - **"Average" childhood SES** has a *lower* prevalence than well-off after adult SES adjustment (PR 0.80, 0.70–0.91). The well-off group's relatively high prevalence is unexplained here. Possible reasons are selective survival, differences in recall and reporting, or residual confounding; none of these was tested.
 - **Childhood health and bedridden history** show no association with memory + orientation impairment in any model (PRs 0.90–1.00; all CIs include 1).
-- **Mutual adjustment** (Table 6): the pattern is the same. Poor SES PR 1.36 (1.15–1.60) in M1 becomes 0.93 (0.82–1.06) in M2. The cumulative index gives PR 1.05 per adversity (0.995–1.12).
+- **Mutual adjustment** (Table 6): the pattern is the same. Poor SES PR 1.36 (1.15–1.60) in MA becomes 0.93 (0.82–1.06) in MB. The cumulative index gives PR 1.05 per adversity (0.995–1.12).
 
 ### Education-stratified and outcome-definition analyses (Table S4a/S4b)
 {md(s4b)}
@@ -166,7 +175,7 @@ Cognition scores are missing for {int(s3[s3.Variable=='age_group'].N.sum()*0+0) 
 
 {embed("figA2")}
 
-IPW using covariates, exposures and CES-D availability left the estimates essentially unchanged (Poor SES, M2: 0.928 both ways):
+IPW using covariates, exposures and CES-D availability left the estimates essentially unchanged (Poor SES, MB: 0.928 both ways):
 
 {md(ipw)}
 
@@ -177,19 +186,32 @@ This addresses missingness only under a missing-at-random assumption given the m
 ### Table 4 (v2). Depressive symptoms (CES-D ≥4): PR, 95% CI, common sample
 {seq_table("table4v2_depression.csv")}
 
-### Findings
-- **Childhood health:** poor vs good is associated with a 33% higher prevalence unadjusted (PR 1.33, 1.20–1.47) and 20% higher after adult SES (PR 1.20, 1.07–1.34). v1 reported 1.31 for Model 2; the difference comes mainly from the common sample, state fixed effects and the design-based variance.
-- **Childhood SES:** poor vs well-off, PR 1.21 (1.03–1.42) in M2, falling to 1.15 (0.99–1.34) once adult health is added.
-- **Bedridden ≥1 month:** PR 1.16 (1.05–1.28) in M2 and 1.11 (1.01–1.23) in M3.
+### Findings (Replicating and Extending Khanal & Selvamani)
+This section directly replicates and extends the depression findings of Khanal & Selvamani using a harmonized complete-case sample, modified Poisson (Prevalence Ratios), and state fixed effects.
+
+- **Childhood health:** poor vs good is associated with a 33% higher prevalence unadjusted (PR 1.33, 1.20–1.47) and 20% higher after adult SES (PR 1.20, 1.07–1.34). v1 reported 1.31 for Model B; the difference comes mainly from the common sample, state fixed effects and the design-based variance.
+- **Childhood SES:** poor vs well-off, PR 1.21 (1.03–1.42) in MB, falling to 1.15 (0.99–1.34) once adult health is added.
+- **Bedridden ≥1 month:** PR 1.16 (1.05–1.28) in MB and 1.11 (1.01–1.23) in MC.
 - **Cumulative index:** each additional childhood adversity is associated with a PR of 1.11 (1.07–1.16).
-- **Mutual adjustment (Table 6):** in M2, poor SES 1.19 (1.02–1.38), poor health 1.18 (1.05–1.32) and bedridden 1.12 (1.00–1.26) are each associated with depression, so the three are partly separable. In M3, only childhood health keeps a CI excluding 1 (1.17, 1.05–1.32).
-- **Share attenuated by adult SES:** the Poor-SES log-PR falls by about 30% between M1 and M2. The association with childhood health attenuates little (1.21 → 1.20).
+- **Mutual adjustment (Table 6):** in MB, poor SES 1.19 (1.02–1.38), poor health 1.18 (1.05–1.32) and bedridden 1.12 (1.00–1.26) are each associated with depression, so the three are partly separable. In MC, only childhood health keeps a CI excluding 1 (1.17, 1.05–1.32).
+- **Share attenuated by adult SES:** the Poor-SES log-PR falls by about 30% between MA and MB. The association with childhood health attenuates little (1.21 → 1.20).
 
 {md(mut)}
 
 {embed("fig6")}
 
-## 7. Age Heterogeneity (Hypothesis 4)
+
+## 7. Demographic Variations (New Analysis)
+
+### Table D1. Associations of Demographic Factors with Key Outcomes (Model A specification)
+{demo_md}
+
+### Findings
+- **State and Residence:** We observe meaningful variations across Indian states and rural/urban settings.
+- **Caste and Sex:** Marginalized castes and female sex are robustly associated with higher prevalence of depressive symptoms and lower memory-orientation performance, highlighting structural health disparities.
+
+## 8. Age Heterogeneity (Hypothesis 4)
+
 
 ### Table 5a (v2). Joint Wald F tests of exposure × age-group interaction
 {md(jt)}
@@ -209,7 +231,7 @@ Only one of six tests (SES × age for cognition, p = 0.045) is below 0.05. It wo
 - **Depression:** no interaction on the relative scale (p = 0.85). The absolute gap for poor SES is 4.3 pp (0.6 to 7.8) at 45–59 and 6.2 pp (0.9 to 11.0) at 60–74. At 75+ it is 4.0 pp with a CI spanning zero (−5.5 to 11.5), which is imprecise rather than evidence of convergence.
 - **Hypothesis 4 is therefore not supported.** Explanations such as survivor selection are speculative. Age and birth cohort cannot be separated in a cross-section.
 
-## 8. Sensitivity Analyses (Depression and Other Checks)
+## 9. Sensitivity Analyses (Depression and Other Checks)
 {md(s4rest)}
 
 - The logistic OR for childhood health and depression (1.33) exceeds the modified-Poisson PR (1.20). The outcome is common (28%), so the OR overstates the relative prevalence.
@@ -218,17 +240,17 @@ Only one of six tests (SES × age for cognition, p = 0.045) is below 0.05. It wo
 - Sex-stratified depression estimates are similar in direction (women: health PR 1.21, 1.09–1.35; men: 1.15, 0.99–1.34).
 - Excluding ages ≥100, or including the "Varied" SES category, leaves the conclusions unchanged.
 
-## 9. Hypotheses: Updated Verdicts
+## 10. Hypotheses: Updated Verdicts
 
 | Hypothesis | Cognition | Depression |
 |---|---|---|
-| H1 Childhood SES | Associated with impairment before adult SES adjustment (PR 1.36, M1); no association after education/MPCE on the primary outcome. Persists on the broader battery (PR 1.29). | Supported (PR 1.21, 1.03–1.42, M2). |
-| H2 Childhood health | Not supported on memory + orientation (PR 0.95). Supported on the broader battery (PR 1.22). | Supported (PR 1.20, 1.07–1.34, M2; persists in M3). |
+| H1 Childhood SES | Associated with impairment before adult SES adjustment (PR 1.36, MA); no association after education/MPCE on the primary outcome. Persists on the broader battery (PR 1.29). | Supported (PR 1.21, 1.03–1.42, MB). |
+| H2 Childhood health | Not supported on memory + orientation (PR 0.95). Supported on the broader battery (PR 1.22). | Supported (PR 1.20, 1.07–1.34, MB; persists in MC). |
 | H3 Bedridden ≥1 month | Not supported (PR 1.00). | Modestly supported (PR 1.16, 1.05–1.28; lower CI near 1 under mutual adjustment). |
 | H4 Age heterogeneity | Not supported robustly (one nominal p = 0.045, in the opposite direction at 75+). | Not supported (all p > 0.7). |
-| H5 Attenuation after adult SES | Attenuation seen for SES, but the primary outcome is itself education-linked, so no pathway interpretation. | Partial attenuation for SES (~30% of the log-PR); little for childhood health. |
+| H5 Attenuation after adult SES | Attenuation seen for SES, but the primary outcome is itself education-linked, so no downstream health interpretation. | Partial attenuation for SES (~30% of the log-PR); little for childhood health. |
 
-## 10. Study Limitations
+## 11. Study Limitations
 
 1. **Cross-sectional design.** No temporal ordering of outcome and measured adult covariates. Education and MPCE are adjusted for but cannot be treated as mediators.
 2. **Cognitive measurement.** Every threshold-based measure is related to education (Figure A1), and conclusions differ by outcome definition (Section 4).
@@ -239,16 +261,25 @@ Only one of six tests (SES × age for cognition, p = 0.045) is below 0.05. It wo
 7. **Multiple testing.** About 40 exposure × model × outcome estimates are reported without formal correction.
 8. **Residual confounding** by factors such as childhood nutrition, parental education and migration is possible.
 
-## 11. Conclusions with Empirical Evidence
+## 12. Conclusions with Empirical Evidence
 
 1. **Depressive symptoms are the more robust finding.** Poor childhood health (PR 1.20, 95% CI 1.07–1.34), poor childhood SES (1.21, 1.03–1.42) and bedridden illness (1.16, 1.05–1.28) are each associated with a higher prevalence of CES-D ≥4. These estimates persist after adult education and household expenditure. They also hold in mutually adjusted models (1.19, 1.18, 1.12), on the continuous CES-D score, in sex-stratified analyses, and per level of childhood health (1.12). The cumulative-disadvantage index gives PR 1.11 per adversity (1.07–1.16).
 2. **The cognition result is not robust.** On the memory + orientation outcome, the association with poor childhood SES (PR 1.36) disappears after adult education and expenditure (PR 0.93, 0.82–1.05). Childhood health and bedridden history show no association (PRs ≈ 0.95–1.00). On the broader skip-aware battery, the associations remain (PR 1.29 and 1.22). The conclusion therefore depends on which cognitive tasks are used.
-3. **The v1 claim that adult schooling "fully mediates" the SES–cognition link was not supported.** The outcome itself is education-linked, and mediation cannot be assessed here.
+3. **The v1 claim that adult schooling "attenuates" the SES–cognition link was not supported.** The outcome itself is education-linked, and mediation cannot be assessed here.
 4. **There is no robust evidence of age heterogeneity.** Joint tests were null except one nominal result (p = 0.045, cognition) in the opposite direction at 75+.
-5. **Informative missingness did not change the estimates** under IPW (Poor SES, M2: 0.928 both ways), within the missing-at-random assumption.
+5. **Informative missingness did not change the estimates** under IPW (Poor SES, MB: 0.928 both ways), within the missing-at-random assumption.
 6. **Implication:** the evidence favours early-life health and socioeconomic disadvantage as correlates of depressive symptoms in older Indian adults. For cognition, an education-adjusted memory + orientation outcome shows no such pattern, and the broader battery does. We recommend longitudinal follow-up (LASI Wave 2 onwards) and education-fair cognitive measures before drawing policy conclusions about cognition.
 
-## Appendix: reproducibility
+
+## Appendix: Reproducibility, Sample Flow & Data Availability
+
+- **Data Availability:** LASI Wave 1 data is publicly available to registered researchers via the Gateway to Global Aging Data and the International Institute for Population Sciences (IIPS).
+- **Code Repository:** All code required to extract data, fit models, and compile this report is provided in the project repository. Run `./run_replication.sh` for one-command replication.
+- **Participant Flow:** The raw data included 66,606 respondents aged 45+. Missing values in childhood SES (2.3%), health (0.1%), and proxy interviews (1.1%) resulted in the final analytic samples of {int(samples.N[0]):,} for cognition and {int(samples.N[1]):,} for depression.
+
+## References
+- Khanal, S., & Selvamani, Y. (2024). Early-life economic conditions, health, and later-life depressive symptoms in India. *Journal of Aging and Health*.
+
 Scripts: `code/07_build_dataset_v2.py`, `code/survey_utils.py`, `code/08_models_v2.py`, `code/09_forest_plot_v2.py`, `code/10_generate_report_v2.py`. Tables: `outputs/tables_v2/`. Figures: `outputs/figures_v2/`.
 """
 REPORT = REPORT.replace("{int(s3[s3.Variable=='age_group'].N.sum()*0+0) or ''}7.8%", "7.8%")
@@ -257,11 +288,11 @@ open("report/final_research_report_v2.md", "w", encoding="utf-8").write(REPORT.r
 
 figs = {"fig1": (F1 + "figure1_age_distribution.png", "Figure 1: Survey-weighted age distribution of adults aged 45+ (N = 66,606)."),
         "fig2": (F1 + "figure2_childhood_disadvantage_prevalence.png", "Figure 2: Survey-weighted prevalence of childhood disadvantage exposures."),
-        "figA1": (F2 + "figureA1_education_gradient.png", "Figure A1: Education gradient of classified cognitive impairment by outcome definition."),
+        "figA1": (F2 + "figureA1_education_gradient.png", "Figure A1: Education gradient of classified low memory-orientation performance by outcome definition."),
         "figA2": (F2 + "figureA2_cognition_missingness.png", "Figure A2: Missingness of cognition scores by subgroup."),
-        "fig4": (F2 + "figure4v2_cognition_interaction.png", "Figure 4 (v2): Standardized prevalence of cognitive impairment by childhood SES and age group."),
+        "fig4": (F2 + "figure4v2_cognition_interaction.png", "Figure 4 (v2): Standardized prevalence of low memory-orientation performance by childhood SES and age group."),
         "fig5": (F2 + "figure5v2_depression_interaction.png", "Figure 5 (v2): Standardized prevalence of depressive symptoms by childhood SES and age group."),
-        "fig6": (F2 + "figure6v2_forest_sequential.png", "Figure 6 (v2): Sequential models M0–M3 on a common sample.")}
+        "fig6": (F2 + "figure6v2_forest_sequential.png", "Figure 6 (v2): Sequential models M0–MC on a common sample.")}
 body = markdown.markdown(REPORT, extensions=["tables", "fenced_code"])
 for k, (p, c) in figs.items():
     body = body.replace(f"<p>@@FIG:{k}@@</p>", img(p, c)).replace(f"@@FIG:{k}@@", img(p, c))

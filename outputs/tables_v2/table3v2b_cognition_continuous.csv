@@ -1,17 +1,21 @@
 Outcome,Exposure,Model,Estimate,CI_lower,CI_upper,p_value,Metric,N
 Memory+orientation score (0-28),Childhood SES: Average (vs well-off),Model 0: Unadjusted,-0.313,-0.584,-0.042,0.0236,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood SES: Average (vs well-off),Model 1: Demographics + state,-0.351,-0.575,-0.128,0.0021,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood SES: Average (vs well-off),Model 2: + Adult SES (Primary),0.116,-0.099,0.332,0.2893,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood SES: Average (vs well-off),Model 3: + Adult health (Pathway),0.132,-0.086,0.351,0.2347,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood SES: Average (vs well-off),Model A: Demographics + state (Total association),-0.351,-0.575,-0.128,0.0021,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood SES: Average (vs well-off),Model B: + Adult SES,0.116,-0.099,0.332,0.2893,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood SES: Average (vs well-off),Model C: + Adult health (Exploratory),0.132,-0.086,0.351,0.2347,Mean diff (beta),57245
 Memory+orientation score (0-28),Childhood SES: Poor (vs well-off),Model 0: Unadjusted,-1.646,-1.954,-1.339,0.0,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood SES: Poor (vs well-off),Model 1: Demographics + state,-1.279,-1.543,-1.015,0.0,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood SES: Poor (vs well-off),Model 2: + Adult SES (Primary),-0.32,-0.555,-0.086,0.0075,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood SES: Poor (vs well-off),Model 3: + Adult health (Pathway),-0.245,-0.479,-0.011,0.0404,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood SES: Poor (vs well-off),Model A: Demographics + state (Total association),-1.279,-1.543,-1.015,0.0,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood SES: Poor (vs well-off),Model B: + Adult SES,-0.32,-0.555,-0.086,0.0075,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood SES: Poor (vs well-off),Model C: + Adult health (Exploratory),-0.245,-0.479,-0.011,0.0404,Mean diff (beta),57245
 Memory+orientation score (0-28),Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 0: Unadjusted,-0.019,-0.432,0.393,0.9268,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 1: Demographics + state,-0.053,-0.289,0.182,0.6556,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 2: + Adult SES (Primary),0.011,-0.234,0.255,0.9327,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 3: + Adult health (Pathway),0.04,-0.193,0.272,0.7392,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model A: Demographics + state (Total association),-0.053,-0.289,0.182,0.6556,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model B: + Adult SES,0.011,-0.234,0.255,0.9327,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model C: + Adult health (Exploratory),0.04,-0.193,0.272,0.7392,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood health: Poor/Very poor (Original metric),Model 0: Unadjusted,-0.455,-0.875,-0.035,0.0337,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood health: Poor/Very poor (Original metric),Model A: Demographics + state (Total association),-0.229,-0.586,0.129,0.2095,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood health: Poor/Very poor (Original metric),Model B: + Adult SES,-0.263,-0.629,0.102,0.1579,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood health: Poor/Very poor (Original metric),Model C: + Adult health (Exploratory),-0.043,-0.414,0.328,0.8186,Mean diff (beta),57245
 Memory+orientation score (0-28),Childhood bedridden ≥1 month (vs No),Model 0: Unadjusted,0.136,-0.255,0.528,0.4943,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood bedridden ≥1 month (vs No),Model 1: Demographics + state,0.02,-0.193,0.233,0.852,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood bedridden ≥1 month (vs No),Model 2: + Adult SES (Primary),-0.152,-0.35,0.047,0.1338,Mean diff (beta),57245
-Memory+orientation score (0-28),Childhood bedridden ≥1 month (vs No),Model 3: + Adult health (Pathway),-0.099,-0.3,0.102,0.3329,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood bedridden ≥1 month (vs No),Model A: Demographics + state (Total association),0.02,-0.193,0.233,0.852,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood bedridden ≥1 month (vs No),Model B: + Adult SES,-0.152,-0.35,0.047,0.1338,Mean diff (beta),57245
+Memory+orientation score (0-28),Childhood bedridden ≥1 month (vs No),Model C: + Adult health (Exploratory),-0.099,-0.3,0.102,0.3329,Mean diff (beta),57245
