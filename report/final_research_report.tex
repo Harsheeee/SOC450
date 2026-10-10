@@ -92,10 +92,10 @@ To ensure that the empirical findings of this report are accessible to non-speci
 \subsection{Life-Course Epidemiology and Ageing Paradigms}
 \begin{description}[leftmargin=0.5cm, style=nextline]
     \item[\textbf{Biological Vulnerability (Sensitive / Critical Period Model):}]
-    The biological principle that severe physical shocks, malnutrition, or infectious illnesses during early childhood permanently alter the body's physiological set-points (such as chronic immune inflammation, vascular stiffness, or neuroendocrine stress regulation). These physiological alterations remain dormant or active throughout adult life, re-emerging decades later in old age as elevated risks of depression, disability, or physical frailty, even if the individual achieved upward socioeconomic mobility in adulthood.
+    A theoretical framework (not directly tested here) suggesting that severe physical shocks, malnutrition, or infectious illnesses during early childhood permanently alter the body's physiological set-points (such as chronic immune inflammation, vascular stiffness, or neuroendocrine stress regulation). These physiological alterations remain dormant or active throughout adult life, re-emerging decades later in old age as elevated risks of depression, disability, or physical frailty, even if the individual achieved upward socioeconomic mobility in adulthood.
 
     \item[\textbf{Accumulation of Disadvantage (Cumulative Adversity):}]
-    A developmental trajectory whereby initial childhood disadvantage triggers a cascade of sequential hardships across the lifespan. Being born into poverty frequently constrains schooling opportunities, channeling individuals into hazardous manual labor with low wages, substandard living conditions, poorer nutrition, and delayed medical care. Over 50 to 70 years, these recurring hardships accumulate, gradually degrading physical and cognitive reserves.
+    A developmental trajectory whereby initial childhood disadvantage triggers a cascade of sequential hardships across the lifespan. Being born into poverty frequently constrains schooling opportunities, channeling individuals into hazardous manual labor with low wages, substandard living conditions, poorer nutrition, and delayed medical care. Over 50 to 70 years, these recurring hardships accumulate, gradually degrading physical and cognitive capacities.
 
     \item[\textbf{Selective Survival (Mortality Selection / Survivor Bias):}]
     A statistical phenomenon observed in populations with historically high mortality rates. In mid-20th-century India, infants and children born into severe poverty faced substantial risks of premature death. Consequently, impoverished individuals who successfully survived into late adulthood (past age 75) often possess exceptional biological hardiness, psychological resilience, or favorable genetic profiles. In cross-sectional surveys, this can cause the oldest-old disadvantaged survivors to appear as healthy as---or even healthier than---their wealthier peers, because the most vulnerable individuals died prior to study enrollment.
@@ -405,7 +405,7 @@ Childhood Bedridden: Yes & $+0.14$ ($-0.25$--$0.53$) & $+0.02$ ($-0.19$--$0.23$)
 }
 \end{table}
 
-\subsection{Depressive Symptoms: Enduring Somatic and Socioeconomic Scarring}
+\subsection{Depressive Symptoms: Enduring Socioeconomic Associations}
 In sharp contrast to cognitive outcomes, Table~\ref{tab:dep_reg} demonstrates that early-life disadvantage exerts \textbf{enduring, non-attenuated associations with later-life depressive symptoms}. In primary Model 2, depressive symptoms were significantly elevated among individuals who experienced poor childhood health ($\text{APR} = 1.20$, 95\% CI: 1.07--1.34, $p = 0.002$), poor childhood SES ($\text{APR} = 1.21$, 95\% CI: 1.03--1.42, $p = 0.019$), and childhood bedridden illness ($\text{APR} = 1.16$, 95\% CI: 1.05--1.28, $p = 0.005$).
 
 Even after further conditioning on adult chronic multimorbidity and concurrent self-rated health in Model 3, childhood health ($\text{APR} = 1.19$, 95\% CI: 1.06--1.33) and bedridden illness ($\text{APR} = 1.11$, 95\% CI: 1.01--1.23) remained independently associated with depressive symptoms.
@@ -656,12 +656,33 @@ Further sensitivity checks confirmed the integrity of our primary models:
 
 \section{Discussion and Policy Implications}
 
-\subsection{Substantive Divergence: Psychological Scarring vs. Cognitive Plasticity}
+\subsection{Substantive Divergence: Psychological Associations vs. Cognitive Attenuation}
 Our findings reveal a profound empirical divergence between mental and cognitive health in late life:
 \begin{enumerate}
-    \item \textbf{Enduring Somatic Scarring on Mental Health:} Early-life physical illness and economic adversity exert persistent associations with later-life depressive symptoms that remain evident 50 to 70 years after the exposure. Crucially, these associations cannot be accounted for by adult socioeconomic mobility, chronic physical disease, or current subjective health ratings. Early systemic inflammation, prolonged stress activation, or internalized experiences of childhood precarity appear to establish a persistent psychological vulnerability across the life span.
-    \item \textbf{Cognitive Attenuation and the Education Nexus:} In contrast, early socioeconomic associations with memory and orientation are largely eliminated once adult schooling and consumption expenditure are accounted for. Formal schooling appears to confer cognitive reserve or functional scaffolding that protects against memory impairment, even among adults who grew up in extreme poverty.
+    \item \textbf{Enduring Vulnerability on Mental Health:} Early-life physical illness and economic adversity exert persistent associations with later-life depressive symptoms that remain evident 50 to 70 years after the exposure. Crucially, these associations cannot be accounted for by adult socioeconomic mobility, chronic physical disease, or current subjective health ratings. Early systemic inflammation, prolonged stress activation, or internalized experiences of childhood precarity appear to establish a persistent psychological vulnerability across the life span.
+    \item \textbf{Cognitive Attenuation and the Education Nexus:} In contrast, early socioeconomic associations with memory and orientation are largely eliminated once adult schooling and consumption expenditure are accounted for. Formal schooling is associated with better structural or functional capacities correlated with better memory outcomes, even among adults who grew up in extreme poverty.
 \end{enumerate}
+
+
+\section{Continuous Cognitive Sensitivity Analysis (Extension)}
+To resolve denominator inconsistencies found in the broad cognitive battery, we utilized continuous outcomes administered universally to direct respondents.
+
+\begin{table}[H]
+\centering
+\small
+\caption{\textbf{Continuous Cognitive Sensitivity (Model B: Adult SES Adjusted)}}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Outcome Domain} & \textbf{Poor SES Effect (95\% CI)} & \textbf{\textit{p}-value} & \textbf{Finding} \\
+\midrule
+Combined Score (0-28) & $-0.319$ ($-0.554, -0.084$) & 0.008 & Persistent Deficit \\
+Memory Score (0-20) & $-0.249$ ($-0.449, -0.050$) & 0.014 & Persistent Deficit \\
+Orientation Score (0-8) & $-0.069$ ($-0.163, 0.025$) & 0.148 & Null \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+While the primary report demonstrated that the \textit{binary} risk of cognitive impairment becomes statistically null upon adult-SES adjustment, the continuous score retains a small, persistent penalty. Crucially, domain separation reveals this penalty is driven almost entirely by the memory domain, whereas orientation is fully attenuated by adult socioeconomic factors.
 
 \subsection{Evaluation of Pre-Specified Hypotheses}
 Table~\ref{tab:hypo_summary} summarizes the empirical verdicts for all five pre-specified hypotheses.
@@ -683,7 +704,7 @@ Table~\ref{tab:hypo_summary} summarizes the empirical verdicts for all five pre-
 \addlinespace
 \textbf{H4: Age Heterogeneity} & \textbf{Not supported}: One nominal test ($p=0.045$) in opposite direction in oldest-old. & \textbf{Not supported}: Uniform across age groups (all joint $p > 0.70$). \\
 \addlinespace
-\textbf{H5: Adult Attenuation} & Strong attenuation for childhood SES; caution against over-interpreting as associational mediation. & Partial attenuation for SES ($\approx 30\%$); minimal attenuation for childhood health. \\
+\textbf{H5: Adult Attenuation} & Strong attenuation for childhood SES; caution against over-interpreting as causal mediation. & Partial attenuation for SES ($\approx 30\%$); minimal attenuation for childhood health. \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -700,7 +721,7 @@ Table~\ref{tab:hypo_summary} summarizes the empirical verdicts for all five pre-
 
 \subsubsection{Study Limitations}
 \begin{itemize}
-    \item \textbf{Cross-Sectional Baseline:} LASI Wave 1 cannot establish individual longitudinal trajectories, disease incidence, or associational mediation over time.
+    \item \textbf{Cross-Sectional Baseline:} LASI Wave 1 cannot establish individual longitudinal trajectories, disease incidence, or causal mediation over time.
     \item \textbf{Retrospective Recall Bias:} Childhood conditions were recalled at older ages, creating potential for mood-congruent recall error among currently depressed individuals.
     \item \textbf{Mortality / Survivor Selection:} Disadvantaged cohorts in LMICs experienced high childhood and mid-life mortality regimes, potentially biasing observed late-life associations toward the null.
     \item \textbf{Cognitive Non-Response:} Proxy interviews ($N = 705$) were excluded from cognitive testing, omitting the most severely impaired older adults.

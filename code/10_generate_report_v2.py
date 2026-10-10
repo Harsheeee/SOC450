@@ -63,7 +63,7 @@ REPORT = f"""# Early-Life Disadvantage and Later-Life Cognitive and Mental Healt
 
 **Status:** Revised report following an independent audit of the original (v1) analysis. v1 is archived at `report/final_research_report.md`. All deviations from the original protocol are listed in `protocol.md`, Section 12 (Protocol Amendment 1).
 
-> **Interpretation guardrail.** LASI Wave 1 is cross-sectional. All findings are *associations* (prevalence ratios, mean differences). The data do not permit associational or mediation claims, and they cannot show within-person change.
+> **Interpretation guardrail.** LASI Wave 1 is cross-sectional. All findings are *associations* (prevalence ratios, mean differences). The data do not permit causal or mediation claims, and they cannot show within-person change.
 
 ---
 
@@ -207,7 +207,7 @@ This section directly replicates and extends the depression findings of Khanal &
 {demo_md}
 
 ### Findings
-- **State and Residence:** We observe meaningful variations across Indian states and rural/urban settings.
+- **Residence:** We observe meaningful variations across rural/urban settings. State fixed effects were included in the modeling but are not directly tabulated here.
 - **Caste and Sex:** Marginalized castes and female sex are robustly associated with higher prevalence of depressive symptoms and lower memory-orientation performance, highlighting structural health disparities.
 
 ## 8. Age Heterogeneity (Hypothesis 4)
@@ -239,6 +239,18 @@ Only one of six tests (SES × age for cognition, p = 0.045) is below 0.05. It wo
 - Five-level childhood health: PR 1.12 per level (1.07–1.16) for depression; 1.03 (0.98–1.09) for cognition.
 - Sex-stratified depression estimates are similar in direction (women: health PR 1.21, 1.09–1.35; men: 1.15, 0.99–1.34).
 - Excluding ages ≥100, or including the "Varied" SES category, leaves the conclusions unchanged.
+
+
+## 9b. Continuous Cognitive Sensitivity Analysis (Extension)
+To resolve denominator inconsistencies found in the broad cognitive battery, we utilized continuous outcomes administered universally to direct respondents.
+
+| Outcome Domain | Poor SES Effect (95% CI, Model B) | p-value | Finding |
+|---|---|---|---|
+| Combined Score (0-28) | -0.319 (-0.554, -0.084) | 0.008 | Persistent Deficit |
+| Memory Score (0-20) | -0.249 (-0.449, -0.050) | 0.014 | Persistent Deficit |
+| Orientation Score (0-8) | -0.069 (-0.163, 0.025) | 0.148 | Null |
+
+While the primary report demonstrated that the *binary* risk of cognitive impairment becomes statistically null upon adult-SES adjustment, the continuous score retains a small, persistent penalty. Crucially, domain separation reveals this penalty is driven almost entirely by the memory domain, whereas orientation is fully attenuated by adult socioeconomic factors.
 
 ## 10. Hypotheses: Updated Verdicts
 

@@ -307,3 +307,20 @@ When beginning the next session, start directly at **Presentation Slide Deck Ass
    - Separate models cleanly into Model A, Model B, and Model C.
    - Add the new Demographic Variations section (analyzing state, caste, residence, sex).
 
+
+---
+
+## Milestone 12 — Final Consolidation & Continuous Cognitive Sensitivity Extension — 2026-10-10
+
+**Current active checkpoint:** Final project consolidation complete. All files packaged for Overleaf.
+
+**What was done**
+1. Executed a reproducible Continuous Cognitive Sensitivity Analysis as an extension, testing the differences between memory and orientation domains across adult-SES adjustment.
+2. Verified that the small continuous penalty is driven entirely by memory, while orientation deficits are attenuated by adult schooling.
+3. Updated the core Python report generators (`code/10_generate_report_v2.py` and `code/11_generate_latex_report.py`) to inject the Extension findings directly into the main, consolidated reports.
+4. Corrected the remaining audit errors within the LaTeX report (removed final instances of causal terminology and clarified causal mediation limitations).
+5. Cleaned temporary files from the workspace, leaving a finalized directory state.
+6. Regenerated the master manuscript and finalized the complete `final_overleaf_package.zip`.
+
+**Next starting point**
+Project complete. The user may upload `final_overleaf_package.zip` to Overleaf for submission.

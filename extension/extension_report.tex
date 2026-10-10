@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{pdflscape}
+
+\title{Extension: Continuous Cognitive Sensitivity Analysis}
+\author{Research Team}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introduction and Research Question}
+This document serves as a reproducible extension to the primary analysis. The core research question addressed is: \textit{Does the association between recalled childhood socioeconomic disadvantage and later-life measured cognitive performance differ across memory, orientation, and the combined memory-orientation score, under defensible scoring rules?}
+
+\section{Methodology}
+To resolve denominator inconsistencies found in broad cognitive batteries, we utilized three continuous outcomes administered universally to direct respondents:
+\begin{itemize}
+    \item \textbf{Memory Score (0--20)}
+    \item \textbf{Orientation Score (0--8)}
+    \item \textbf{Combined Memory-Orientation Score (0--28)}
+\end{itemize}
+
+Linear regression models (Gaussian family) were estimated using survey weights with Taylor-series linearization for clustered standard errors. 
+\begin{itemize}
+    \item \textbf{Model A (Baseline):} Adjusts for age, sex, caste, religion, residence, and state fixed effects.
+    \item \textbf{Model B (Adult SES):} Adds adult education and MPCE quintile.
+    \item \textbf{Model C (Exploratory Health):} Adds ADL, self-rated health, and morbidity.
+\end{itemize}
+
+\section{Results}
+Results were estimated on the common complete-case sample of 57,245 older adults.
+
+\begin{table}[H]
+\centering
+\small
+\caption{\textbf{Continuous Cognitive Sensitivity (Model B: Adult SES Adjusted)}}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Outcome Domain} & \textbf{Poor SES Effect (95\% CI)} & \textbf{\textit{p}-value} & \textbf{Finding} \\
+\midrule
+Combined Score (0-28) & $-0.319$ ($-0.554, -0.084$) & 0.008 & Persistent Deficit \\
+Memory Score (0-20) & $-0.249$ ($-0.449, -0.050$) & 0.014 & Persistent Deficit \\
+Orientation Score (0-8) & $-0.069$ ($-0.163, 0.025$) & 0.148 & Null \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Conclusion}
+While the primary report demonstrated that the \textit{binary} risk of cognitive impairment becomes statistically null upon adult-SES adjustment, the continuous score retains a small, persistent penalty. Crucially, domain separation reveals this penalty is driven almost entirely by the memory domain, whereas orientation is fully attenuated by adult socioeconomic factors.
+
+\end{document}

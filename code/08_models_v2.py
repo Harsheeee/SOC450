@@ -38,7 +38,7 @@ DEMO = "age + C(sex, Treatment('Male')) + C(residence_cat, Treatment('Rural')) +
 EDU = "C(education, Treatment('No formal education')) + C(mpce_quintile)"
 HLTH = "chronic_count + C(srh, Treatment('Excellent'))"
 FORM = {'M0': "", 'M1': DEMO, 'M2': f"{DEMO} + {EDU}", 'M3': f"{DEMO} + {EDU} + {HLTH}"}
-MLAB = {'M0': 'Model 0: Unadjusted', 'M1': 'Model A: Demographics + state (Total association)', 'M2': 'Model B: + Adult SES', 'M3': 'Model C: + Adult health (Exploratory)'}
+MLAB = {'M0': 'Model 0: Unadjusted', 'M1': 'Model A: Demographics + state (Demographic-adjusted association)', 'M2': 'Model B: + Adult SES', 'M3': 'Model C: + Adult health (Exploratory)'}
 EXPO = {'ses_avg': 'Childhood SES: Average (vs well-off)', 'ses_poor': 'Childhood SES: Poor (vs well-off)',
         'hlth_poor': 'Childhood health: Fair/Poor/Very poor (vs Good/Very good)', 'hlth_poor_orig': 'Childhood health: Poor/Very poor (Original metric)', 'bed_yes': 'Childhood bedridden ≥1 month (vs No)'}
 CORE = ['ses_avg', 'ses_poor', 'hlth_poor', 'hlth_poor_orig', 'bed_yes', 'age', 'sex', 'residence_cat', 'caste', 'married_binary', 'state_fe',
