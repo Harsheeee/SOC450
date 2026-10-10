@@ -1,0 +1,43 @@
+Outcome,Exposure,age_group,level,pred_prev_pct,lo,hi
+Cognitive impairment,Childhood SES,45-59,Pretty well-off,8.16,6.7,10.13
+Cognitive impairment,Childhood SES,45-59,Average,6.38,5.79,7.19
+Cognitive impairment,Childhood SES,45-59,Poor,8.45,7.75,9.35
+Cognitive impairment,Childhood SES,60-74,Pretty well-off,16.86,14.52,20.2
+Cognitive impairment,Childhood SES,60-74,Average,14.2,13.26,15.56
+Cognitive impairment,Childhood SES,60-74,Poor,16.16,15.2,17.29
+Cognitive impairment,Childhood SES,75+,Pretty well-off,36.87,30.9,43.95
+Cognitive impairment,Childhood SES,75+,Average,27.48,24.99,31.02
+Cognitive impairment,Childhood SES,75+,Poor,28.04,26.12,31.36
+Cognitive impairment,Childhood health,45-59,Good,7.62,7.17,8.31
+Cognitive impairment,Childhood health,45-59,Poor,6.9,5.46,8.5
+Cognitive impairment,Childhood health,60-74,Good,15.37,14.64,16.32
+Cognitive impairment,Childhood health,60-74,Poor,15.25,13.2,17.88
+Cognitive impairment,Childhood health,75+,Good,28.61,26.94,30.66
+Cognitive impairment,Childhood health,75+,Poor,26.2,20.36,33.68
+Cognitive impairment,Childhood bedridden,45-59,No,7.5,7.07,8.06
+Cognitive impairment,Childhood bedridden,45-59,Yes,8.06,6.81,9.85
+Cognitive impairment,Childhood bedridden,60-74,No,15.39,14.73,16.34
+Cognitive impairment,Childhood bedridden,60-74,Yes,14.78,11.64,18.27
+Cognitive impairment,Childhood bedridden,75+,No,28.28,26.52,30.89
+Cognitive impairment,Childhood bedridden,75+,Yes,28.24,18.42,44.54
+Depressive symptoms,Childhood SES,45-59,Pretty well-off,22.69,20.01,25.66
+Depressive symptoms,Childhood SES,45-59,Average,26.08,24.68,27.66
+Depressive symptoms,Childhood SES,45-59,Poor,27.01,25.38,29.04
+Depressive symptoms,Childhood SES,60-74,Pretty well-off,24.13,19.66,29.45
+Depressive symptoms,Childhood SES,60-74,Average,28.42,27.14,30.34
+Depressive symptoms,Childhood SES,60-74,Poor,30.33,28.83,32.23
+Depressive symptoms,Childhood SES,75+,Pretty well-off,31.58,23.9,42.81
+Depressive symptoms,Childhood SES,75+,Average,33.0,29.66,36.8
+Depressive symptoms,Childhood SES,75+,Poor,35.56,32.19,39.99
+Depressive symptoms,Childhood health,45-59,Good,25.53,24.3,27.14
+Depressive symptoms,Childhood health,45-59,Poor,30.53,27.03,35.26
+Depressive symptoms,Childhood health,60-74,Good,27.99,26.57,29.58
+Depressive symptoms,Childhood health,60-74,Poor,34.81,30.74,39.5
+Depressive symptoms,Childhood health,75+,Good,33.64,31.22,36.17
+Depressive symptoms,Childhood health,75+,Poor,35.9,26.97,46.95
+Depressive symptoms,Childhood bedridden,45-59,No,26.0,24.85,27.33
+Depressive symptoms,Childhood bedridden,45-59,Yes,29.92,25.67,34.97
+Depressive symptoms,Childhood bedridden,60-74,No,28.63,27.38,30.22
+Depressive symptoms,Childhood bedridden,60-74,Yes,32.9,29.48,36.69
+Depressive symptoms,Childhood bedridden,75+,No,33.55,31.16,36.49
+Depressive symptoms,Childhood bedridden,75+,Yes,40.28,26.26,62.74

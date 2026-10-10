@@ -1,0 +1,19 @@
+childhood_ses,age_group,sex,residence_cat,caste,married_binary,education,mpce_quintile,pred_prev_pct,ci_lower_pct,ci_upper_pct,Outcome
+Pretty well-off,45-59,Male,Rural,General/None,1,No formal education,1,8.24,6.04,11.26,Cognitive Impairment
+Average,45-59,Male,Rural,General/None,1,No formal education,1,7.84,6.39,9.62,Cognitive Impairment
+Poor,45-59,Male,Rural,General/None,1,No formal education,1,10.51,8.84,12.49,Cognitive Impairment
+Pretty well-off,60-74,Male,Rural,General/None,1,No formal education,1,17.08,13.0,22.45,Cognitive Impairment
+Average,60-74,Male,Rural,General/None,1,No formal education,1,13.48,11.53,15.76,Cognitive Impairment
+Poor,60-74,Male,Rural,General/None,1,No formal education,1,16.93,14.63,19.59,Cognitive Impairment
+Pretty well-off,75+,Male,Rural,General/None,1,No formal education,1,31.63,24.13,41.48,Cognitive Impairment
+Average,75+,Male,Rural,General/None,1,No formal education,1,26.3,21.39,32.34,Cognitive Impairment
+Poor,75+,Male,Rural,General/None,1,No formal education,1,28.79,23.98,34.56,Cognitive Impairment
+Pretty well-off,45-59,Male,Rural,General/None,1,No formal education,1,25.34,21.29,30.16,Depressive Symptoms
+Average,45-59,Male,Rural,General/None,1,No formal education,1,27.14,23.72,31.05,Depressive Symptoms
+Poor,45-59,Male,Rural,General/None,1,No formal education,1,27.19,24.34,30.38,Depressive Symptoms
+Pretty well-off,60-74,Male,Rural,General/None,1,No formal education,1,25.44,20.68,31.3,Depressive Symptoms
+Average,60-74,Male,Rural,General/None,1,No formal education,1,27.6,24.84,30.66,Depressive Symptoms
+Poor,60-74,Male,Rural,General/None,1,No formal education,1,28.01,24.87,31.55,Depressive Symptoms
+Pretty well-off,75+,Male,Rural,General/None,1,No formal education,1,31.61,23.72,42.13,Depressive Symptoms
+Average,75+,Male,Rural,General/None,1,No formal education,1,29.24,24.49,34.91,Depressive Symptoms
+Poor,75+,Male,Rural,General/None,1,No formal education,1,30.66,26.08,36.05,Depressive Symptoms

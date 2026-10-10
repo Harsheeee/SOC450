@@ -1,0 +1,1785 @@
+LASI WAVE 1
+
+Complete Project Blueprint
+Early-Life Disadvantage and Later-Life Cognitive / Mental
+Health
+A 14-day, survey-weighted quantitative ageing study using LASI Wave 1 (2017-18)
+Project objective
+Build a reproducible, cross-sectional epidemiological analysis testing whether childhood socioeconomic and
+health disadvantage is associated with later-life cognitive performance and depressive symptoms, and whether
+associations differ across age groups.
+
+Prepared as a student research execution plan
+Version: 04 October 2026
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Executive Summary
+This document turns the selected LASI research idea into an end-to-end project that a student team can
+execute in approximately two weeks. It starts from the data request and continues through data auditing,
+variable construction, survey-weighted estimation, interpretation, figures, writing, and final reproducibility
+checks.
+The proposed design is a cross-sectional secondary analysis of LASI Wave 1 (2017-18). LASI Wave 1 is a
+nationally representative ageing survey covering adults aged 45 years and above. The uploaded LASI
+literature confirms that childhood socioeconomic status, childhood health, childhood bedridden experience,
+depression, cognition, demographic characteristics, socioeconomic status and health variables are available in
+Wave 1.
+
+Non-negotiable interpretation rule
+Because Wave 1 is a cross-sectional dataset for this project, the study estimates associations and age-group
+differences. It does NOT estimate within-person cognitive decline, incidence, or causal effects over time.
+
+The primary scientific idea is a life-course question: whether disadvantages reported for childhood are
+associated with mental and cognitive outcomes measured decades later. The differentiating analytical feature
+is age heterogeneity - testing whether the association is different among 45-59, 60-74 and 75+ respondents.
+Recommended primary outcome: continuous LASI cognitive score. Secondary cognitive outcome: binary poor
+cognition using the LASI literature-defined lower tail threshold after verifying the exact coding in the
+codebook. Secondary mental-health outcome: depressive symptoms using the ten-item CES-D threshold of 4 or
+more.
+Recommended primary model: survey-weighted linear regression for the continuous cognitive score and
+survey-weighted modified Poisson regression with robust variance for binary outcomes, with logistic
+regression as a sensitivity analysis. All models must account for sampling weights, strata and PSU/cluster
+identifiers.
+
+Project Map
+Stage
+
+Main question
+
+Output
+
+0. Define
+
+What exactly are we testing?
+
+Frozen protocol + hypotheses
+
+1. Request
+
+What files are needed?
+
+Wave 1 .dta +
+codebook/questionnaires
+
+2. Audit
+
+What is inside the dataset?
+
+Data dictionary + variable inventory
+
+3. Clean
+
+Who is eligible and how are variables
+coded?
+
+Analysis-ready dataset
+
+4. Describe
+
+What does the sample look like?
+
+Table 1 + prevalence tables
+
+5. Model
+
+Are exposures associated with
+outcomes?
+
+Regression tables
+
+6. Interaction
+
+Does association differ by age?
+
+Interaction tests + predicted
+probabilities
+
+7. Robustness
+
+Would the conclusion survive
+reasonable alternatives?
+
+Sensitivity analyses
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Stage
+
+Main question
+
+Output
+
+8. Interpret
+
+What can we claim?
+
+Results + limitations
+
+9. Report
+
+Can another student reproduce it?
+
+Report + code + data dictionary
+
+1. Final Research Question and Scope
+1.1 Primary research question
+Among Indian adults aged 45 years and above, are adverse childhood socioeconomic and health conditions
+associated with lower cognitive performance in later life, and does the magnitude of this association differ
+across age groups?
+
+1.2 Secondary question
+Are the same childhood exposures associated with depressive symptoms, and do the age patterns look similar
+for mental and cognitive outcomes?
+
+1.3 Core hypotheses
+
+
+Poorer perceived childhood socioeconomic status is associated with poorer cognitive performance.
+
+
+
+Poorer reported childhood health is associated with poorer cognitive performance.
+
+
+
+Having been bedridden for at least one month before age 16 is associated with poorer cognitive
+performance.
+
+
+
+The association between childhood disadvantage and cognitive/mental outcomes differs across age groups
+(effect modification by age group).
+
+
+
+Associations may attenuate after adjustment for current adult socioeconomic conditions, because
+education and current economic resources may lie on the life-course pathway.
+
+1.4 Scope boundaries
+
+
+No claim of causality from Wave 1 alone.
+
+
+
+No claim of longitudinal cognitive decline.
+
+
+
+No merging with the 2010 pilot for the primary analysis.
+
+
+
+No specialized biomarker, spirometry or environmental files for the core analysis.
+
+
+
+No machine-learning prediction as the primary method; this is an epidemiological association study.
+
+2. Dataset: What to Obtain Before Any Analysis
+2.1 Minimum data package
+Item
+
+Required?
+
+Why
+
+LASI Wave 1 State & UT respondentlevel microdata (.dta)
+
+YES
+
+Core individual-level observations
+
+LASI Wave 1 Codebook / data
+dictionary
+
+YES
+
+Exact variable names, labels, coding,
+missing-value conventions
+
+LASI Wave 1 Individual Schedule /
+questionnaire
+
+YES
+
+Verifies wording and construction of
+survey measures
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Item
+
+Required?
+
+Why
+
+Sampling design documentation
+
+YES
+
+Needed to identify weight, strata and
+PSU variables
+
+Household file + link key
+
+Preferable / verify
+
+Needed if required economic variables
+are not already merged into the
+analytic file
+
+Metro Cities data
+
+NO
+
+Not needed for an all-India project
+
+DBS / Spirometry / Environmental
+Exposure
+
+NO
+
+Outside the core research question
+
+LASI Pilot 2010
+
+NO
+
+Not needed for the primary crosssectional Wave 1 analysis
+
+Data request wording
+Request the State & UT Wave 1 microdata in Stata (.dta) format with the corresponding codebook/questionnaire
+and survey-design identifiers. State explicitly that the project requires respondent-level variables for childhood
+SES, childhood health, childhood bedridden history, cognition, depression, age, demographics, current SES,
+health and survey weights/PSU/strata.
+
+2.2 Why .dta?
+The .dta format is Stata format. The .sav format is SPSS format. They are alternative statistical-software
+representations of data, not two distinct surveys. For this project, use the .dta version unless the data provider
+gives a reason to use another format.
+
+3. Variable Inventory: What We Need and Why
+3.1 Primary exposures
+Expected coding /
+construction
+
+Variable
+
+Operational role
+
+Childhood socioeconomic
+status
+
+Primary exposure
+
+Poor / Average / Pretty welloff, based on childhood family
+financial situation
+
+MUST
+
+Childhood health
+
+Primary exposure
+
+Original 5-level response;
+main analysis may use
+published binary grouping
+after verification
+
+MUST
+
+Childhood bedridden >=1
+month
+
+Secondary exposure /
+robustness
+
+Yes / No
+
+MUST
+
+Parental education
+
+Alternative early-life SES
+proxy
+
+Mother/father education
+categories if available
+
+HIGH
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Priority
+
+3.2 Outcomes
+Outcome
+
+Type
+
+How to use
+
+Priority
+
+Cognitive score
+
+Continuous
+
+Primary outcome; retain
+original score and inspect
+distribution
+
+MUST
+
+Cognitive impairment / poor
+cognition
+
+Binary
+
+Secondary outcome; use
+published lower-tail threshold
+after codebook verification
+
+HIGH
+
+Depressive symptoms (CES-D)
+
+Binary
+
+Secondary outcome; 10-item
+score >=4 if complete score is
+reconstructed and verified
+
+MUST
+
+CES-D score
+
+Discrete/continuous-like
+
+Sensitivity / descriptive
+outcome
+
+HIGH
+
+3.3 Demographic and socioeconomic covariates
+
+
+Age in years - retain continuous age; construct 45-59, 60-74, 75+ for figures and interaction interpretation.
+
+
+
+Sex/gender - use the LASI survey variable and document how it is labelled.
+
+
+
+Residence - rural / urban.
+
+
+
+Caste / social group - use LASI categories; avoid inventing a new aggregation until frequencies are
+inspected.
+
+
+
+Marital status - preferably retain detailed categories first, then collapse only if analytically justified.
+
+
+
+Education - years of schooling if available; otherwise validated attainment categories.
+
+
+
+Current household economic status - preferably MPCE/consumption quintile or the LASI-provided
+economic measure.
+
+
+
+State/UT and region - for geographic adjustment / descriptive heterogeneity; avoid automatically using
+state fixed effects without checking the model design.
+
+3.4 Health and social covariates
+
+
+Chronic conditions / multimorbidity - useful as current health context and sensitivity adjustment.
+
+
+
+Self-rated health - useful in secondary models; be cautious about over-adjustment because it may reflect
+pathways from early-life disadvantage to current health.
+
+
+
+ADL and IADL - functional health measures; secondary controls only unless explicitly justified.
+
+
+
+Physical activity, tobacco and alcohol - optional behavioural confounders / sensitivity controls.
+
+
+
+Living arrangement, social participation and other family/social variables - optional secondary context,
+not core exposures.
+
+4. Technical Terms: Student-Level Definitions
+Microdata: The dataset where each row is an individual/household and columns are measurements. This is
+different from a factsheet, where numbers are already aggregated.
+Cross-sectional study: A study where exposure and outcome are observed in the same survey round. It can
+estimate associations but does not directly observe change within the same person over time.
+Outcome / dependent variable: The phenomenon we are trying to explain or measure, such as cognitive
+score or depressive symptoms.
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Exposure / independent variable: The characteristic whose association with the outcome is being estimated,
+such as childhood SES.
+Covariate: A variable included in a statistical model for adjustment, description or precision.
+Confounder: A variable associated with both the exposure and outcome that can create a misleading
+association if omitted. Adjustment is intended to reduce confounding.
+Mediator: A variable on the pathway between exposure and outcome. Adjusting for a mediator can remove
+part of the association being studied. Adult health may be a mediator in a life-course hypothesis.
+Effect modification / interaction: The association between exposure and outcome changes depending on
+another variable. Here, the main question is whether the childhood-disadvantage association differs by age
+group.
+Sampling weight: A number used to compensate for unequal probabilities of selection and survey
+nonresponse so estimates better represent the target population.
+PSU / cluster: Primary Sampling Unit or cluster used in the survey design. Responses within the same cluster
+may be correlated.
+Stratum: A sampling layer used by the survey design. Survey software uses strata with weights and PSU to
+calculate design-correct standard errors.
+Standard error (SE): A measure of statistical uncertainty around an estimated coefficient. Smaller SE
+generally means a more precise estimate.
+95% confidence interval (CI): A range expressing sampling uncertainty around an estimate. For ratios, a CI
+crossing 1 often indicates weak evidence for an association at the conventional 5% level.
+P-value: A measure used in frequentist testing. It should not be interpreted as the probability that the
+hypothesis is true.
+Odds ratio (OR): Ratio of odds between groups. It is not the same as a risk ratio or prevalence ratio, especially
+when the outcome is common.
+Prevalence ratio (PR): Ratio of outcome prevalence between exposure groups. It is often easier to interpret
+than an OR for common cross-sectional outcomes.
+Modified Poisson regression: A Poisson regression model with robust variance often used to estimate
+prevalence ratios for binary outcomes in cross-sectional data.
+Linear regression: Regression where a continuous outcome is modelled as a weighted sum of predictors plus
+error; here it can model cognitive score.
+Robust standard error: A standard-error estimator designed to remain valid under certain forms of variance
+misspecification. In survey analysis, the full survey design should still be specified.
+Multicollinearity: A situation where predictors are strongly correlated with each other, making individual
+coefficients unstable. VIF is one common diagnostic.
+Complete-case analysis: Analyzing respondents with nonmissing values on all variables in a model. Easy, but
+it can change the study population and introduce bias if missingness is systematic.
+Sensitivity analysis: A secondary analysis using a reasonable alternative definition/model to test whether the
+conclusion is robust.
+Predicted probability: The model-based estimated probability of an outcome for a chosen set of covariates.
+Useful for interpreting interactions.
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+5. Conceptual Framework and Causal Language
+The study is motivated by a life-course framework: conditions in childhood may be associated with
+accumulated educational, socioeconomic, behavioural and health pathways that are reflected in later-life
+cognition and mental health. The model is used as a conceptual guide; it does not turn a cross-sectional
+association into a causal effect.
+
+5.1 Primary conceptual pathway
+Node
+
+Meaning in this project
+
+Childhood SES / childhood health
+
+Early-life exposures reported retrospectively by
+respondents
+
+Education
+
+Potential long-term pathway and current socioeconomic
+marker; treat carefully in sequential models
+
+Adult economic status
+
+Current resources / material conditions
+
+Adult health
+
+Potential confounder for some social associations, but also
+potentially downstream of early life
+
+Cognitive score / depression
+
+Later-life outcomes observed in Wave 1
+
+Age group
+
+Potential effect modifier for cross-sectional heterogeneity
+
+Core analytical principle
+Build the primary model from variables plausibly preceding the outcome and pre-specify a second model that
+adds adult socioeconomic variables. Do not call the difference between models "mediation" unless a formal
+mediation analysis is conducted.
+
+6. Data Acquisition, Import and Audit
+6.1 Folder structure
+
+
+01_raw/ - untouched LASI files received from IIPS
+
+
+
+02_reference/ - codebook, questionnaires, data documentation, paper PDFs
+
+
+
+03_clean/ - derived analysis-ready data
+
+
+
+04_code/ - Stata/R/Python scripts
+
+
+
+05_output/ - tables, figures, model objects
+
+
+
+06_report/ - manuscript and presentation
+
+Rule
+Never edit the raw .dta file directly. Read it, document it, and create a derived clean dataset. This protects
+reproducibility.
+
+6.2 First-hour audit checklist
+1.
+
+Open the data and report number of rows and columns.
+
+2.
+
+Inspect variable names, labels and value labels.
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+3.
+
+Check that age, respondent ID and household ID exist.
+
+4.
+
+Locate survey weights, PSU and strata variables.
+
+5.
+
+Locate every childhood, cognition and depression variable before creating derived variables.
+
+6.
+
+Inspect missing-value conventions. LASI may use special codes for don't know, not applicable or missing;
+these must not be treated as real numerical values.
+
+7.
+
+Check duplicate respondent IDs.
+
+8.
+
+Check whether household and individual data are separate files and determine the correct merge key
+before merging.
+
+9.
+
+Create a one-page variable inventory with: variable name, label, source question, coding, missing values,
+analysis role.
+
+7. Sample Definition and Data Cleaning
+7.1 Eligibility
+Start from all LASI Wave 1 respondents eligible for the individual ageing analysis. Apply the pre-specified age
+criterion of 45 years and above. Do not delete records merely because a variable is missing until you know
+whether that variable is required for a particular outcome/model.
+
+7.2 Create a participant flow
+Stage
+
+N
+
+What to record
+
+Raw Wave 1 individual records
+
+TBD after import
+
+Raw row count
+
+Age >=45
+
+TBD
+
+Primary target population
+
+Valid childhood SES
+
+TBD
+
+Missingness
+
+Valid childhood health
+
+TBD
+
+Missingness
+
+Valid cognitive assessment
+
+TBD
+
+Outcome-specific sample
+
+Valid CES-D / depression
+
+TBD
+
+Outcome-specific sample
+
+Complete primary model covariates
+
+TBD
+
+Model-specific complete-case sample
+
+7.3 Missing values
+Do not automatically recode every nonpositive number as missing. First inspect the codebook. Create explicit
+missing indicators only for diagnosis/documentation; do not use missingness as a substantive exposure unless
+the protocol says so.
+
+7.4 Outlier and range checks
+
+
+Age: verify plausible range and inspect extreme values.
+
+
+
+Cognitive score: verify the theoretical minimum/maximum against the LASI scoring system.
+
+
+
+CES-D: verify each item coding and reverse-coded positive-affect items before summing.
+
+
+
+MPCE: inspect skewness; if using quintiles supplied by LASI, document the source rather than
+reconstructing unnecessarily.
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+8. Variable Construction: Exact Workflow
+8.1 Childhood SES
+10. Locate the exact childhood financial-status question in the questionnaire and codebook.
+11. Verify that response labels correspond to Poor, Average and Pretty well-off.
+12. Preserve the raw categorical variable as the audit variable.
+13. Create a labelled analysis variable with Pretty well-off as the reference category.
+14. Check weighted prevalence in each category. If any category is extremely small, discuss before collapsing.
+
+8.2 Childhood health
+15. Locate the five-level childhood health question.
+16. Preserve the original 5-level measure.
+17. For the main model, use the published binary grouping only after checking that the LASI version and
+coding match the published paper.
+18. Run a sensitivity analysis using the original ordered categories if cell sizes permit.
+
+8.3 Childhood bedridden experience
+19. Code No=0 and Yes=1 using the LASI labels.
+20. Confirm that the question refers to before age 16 and at least one month.
+21. Report weighted prevalence because this exposure is expected to be uncommon.
+
+8.4 Cognitive score
+22. Identify all cognitive test components and/or the LASI composite score.
+23. Verify scoring direction: higher score should represent better performance.
+24. Inspect distribution by age and education before selecting transformations.
+25. Use continuous score as the preferred primary outcome if its construction is valid.
+26. Construct poor cognition using the published lower-tail definition after verifying the exact LASI
+implementation.
+
+8.5 CES-D
+27. Identify the ten items and response-frequency coding.
+28. Recode negative symptom items to 0/1 according to the LASI/published scoring rule.
+29. Reverse-score positive-affect items as instructed by the scale.
+30. Sum the ten items to obtain a 0-10 score if missingness rules are satisfied.
+31. Create depressive symptoms = 1 for score >=4, 0 otherwise, if using the published Wave 1
+operationalization.
+
+9. Quantitative Analysis Plan
+9.1 Analysis order
+Analysis
+
+Purpose
+
+Main output
+
+A. Weighted descriptives
+
+Describe the target population
+
+Table 1
+
+B. Weighted bivariate
+
+Show unadjusted patterns
+
+Prevalence/means by exposure
+
+C. Model 1
+
+Demographic adjustment
+
+Adjusted association
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Analysis
+
+Purpose
+
+Main output
+
+D. Model 2
+
+Add adult SES
+
+Assess attenuation / persistence
+
+E. Model 3
+
+Add selected health variables
+
+Context / robustness
+
+F. Interaction model
+
+Test age heterogeneity
+
+Interaction p-value + predicted values
+
+G. Sensitivity
+
+Check alternative specifications
+
+Robustness table
+
+9.2 Descriptive statistics
+
+
+Use survey weights for population percentages, means and confidence intervals.
+
+
+
+Describe age, sex, residence, education, economic status and each primary exposure.
+
+
+
+Report mean cognitive score and prevalence of poor cognition/depressive symptoms overall and by age
+group.
+
+
+
+Do not infer causality from descriptive differences.
+
+9.3 Primary continuous cognitive model
+Recommended model: survey-weighted linear regression with cognitive score as the outcome. Conceptually:
+CognitiveScore = beta0 + beta1(ChildhoodSES) + beta2(ChildhoodHealth) + beta3(Age) + beta4(Sex) + ... + error
+
+Interpretation: beta for an exposure category is the adjusted difference in mean cognitive score relative to the
+reference category, conditional on included covariates and the survey design.
+
+9.4 Binary outcome models
+For poor cognition and depressive symptoms, use survey-weighted modified Poisson regression with robust
+variance when the outcome is common enough that odds ratios would be less intuitive. Report adjusted
+prevalence ratios (APR) and 95% CIs. Run logistic regression as a sensitivity analysis and report AORs
+separately.
+log(E[Y]) = beta0 + beta1X1 + ... + betakXk
+
+For a binary outcome under a modified Poisson model, exp(beta) is interpreted as an adjusted prevalence
+ratio under the chosen specification.
+
+9.5 Model blocks
+Model
+
+Variables
+
+Scientific purpose
+
+M0: crude
+
+One exposure only + survey design
+
+Unadjusted association
+
+M1: demographic
+
+Exposure + age + sex + residence + caste
++ marital status
+
+Control major demographic confounding
+
+M2: socioeconomic
+
+M1 + education + current economic
+status
+
+Ask whether early-life association
+persists after adult SES adjustment
+
+M3: health context
+
+M2 + selected chronic/functional health
+variables
+
+Robustness / current health context;
+interpret cautiously because some
+variables may be downstream
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+10. Age Interaction: The Most Important Extension
+Age interaction asks whether the association between childhood disadvantage and the outcome is different
+for people at different ages. This is not the same as showing that a person deteriorates with age.
+
+10.1 Specification
+Create age groups 45-59, 60-74 and 75+. Fit a model containing the exposure, age-group indicators, and
+exposure-by-age-group interaction terms.
+Outcome = beta0 + beta1(ChildhoodSES) + beta2(AgeGroup) + beta3(ChildhoodSES x AgeGroup) + Covariates
+
+10.2 How to test it
+32. Fit the main-effects model.
+33. Add the interaction terms.
+34. Use a joint test of the interaction terms rather than interpreting one interaction coefficient in isolation.
+35. Generate predicted probabilities or predicted mean cognitive scores for each age-by-exposure
+combination.
+36. Plot the estimates with 95% confidence intervals.
+
+Example interpretation
+Suppose the adjusted prevalence ratio for poor cognition associated with poor childhood SES is higher in the 75+
+group than in 45-59. The appropriate statement is: "The association was stronger among adults aged 75 years and
+above." Do not write "poor childhood SES caused faster cognitive decline."
+
+11. Confounding, Mediation and Over-Adjustment
+11.1 Why this matters
+Students often put every available variable into one regression. That is not automatically better. Some
+variables may be consequences of the exposure and therefore lie on the pathway to the outcome.
+
+11.2 Practical decision rule
+Variable
+
+Primary role
+
+Why
+
+Age
+
+Core covariate + effect modifier
+
+Strongly related to cognition and
+outcome risk
+
+Sex
+
+Core covariate
+
+Demographic and biological/social
+differences
+
+Education
+
+Sequential adjustment variable
+
+May partly reflect life-course pathway
+from childhood conditions
+
+Current MPCE/economic status
+
+Sequential adjustment variable
+
+Captures current material resources
+
+Caste/residence/marital status
+
+Core demographic covariates
+
+Social and demographic context
+
+Multimorbidity
+
+Secondary health adjustment
+
+May be confounder for some
+associations but also downstream
+
+ADL/IADL
+
+Secondary/sensitivity
+
+Could partly reflect pathways to
+cognitive/mental health
+
+Self-rated health
+
+Secondary/sensitivity
+
+Strong health marker but potentially
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Variable
+
+Primary role
+
+Why
+downstream
+
+Depression in cognition model
+
+Usually secondary only
+
+Could be correlated with cognition and
+partly share mechanisms; do not
+automatically adjust in the primary
+model
+
+12. Survey Design: How to Get Nationally Correct Inference
+LASI uses a multistage, stratified probability sampling design. Standard unweighted regression treats the
+sample as if it were a simple random sample, which is not the design LASI used. The analysis should use the
+provided survey weights and design identifiers.
+
+12.1 Three core design elements
+Element
+
+Plain-language meaning
+
+What it changes
+
+Weight
+
+Who each respondent represents
+
+Population estimates / point estimates
+
+PSU
+
+Which sampled cluster the person
+came from
+
+Variance estimation
+
+Strata
+
+Sampling layer
+
+Variance estimation / design
+representation
+
+12.2 Software
+Stata is a natural choice because the requested data are .dta and Stata has mature survey commands. R can
+also perform the analysis using the survey package or equivalent tooling. The team should choose one
+primary software path and avoid duplicating every analysis in two languages during the two-week window.
+
+Software pattern
+Stata concept: define the survey design once, then use survey-aware summary and regression commands. R
+concept: create a survey design object, then use svymean / svyglm-style procedures. Exact variable names and
+commands depend on the received codebook.
+
+13. Model Diagnostics and Quality Checks
+13.1 Before trusting a regression
+
+
+Check whether the analysis sample changed unexpectedly between models.
+
+
+
+Check frequencies for every categorical predictor.
+
+
+
+Check the outcome prevalence and score distribution.
+
+
+
+Check missingness before model fitting.
+
+
+
+Check VIF / correlation among continuous or highly related predictors where appropriate.
+
+
+
+Inspect whether estimates are unstable because a category is too small.
+
+
+
+Check convergence and warnings from the statistical software.
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Compare a weighted and unweighted model only as a diagnostic; do not replace the design-correct model
+
+
+
+with the unweighted one.
+
+13.2 Cognitive-score checks
+
+
+Plot cognitive score distribution.
+
+
+
+Compare mean score across age and education groups.
+
+
+
+Check whether a simple linear specification is reasonable; if heavily non-linear, consider age splines or
+categorized age in secondary analyses.
+
+13.3 Binary outcome checks
+
+
+Verify that the outcome is coded only 0/1 in the final model.
+
+
+
+Ensure missing, not applicable and don't know are not interpreted as outcome=0.
+
+14. Sensitivity Analyses
+Sensitivity
+
+Alternative
+
+Why
+
+S1
+
+Continuous cognition vs poor-cognition
+indicator
+
+Tests dependence on a cutoff
+
+S2
+
+Original 5-level childhood health vs
+binary grouping
+
+Tests dependence on recoding
+
+S3
+
+Crude -> M1 -> M2 -> M3 sequential
+models
+
+Shows how adjustment changes the
+estimate
+
+S4
+
+Logistic regression vs modified Poisson
+
+Shows whether interpretation depends
+on effect measure
+
+S5
+
+Age continuous vs age groups
+
+Tests whether age categorization drives
+the interaction
+
+S6
+
+Complete-case vs carefully documented
+alternative missing-data approach if
+feasible
+
+Assesses missing-data sensitivity
+
+Time management
+Do not perform every sensitivity analysis automatically. S1-S4 are the minimum useful set. S5-S6 are optional
+depending on the data quality and remaining time.
+
+15. Tables and Figures to Produce
+15.1 Tables
+Table
+
+Content
+
+Decision
+
+Table 1
+
+Weighted characteristics of respondents
+overall and by age group
+
+Descriptive
+
+Table 2
+
+Weighted outcome means/prevalence by
+childhood exposure
+
+Unadjusted
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Table
+
+Content
+
+Decision
+
+Table 3
+
+Cognitive-score regression (M1-M3)
+
+Primary result
+
+Table 4
+
+Poor cognition APR/AOR (M1-M3)
+
+Secondary cognitive result
+
+Table 5
+
+Depressive-symptom APR/AOR (M1-M3)
+
+Secondary mental-health result
+
+Table 6
+
+Age-interaction / joint tests
+
+Key novelty
+
+Table 7
+
+Sensitivity analysis
+
+Robustness
+
+15.2 Figures
+
+
+Figure 1: Project conceptual framework / DAG.
+
+
+
+Figure 2: Mean cognitive score across age groups by childhood SES.
+
+
+
+Figure 3: Adjusted predicted probability of poor cognition by age group and childhood SES, with 95% CI.
+
+
+
+Figure 4: Adjusted predicted probability of depressive symptoms by age group and childhood SES, with
+95% CI.
+
+Figure principle
+Prefer predicted values from the fully specified survey-weighted model for interaction results. Raw prevalence is
+useful for descriptive figures; adjusted predicted values are better for communicating the modelled age
+interaction.
+
+16. How to Interpret the Numbers
+16.1 Linear regression example
+Suppose beta = -1.20 for poor childhood SES. The interpretation would be: respondents in the poor childhoodSES category had, on average, 1.20 points lower cognitive score than the reference group, conditional on the
+variables in the model. This is an association, not a causal effect.
+
+16.2 Prevalence ratio example
+Suppose APR = 1.25 for poor childhood health. The interpretation would be: the prevalence of the binary
+outcome was estimated to be about 25% higher in the poor-childhood-health group than in the reference
+group, conditional on the model covariates and survey design.
+
+16.3 Confidence interval example
+Suppose APR = 1.25 with 95% CI 1.10-1.42. The estimate suggests a positive association and the interval
+excludes 1.00. Report the estimate and uncertainty, not only the p-value.
+
+16.4 Non-significant interaction
+If the interaction test is not statistically persuasive, do not manufacture separate "effects by age" conclusions.
+Report that strong evidence of heterogeneity by age was not detected, while still presenting descriptive
+patterns if informative.
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+17. Final Research Report Structure
+Section
+
+What it must contain
+
+Title
+
+Early-Life Socioeconomic and Health Disadvantage and
+Cognitive and Mental Health in Ageing India: Evidence
+from LASI Wave 1, 2017-18
+
+Abstract
+
+Background; Methods; Results; Conclusion. Keep causal
+language out.
+
+Introduction
+
+Ageing in India; why cognition/mental health matter; lifecourse rationale; prior LASI evidence; gap; objective.
+
+Methods
+
+Data source; sample; variables; outcome construction;
+exposure construction; survey design; statistical models;
+sensitivity analyses; ethics/data access statement.
+
+Results
+
+Sample flow; descriptive table; outcome prevalence;
+primary regression; interaction; sensitivity.
+
+Discussion
+
+Main findings; comparison with literature; plausible
+mechanisms; interpretation of age heterogeneity; policy
+implications; strengths/limitations.
+
+Conclusion
+
+One paragraph, no causal overreach.
+
+References
+
+LASI documentation and peer-reviewed sources.
+
+Supplementary material
+
+Variable map, missingness table, code list, additional
+model diagnostics.
+
+18. Fourteen-Day Execution Plan - Minute-Level Version
+The schedule below assumes the Wave 1 data arrive by Day 1. If access is delayed, shift the literature-writing
+tasks earlier and preserve the analysis days.
+Day
+
+Morning (approx. 3h)
+
+Afternoon (approx. 3-4h)
+
+Deliverable
+
+1
+
+Freeze research question,
+outcomes, exposures; read
+codebook sections
+
+Import raw .dta; inspect
+rows/columns, IDs, labels,
+missing codes, survey design
+
+Protocol v1 + raw-data audit
+
+2
+
+Build variable inventory and
+map questionnaire questions
+
+Locate childhood, cognition,
+depression variables; resolve
+file merges
+
+Variable dictionary
+
+3
+
+Code age, demographics,
+childhood exposures
+
+Construct cognition and CES-D
+measures; verify score ranges
+
+Clean derivation script
+
+4
+
+Check missingness, duplicates,
+range errors
+
+Finalize analytic samples;
+generate participant flow
+counts
+
+Analysis-ready data v1
+
+5
+
+Set survey design; test weighted
+descriptives
+
+Table 1 + weighted outcome
+prevalence
+
+Descriptive results
+
+6
+
+Run crude models
+
+Run M1 demographic models
+
+Regression draft v1
+
+7
+
+Run M2 current-SES models
+
+Run M3 health-context models;
+diagnostics
+
+Primary model set
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Day
+
+Morning (approx. 3h)
+
+Afternoon (approx. 3-4h)
+
+Deliverable
+
+8
+
+Run age interactions
+
+Joint tests + predicted values
+
+Interaction results
+
+9
+
+Sensitivity S1-S4
+
+Check robustness and model
+stability
+
+Sensitivity table
+
+10
+
+Produce figures
+
+Clean table/figure formatting;
+freeze analysis output
+
+Tables + figures v1
+
+11
+
+Write Methods
+
+Write Results directly from
+frozen outputs
+
+Methods + Results draft
+
+12
+
+Write Introduction
+
+Write Discussion linked to
+evidence and limitations
+
+Full manuscript draft
+
+13
+
+Audit references, tables and
+claims
+
+Reproducibility run from
+raw/clean data to outputs
+
+QA checklist complete
+
+14
+
+Final editing
+
+Presentation, executive
+summary, code packaging
+
+Final report + code archive
+
+18.1 Daily operating rhythm
+
+
+First 15 min: write the exact question for the day.
+
+
+
+Next 2-3 h: execute one analysis task only; save code and output.
+
+
+
+30 min: inspect results and document anomalies.
+
+
+
+30-60 min: clean tables/notes, not the raw data.
+
+
+
+Final 15 min: update the project log with what changed and what remains.
+
+19. Reproducibility and Team Workflow
+19.1 Freeze the analysis
+Once the main descriptive checks and variable definitions are confirmed, write the final analysis specification
+in a one-page protocol. After that point, changing hypotheses because a result is significant is not allowed.
+
+19.2 File naming
+
+
+raw_lasi_wave1.dta
+
+
+
+variable_inventory.xlsx or .csv
+
+
+
+clean_lasi_topic1.dta
+
+
+
+01_import.do / 01_import.R
+
+
+
+02_construct.do / 02_construct.R
+
+
+
+03_descriptive.do / 03_descriptive.R
+
+
+
+04_models.do / 04_models.R
+
+
+
+05_figures.do / 05_figures.R
+
+
+
+tables/ figure/ outputs folders
+
+19.3 Minimum analysis log
+Date
+
+Change
+
+Reason
+
+Impact
+
+YYYY-MM-DD
+
+Example: changed
+childhood-health coding
+
+Codebook verification
+
+Affects models M1-M3
+
+YYYY-MM-DD
+
+Example: excluded invalid
+
+Data validation
+
+Changes cognition sample N
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Date
+
+Change
+
+Reason
+
+Impact
+
+Protocol choice
+
+Interaction uses age groups
+
+cognitive score
+YYYY-MM-DD
+
+Example: retained age
+continuous in primary
+model
+
+20. Ethics, Data Governance and Reporting
+The analysis is secondary research using de-identified survey data. Follow the data provider's terms of use
+and the research ethics requirements of the institution. Do not attempt to identify individuals or households.
+In the report, describe the original LASI ethics/consent framework and the permissions applicable to
+secondary use, as documented by the data provider.
+
+
+Do not publish raw respondent identifiers.
+
+
+
+Do not upload restricted microdata to public repositories.
+
+
+
+Store the raw file separately from public code.
+
+
+
+Share derived aggregate tables/figures only according to LASI data-use terms.
+
+21. Common Failure Modes and the Prevention Plan
+Failure
+
+Why it is bad
+
+Prevention
+
+Treating a factsheet as the dataset
+
+Aggregate numbers cannot support
+individual regression
+
+Use respondent-level .dta microdata
+
+Ignoring survey weights
+
+Population estimates and standard errors
+can be wrong
+
+Define survey design before inferential
+analysis
+
+Using ordinary logistic regression only
+
+OR can be hard to interpret for common
+outcomes; design ignored if no survey setup
+
+Use survey-aware methods; present PR as
+primary for binary outcomes
+
+Calling Wave 1 longitudinal
+
+One wave does not observe within-person
+change
+
+Use cross-sectional wording
+
+Putting every variable in the model
+
+Can over-adjust for mediators and create
+unstable estimates
+
+Use a pre-specified sequential model
+strategy
+
+Changing the cutoff after seeing results
+
+Introduces outcome-driven analysis
+
+Freeze operational definitions from
+codebook/literature
+
+Ignoring missing codes
+
+Don't know can become a fake score of zero
+
+Inspect codebook and recode explicitly
+
+Reporting only p-values
+
+Hides magnitude and uncertainty
+
+Report estimate + 95% CI + p-value where
+useful
+
+Over-interpreting interactions
+
+Random subgroup noise can look
+meaningful
+
+Use joint tests + predicted values + CIs
+
+Trying too many subgroups
+
+Two-week project becomes unmanageable
+
+Limit to pre-specified age and optional sex
+stratification
+
+22. Final Deliverables Checklist
+
+
+One-page protocol with final research question and hypotheses.
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+
+
+Clean variable dictionary mapping every analysis variable to the LASI source question and exact data
+variable name.
+
+
+
+Clean analysis dataset derived from raw data.
+
+
+
+Complete reproducible code from import to tables and figures.
+
+
+
+Weighted Table 1 and outcome prevalence tables.
+
+
+
+Primary cognitive regression table.
+
+
+
+Binary outcome regression tables for poor cognition and depression.
+
+
+
+Age-interaction table and predicted-value figures.
+
+
+
+Sensitivity analysis table.
+
+
+
+Final research report with limitations and no causal overclaiming.
+
+
+
+Five-minute oral explanation of the design, variables, model and key finding.
+
+23. What If Nothing Is Significant?
+A null result is not a failed project. A rigorous study can find weak or absent associations. The correct
+response is to report the magnitude, confidence interval and plausible explanations: measurement error,
+retrospective reporting of childhood conditions, residual confounding, heterogeneity across cohorts, selective
+survival, or insufficient variation in the exposure. Do not "search" for a significant subgroup until one
+appears.
+
+24. Minimum Viable Project (MVP) if Time Runs Out
+The 2-day emergency version
+If the team loses time, keep only: (1) one childhood exposure - childhood SES; (2) primary outcome - continuous
+cognitive score; (3) age groups 45-59 / 60-74 / 75+; (4) age interaction; (5) core demographic + current SES
+adjustment; (6) survey-weighted linear regression; (7) one predicted-value figure. Add depression and sensitivity
+analyses only after this core analysis is complete.
+
+25. Source Basis and Literature Anchors
+The project design is informed by the uploaded LASI papers, especially the 2024 study that operationalized
+childhood SES, childhood health, childhood bedridden experience and CES-D depressive symptoms, and the
+2026 study that operationalized LASI cognition and used age groups 45-59, 60-74 and 75+ alongside surveyweighted regression. These papers are used to define feasible LASI measures, not to claim that the proposed
+project is longitudinal or causal.
+[1] Khanal G, Selvamani Y. Association of perceived childhood socio-economic status and health with
+depressive symptoms among middle-aged and older adults in India: using data from LASI Wave I, 2017-2018.
+BMC Geriatrics. 2024;24:226. doi:10.1186/s12877-024-04800-0.
+[2] Sharma M, Goswami I. Is all movement equal at every age? Differentiating the impact of physical activity
+types on depressive symptoms and mental acuity in an aging India. Archives of Public Health. 2026;84:133.
+doi:10.1186/s13690-026-01943-x.
+[3] Rana GS et al. Association of multi-morbidity, social participation, functional and mental health with the
+self-rated health of middle-aged and older adults in India: a study based on LASI wave-1. BMC Geriatrics.
+2022;22:675. doi:10.1186/s12877-022-03349-0.
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+[4] Srivastava S, Muhammad T. Socioeconomic vulnerability and frailty among community-dwelling older
+adults: cross-sectional findings from LASI, 2017-18. BMC Geriatrics. 2022;22:201. doi:10.1186/s12877-022-028911.
+[5] Muhammad T et al. Socioeconomic and health-related inequalities in major depressive symptoms among
+older adults: a Wagstaff decomposition analysis of the LASI baseline survey, 2017-2018. BMJ Open.
+2022;12:e054730. doi:10.1136/bmjopen-2021-054730.
+[6] Lal D et al. Healthcare access and utilisation trends among the elderly in India: Evidence from the LASI
+Wave-1 survey. Dialogues in Health. 2025;7:100232. doi:10.1016/j.dialog.2025.100232.
+[7] Mohanty SK et al. Sociodemographic and geographic inequalities in diagnosis and treatment of older
+adults chronic conditions in India: a nationally representative population-based study. BMC Health Services
+Research. 2023;23:332. doi:10.1186/s12913-023-09318-6.
+[8] Srivastava S, Chauhan S, Patel R. Socio-Economic Inequalities in the Prevalence of Poor Self-Rated Health
+among Older Adults in India from 2004 to 2014: A Decomposition Analysis. Ageing International. 2021;46:182199. doi:10.1007/s12126-020-09385-8.
+[9] International Institute for Population Sciences (IIPS). LASI Wave I documentation and data access
+materials. Verify exact current download/version and codebook accompanying the data request.
+
+26. Final One-Page Team Brief
+The project in one line
+Using nationally representative LASI Wave 1 data, estimate whether reported childhood socioeconomic and
+health disadvantage is associated with poorer later-life cognition and depression, and test whether those
+associations vary by age group.
+
+Question
+
+Answer
+
+Population
+
+LASI Wave 1 respondents aged 45+
+
+Design
+
+Cross-sectional secondary analysis
+
+Primary exposure
+
+Childhood socioeconomic status
+
+Secondary exposures
+
+Childhood health; childhood bedridden >=1 month
+
+Primary outcome
+
+Continuous cognitive score
+
+Secondary outcomes
+
+Poor cognition; depressive symptoms
+
+Core age variable
+
+45-59 / 60-74 / 75+ plus continuous age
+
+Primary model
+
+Survey-weighted linear regression
+
+Binary outcome model
+
+Survey-weighted modified Poisson + robust variance; logistic
+sensitivity
+
+Key novelty
+
+Exposure-by-age interaction / age heterogeneity
+
+Must-have design variables
+
+Weight + PSU + strata
+
+Main danger
+
+Cross-sectional design being misrepresented as
+longitudinal/causal
+
+Target completion
+
+14 days
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+Important: exact LASI variable names, missing-value codes, cognitive scoring details, sample weights, PSU and
+strata variables must be verified against the actual Wave 1 codebook when the data are received. The plan
+intentionally distinguishes what is already supported by the uploaded literature from items that must be
+confirmed in the raw data.
+
+LASI Wave 1 Quantitative Ageing Study - Project Plan
+
+

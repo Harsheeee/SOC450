@@ -1,0 +1,1091 @@
+LONGITUDINAL AGEING STUDY IN INDIA
+(LASI)
+Wave 1, 2017-18
+
+DATA USER GUIDE
+This document provides a brief user guide of LASI Wave 1 micro data with
+information on sampling design, data structure, and questionnaire content, as well
+as information about publicly accessible data.
+
+INTERNATIONAL INSTITUTE FOR POPULATION SCIENCES (IIPS)
+MUMBAI - 400088
+
+Suggested citation: International Institute for Population Sciences (2020). Data User Guide Longitudinal Ageing Study in India (LASI) Wave 1, 2017-18, IIPS, Mumbai
+
+For additional information about the Longitudinal Ageing Study in India (LASI) Wave 1
+Please contact:
+Director / Principal Investigator (LASI Project)
+International Institute for Population Sciences (IIPS)
+Govandi Station Road, Deonar, Mumbai – 400 088.
+Telephone:
+022-42372401/682
+Fax:
+022-42372401
+E-mail:
+iipslasi@gmail.com
+iipslasi@iipsindia.ac.in
+Website:
+
+https://www.iipsindia.ac.in/lasi/
+
+1 | LASI WAVE 1 – DATA USER GUIDE
+
+1. Introduction
+The Longitudinal Ageing Study in India (LASI) is a multidisciplinary, internationally harmonized
+panel study of 73,396 older adults aged 45 and above including their spouses less than 45 years,
+representative to India and all of its states and union territories. LASI is designed to provide
+researchers and policymakers with comprehensive data on the key economic, social, and health
+characteristics of India’s older population.
+LASI Wave 1 was funded by the Ministry of Health and Family Welfare, Government of India, the
+National Institute on Aging (R01 AG042778), and United Nations Population Fund, India. LASI is
+a collaborative study of three partnering institutions: International Institute for Population Sciences
+(IIPS), Harvard T.H. Chan School of Public Health (HSPH), and University of Southern California
+(USC) and several other national and international institutions.
+LASI is the world’s largest and India’s first longitudinal ageing study. It is well-positioned to evaluate
+the effect of changing policies on the behavioural outcomes in India. LASI survey design, tools and
+protocols are harmonised with the Health and Retirement Study (HRS) in the United States and its
+sister surveys in Asia, Europe, and elsewhere.
+The main objective of the LASI is to provide a comprehensive scientific evidence base on
+demographics, household economic status, chronic health conditions, symptom-based health
+conditions, functional health, mental health (cognition and depression), biomarkers, health insurance
+and healthcare utilization, family and social networks, social welfare programmes, work and
+employment, retirement, satisfaction, and life expectations.
+The LASI has embraced the state of the art of large-scale survey protocols and field implementation
+strategies with one or more of the following innovative attributes that existing studies lack:
+representative sample of India and its states and by socio-economic spectrum, an expansive topical
+focus, harmonization with HRS, a longitudinal design, coverage of comprehensive biomarkers, and
+the use of Computer Assisted Personal Interviewing (CAPI) technology for data collection, quality
+control and geographic information system (GIS) use. No other survey in India collects detailed data
+on health and biomarkers together with data on family and social network, income, assets, and
+consumption.
+The LASI survey instrument comprises the household (HH) schedule, individual schedule, biomarker
+surveys and community schedule. The household survey was conducted with a selected key
+informant in each household. The individual and biomarker surveys were administered to each
+selected respondent.
+For more detailed information about LASI, its methodology and findings, please refer LASI India
+Report (2020) at www.iipsindia.ac.in/lasi.
+
+1 | LASI WAVE 1 – DATA USER GUIDE
+
+2. Sampling Design
+The LASI adopted a multistage stratified area probability cluster sampling design to arrive at the
+eventual units of observation: older adults age 45 and above and their spouses irrespective of age.
+Within each state, LASI Wave 1 adopted three-stage sampling design in rural areas and four-stage
+sampling design in urban areas. In each state/UTs, the first stage involved selection of Primary
+Sampling Units (PSUs), that is, sub-districts (Tehsils/Talukas), and the second stage involved the
+selection of villages in rural areas and wards in urban areas in the selected PSUs. In rural areas,
+households were selected from selected villages in the third stage. However, sampling in urban areas
+involved an additional stage. Specifically, in the third stage, one Census Enumeration Block (CEB)
+was randomly selected in each urban ward. In the fourth stage, households were selected from this
+CEB.
+Eligible households are defined as those with at least one member 45 years of age or above. Eligible
+individuals are those in these eligible households who were 45 years of age or older and their spouses,
+regardless of age. In addition, LASI oversamples individuals at age 65 and older from all states and
+major cities.
+Wave 1 of the LASI covered a panel sample of 73,396 individuals age 45 and above and their spouses,
+including 31,902 elderly (age 60 and above) and 6,880 oldest-old persons (age 75 and above) from
+all states and union territories of India (Table 1).
+The LASI Wave 1 field survey was conducted across India from April 2017 to December 2018*. The
+HH response rate is defined as the number of HHs which participated in the survey divided by the
+total number of age-eligible sampled HHs. The overall household response rate is 96.6%. Household
+response rate in urban areas is lower (94.7%) than the rural areas (97.5%). Individual response rate
+is defined as the number of individuals who participated in the survey divided by the total number of
+eligible individuals in age-eligible sampled HHs. Individual response rate is higher in rural (89.7%)
+than in urban areas (83.7%) (Table 2).
+
+* Data for Sikkim was collected in 2020 -21
+
+LASI WAVE 1 – DATA USER GUIDE | 2
+
+Table 1: Household roster completed, age-eligible households, and individuals interviewed across
+states/UTs of India, LASI Wave 1, 2017-18
+
+State/UTs
+Haryana
+Delhi
+Rajasthan
+Uttar Pradesh
+Bihar
+Chhattisgarh
+Madhya Pradesh
+Gujarat
+Daman & Diu (UT)
+Dadra & Nagar Haveli (UT)
+Karnataka
+Goa
+Lakshadweep (UT)
+Kerala
+Tamil Nadu
+Puducherry (UT)
+Jammu & Kashmir
+Himachal Pradesh
+Uttarakhand
+Punjab
+Chandigarh (UT)
+Arunachal Pradesh
+Nagaland
+Sikkim
+Manipur
+Mizoram
+Tripura
+Assam
+West Bengal
+Jharkhand
+Odisha
+Maharashtra
+Andhra Pradesh
+Andaman & Nicobar Islands (UT)
+Telangana
+Meghalaya
+India
+
+HH Rosters
+Completed
+(age-eligible and
+non-age-eligible)
+
+AgeEligible
+HHs
+
+Age-eligible
+HH Interviews
+Completed
+
+Age-eligible
+Individuals
+Identified
+
+Individual
+Interviews
+Completed
+
+1,821
+1,283
+2,200
+4,721
+3,336
+1,943
+2,790
+2,159
+1,236
+1,370
+2,018
+1,147
+894
+1883
+3,248
+1,173
+1,435
+1,081
+1,256
+1769
+1,107
+1,163
+1,207
+1,029
+1,180
+1,188
+1,099
+2,281
+3,201
+2,236
+2,306
+3,293
+2,264
+1,089
+2,272
+666
+66,371
+
+1,285
+776
+1,336
+2,820
+2,109
+1,259
+1,727
+1,579
+662
+741
+1,555
+958
+694
+1,542
+2,176
+848
+963
+838
+878
+1,296
+708
+704
+803
+649
+862
+765
+748
+1,540
+2,296
+1,451
+1,670
+2,446
+1,568
+736
+1,487
+636
+45,111
+
+1,251
+754
+1,302
+2,747
+2,083
+1,189
+1,690
+1,455
+577
+631
+1,488
+877
+627
+1,411
+2,150
+839
+957
+805
+863
+1,234
+651
+702
+799
+635
+860
+732
+721
+1,511
+2,279
+1,408
+1,645
+2,421
+1,511
+725
+1,418
+636
+43,584
+
+2,391
+1,494
+2,493
+4,965
+3,828
+2,272
+3,241
+3,039
+1,271
+1,373
+2,981
+1,857
+1,328
+3,000
+3,845
+1,542
+1,813
+1,683
+1,566
+2,519
+1,373
+1,291
+1,367
+1,209
+1,594
+1,410
+1,374
+2,817
+4,428
+2,758
+3,102
+4,675
+2,854
+1,347
+2,703
+1,056
+83,859
+
+1,898
+1,319
+2,244
+4,567
+3,520
+2,055
+2,914
+2,341
+991
+1,090
+2,420
+1,427
+1,139
+2,497
+3,530
+1,428
+1,613
+1,388
+1,358
+2,124
+1,026
+1,215
+1,316
+1,146
+1,369
+1,246
+1,195
+2,366
+3,933
+2,464
+2,917
+3,973
+2,679
+1,244
+2,475
+969
+73,396
+
+3 | LASI WAVE 1 – DATA USER GUIDE
+
+Table 2: Household and individual response rate, states/UTs, India, LASI Wave 1, 2017-18
+State/UTs
+Haryana
+Delhi
+Rajasthan
+Uttar Pradesh
+Bihar
+Chhattisgarh
+Madhya Pradesh
+Gujarat
+Daman & Diu (UT)
+Dadra & Nagar Haveli (UT)
+Karnataka
+Goa
+Lakshadweep (UT)
+Kerala
+Tamil Nadu
+Puducherry (UT)
+Jammu & Kashmir
+Himachal Pradesh
+Uttarakhand
+Punjab
+Chandigarh (UT)
+Arunachal Pradesh
+Nagaland
+Sikkim
+Manipur
+Mizoram
+Tripura
+Assam
+West Bengal
+Jharkhand
+Orissa
+Maharashtra
+Andhra Pradesh
+Andaman & Nicobar Islands (UT)
+Telangana
+India
+
+Household Response Rate
+Total
+96.8
+96.1
+97.2
+96.8
+98.4
+94.4
+97.3
+91.8
+86.0
+85.1
+94.6
+91.0
+90.1
+88.9
+98.0
+98.2
+96.2
+95.2
+97.7
+93.4
+89.4
+99.2
+99.3
+97.8
+99.5
+94.8
+96.1
+98.1
+98.4
+96.0
+98.1
+98.1
+95.6
+98.5
+94.9
+96.6
+
+Rural
+96.9
+90.0
+97.5
+98.5
+98.6
+96.3
+98.3
+94.4
+88.3
+86.1
+96.6
+91.1
+89.8
+90.1
+98.8
+99.6
+98.4
+95.0
+97.6
+94.5
+88.8
+98.9
+99.3
+97.6
+99.8
+96.3
+97.4
+98.4
+99.7
+97.2
+98.8
+99.7
+96.6
+98.3
+97.6
+97.5
+
+Individual Response Rate
+
+Urban
+96.8
+96.2
+95.8
+91.1
+97.3
+86.5
+95.0
+88.2
+84.8
+83.4
+90.7
+91.0
+90.2
+87.7
+97.4
+97.6
+90.7
+96.3
+98.0
+91.0
+89.4
+100.0
+99.1
+98.6
+99.0
+93.5
+92.2
+95.5
+97.2
+91.7
+94.4
+96.6
+92.9
+98.9
+89.4
+94.7
+
+Total
+79.3
+88.2
+90.0
+91.9
+92.0
+90.4
+89.9
+77.0
+78.0
+79.7
+81.1
+76.7
+85.9
+83.3
+91.8
+92.5
+88.9
+82.5
+86.8
+84.2
+74.3
+94.0
+96.3
+94.8
+85.9
+88.4
+87.1
+84.0
+88.8
+89.2
+93.8
+84.5
+93.9
+92.3
+91.6
+87.5
+
+Rural
+80.1
+78.8
+91.3
+94.3
+92.1
+91.3
+92.2
+81.7
+77.1
+83.4
+82.0
+73.1
+91.4
+84.6
+94.1
+95.1
+90.0
+83.3
+88.8
+86.4
+68.4
+93.1
+97.7
+95.4
+89.1
+90.6
+89.1
+84.3
+90.4
+90.2
+95.4
+89.1
+95.0
+93.0
+94.4
+89.7
+
+Urban
+77.6
+88.4
+85.5
+83.9
+90.6
+86.8
+84.5
+70.9
+78.5
+73.7
+79.3
+79.3
+84.3
+81.9
+90.3
+91.3
+85.9
+77.1
+82.0
+78.9
+74.3
+97.1
+92.9
+92.7
+80.0
+86.5
+81.1
+81.9
+87.2
+85.8
+86.5
+80.3
+90.8
+90.9
+86.4
+83.7
+
+A more detailed discussion on sampling frame, survey weights and procedures adopted is provided
+in the chapter 2 (methodology section) of India report.
+
+3. Survey Instrument and Data Files
+The LASI survey instrument comprises the household survey schedule, individual survey schedule,
+and biomarker surveys. The survey includes questions about demographics, economic, employment,
+behavioural, social, physical and mental health characteristics, and an extensive set of cognitive
+functioning tests. The survey questions were translated into 18 regional languages, and the interview
+was done in the language of the respondent’s choice.
+
+LASI WAVE 1 – DATA USER GUIDE | 4
+
+3.1 Household Survey
+The household survey collected data from a selected key informant, who could be any knowledgeable
+adult aged 18 or older. It was administered per household and collected information about the
+household finances and living conditions for all persons in the household. The data consists of five
+modules, as listed below in Table 3.
+Table 3: Description of household modules
+Household Modules
+
+Description
+
+Cover-screen (CV)/ household roster
+
+Household roster and basic demographic information about each
+household member is provided.
+
+Housing & Environment (HE)
+
+It covers information related to housing and environmental
+condition of surveyed households.
+
+Household Consumption (CO)
+
+This section covers information on household expenditure and
+consumption of food and non-food items, including home-grown
+goods
+
+Household Assets and Debts (AD)
+
+Covers information related to home ownership, land ownership,
+agricultural and business assets, financial and non-financial assets
+and household debts.
+
+Household Income (IN)
+
+Covers information related to agricultural income, non- agricultural
+business income, individual earning, and household income from
+government transfers, private transfers, other household income,
+tax related questions, and overall economic condition.
+
+Household Health Insurance (HI)
+
+Collect household level information about awareness of health
+insurance, type of health insurance, type of coverage and health
+insurance premiums.
+
+3.2 Individual Survey
+The individual survey was collected for each age-eligible respondent at least 45 years of age and their
+spouse regardless of age. A proxy interview is done if the selected respondent is severely cognitively
+or physically impaired or incapable of understanding or responding to human interaction. Proxy
+interviews do not include biomarkers, psychosocial questions, cognitive tests, or experimental
+modules. The individual survey consists of eight modules listed below in Table 4. Respondents
+received one of four experimental modules, which were randomly assigned.
+3.3 Biomarker Data
+The biomarker data was collected for each consenting age-eligible respondent and their spouse in the
+individual survey. Given the lack of health care services in India, biological markers (e.g.
+anthropometrics, blood pressure, and dried blood spots) and performance measures (e.g. gait speed,
+grip strength, balance, and vision) allow researchers to assess the measured health of the respondents.
+
+5 | LASI WAVE 1 – DATA USER GUIDE
+
+Table 4: Description of individual modules
+Individual Modules
+
+Description
+
+Demographics (DM)
+
+Detailed individual demographics (place of birth, caste, education, marital status,
+etc.)
+
+Work, Retirement & Pension
+(WE)
+
+Respondent’s employment status. Cover details about ever worked & current
+work, current main job, job search, last job of current non-workers, social
+insurance, retirement, pension benefits, etc.
+
+Health (HT)
+
+Self-reported health status, diagnosed chronic diseases, functional health, family
+medical history, mental health, cognitive health, and health behaviours.
+
+Health Care Access and
+Utilization (HC)
+
+Collects information regarding in- patient visit, out-patient visit, health insurance,
+quality of care, out of pocket (OOP) expenditure, etc.
+
+Family & Social Networks (FS)
+
+Information related to the relationship with children, grandchildren, parents,
+sibling and friends. This module also collects information on living arrangement,
+available social support, and involvement in social activities, social security
+programs meant for the elderly and psychological measure is collected under family
+and social networks section.
+
+Social Welfare Schemes (SW)
+
+Covers information about the awareness, utilizations of different national and state
+level schemes and programs meant for senior citizens. Amount received under the
+schemes and utilization of this money is also collected. Information on problem
+faced in availing the benefits and grievance system is also collected. Awareness
+about different types of concessions provided by the government to older people
+is also asked.
+
+Experimental Modules
+(TU,EE,ES,EV)
+
+Questions about time use, economic expectations, social connectedness, and
+vignettes.
+
+Biomarkers (BM)
+
+Performance tests (blood pressure, grip strength/hand strength, timed walk,
+balance tests, vision tests), and anthropometrics.
+
+3.4 Community Survey
+It is essential to gather information at the community level (Rural and Urban) in addition to the
+household and individual level information.
+3.4.1. Rural community: Village is the smallest administrative unit in India. The educational, health
+and other infrastructure facilities/amenities vary considerably from village to village. The key
+informants for this schedule were village community head (Sarpanch/Pradhan/UpPradhan/Panchayat Chairperson) and Village Officer/Secretary (administrative person in-charge of
+the village). In addition, the survey team also contacted health personnel (ANM/Medical Officer),
+school teacher, Gram -Sevak and other functionaries available in the village to gather the community
+related information.
+3.4.2. Urban community: LASI envisions collecting some information from urban areas using the
+Urban Community Survey Schedule. The ward level information from the key informant who was
+residing in the area for at least 2 years or knows about the area (elected representative/
+officer/engineer/secretary/medical officer/health worker) specifically about the basic facilities, safety
+and security of the particular ward was contacted. The CEB level information was collected from a
+knowledgeable person of the community who were staying in that CEB for more than 20 years. For
+the section which includes information regarding health, the key informant was any doctor or health
+worker practicing in that area for at least 2 years.
+
+LASI WAVE 1 – DATA USER GUIDE | 6
+
+Table 5: Module-wise respondent’s eligibility criteria
+Module
+
+Sub-section
+
+Eligible respondents for each sections
+Head of the household
+
+CoverScreen/household
+roster
+
+Cover-Screen/Household roster
+
+OR
+Any household member aged 18 and above, having
+some basic knowledge about the household
+members.
+Head of the household
+
+Housing & Environment
+
+OR
+Any household member aged 18 and above and
+most knowledgeable person about the housing
+and environment condition of the household.
+
+Household consumption
+
+Head of the household
+
+Household
+Module
+Household Assets and Debts
+Household Income
+Health Insurance
+
+Demographics
+Family and Social Network
+Individual Module
+
+OR
+Any household member aged 18 and above, who
+has good knowledge of the household finances.
+OR
+Main food purchaser of that household
+
+All persons aged 45 and above and his/her spouse
+irrespective of age.
+
+Social Welfare Schemes
+Health, Health Care Utilization
+Work, Retirement and Pension
+Biomarker, Experimental
+
+4. Ethics and Informed Consent
+As per ethics protocols, consent forms were administered to each HH and age-eligible individual. In
+accordance with Human Subjects Protection, four consent forms were used in the LASI: Household
+Informed Consent, Individual Informed Consent, Consent for Blood Sample Collection for Storage
+and Future Use (DBS), and Proxy Consent.
+
+7 | LASI WAVE 1 – DATA USER GUIDE
+
+5. Conceptual Variables
+5.1 Variable Prefix
+LASI variables are indexed by module and serially by question number. The variable prefix is an
+abbreviated version of the module name. Above tables 3 & 4 lists the variable prefix for each
+household and individual module.
+5.2 Identification variables
+In the household data, hhid uniquely identifies a household. Prim_key uniquely identifies each
+individual within a household, and is unique for each individual in the survey.
+5.3 Household and Individual data
+Four data files have been released: cover-screen (household roster) data, household data, individual
+data and the biomarker data. There are 73,396 records in the individual data and each observation are
+a unique respondent in the LASI survey. Please note that there are 6,537 individuals who did not
+complete the biomarker module. For the household interview, total 43,701 households attempted for
+household interview, of which 43,584 households had completed at least one households module
+(criteria used in LASI and included these households for the analysis), 117 households could not be
+considered as they have not fulfilled the criteria of inclusion. A total of 74,852 individuals have
+attempted the individual schedule. Among these, 73,396 individuals have completed at least one
+individual module, therefore these individuals have considered for analysis. A total of 66,613 eligible
+and non-eligible households are considered for analysing the cover screen as these households have
+given initial consent for conducting the LASI survey.
+Table 6: Number of records in released data files
+Data files
+Cover-screen/Household roster data
+Household data
+Individual data
+
+Number of records
+66,613
+(eligible and non-eligible households)
+43,584
+(Households)
+73,396
+(Individuals)
+
+Please note that the released data includes all HH and individuals who completed at least one module.
+5.3a: Extension of hhid and prim_key
+The variable hhid is given in household data and roster data. The variable hhid along with
+prim_key is given in the individual data and the biomarker data. The HHid or prim_key is 15-digit
+numbers. ex. 102045600120102, the extension of prim_key is given below.
+Starting from left of the 15-digit prim_key
+First digit 1 represent- Wave 1
+02 - State id
+0456 - SSUid (it is unique id)
+0012 - HH structure id
+01 - HH dwelling id
+02 - Household member id
+In case of HH data the hhid extension is same like prim_key extension, except the last two digits is
+00.
+LASI WAVE 1 – DATA USER GUIDE | 8
+
+5.4 Sample Weight
+The LASI sample weights account for selection probabilities and adjusted for non-response and poststratification to accurately represent the population characteristics. The LASI weights are available
+for household data and individual data.
+There are two types of household weight: one is national-level (indiahhweight) that should be used
+to produce estimates at national level; and one is state-level (statehhweight) that should be used to
+provide state level estimates.
+Similarly, there are two types of individual weights are available: one is national-level
+(indiaindividualweight) that should be used to produce nationally representative population
+estimates; and one is state-level (stateindividualweight) that should be used to produce state
+representative estimates.
+5.5 Missing Codes
+Respondents who refused or could not answer the questions are recoded with special missing codes:
+“.d” for “Don’t know”, “.r” for “Refused”, and “.m” for “Missing”. The missing code (.E/.e/.E_) is
+also used in the data for other reasons, including respondents were not asked specific questions, either
+because of survey skip patterns or because respondents were not eligible to answer them.
+5.6 Financial Reporting: Unfolding Brackets
+Like other HRS studies, the LASI survey includes “unfolding bracket” questions to help respondents
+to identify specific monetary evaluations of their assets, earnings, and consumption patterns.
+Unfolding brackets ask respondents to indicate whether the amount in question is above or below a
+certain threshold, randomly chosen from a set of five thresholds. These thresholds were derived from
+National Sample Survey (NSS) to reflect the distribution of various consumption patterns in rural
+and urban settings across the country. Respondents typically proceed through three brackets until an
+upper and lower bound can be identified by deduction.
+Typically, for these unfolding bracket questions, there are seven corresponding auxiliary variables in
+the data. Consider the question ad502 from the Household Assets and Debts module in the household
+LASI interview. It asks the current value of all farming/agriculture assets/equipment that the
+respondent’s household owns.
+Its seven corresponding variables are:
+1. ad502: the amount of the current value of all agriculture assets. The household financial
+respondents were able to provide an exact value without being prompted by the unfolding brackets.
+2. ad502a & ad502a_thres: less than, more than, or about the same value based on the randomly
+assigned bracket thresholds (500, 1500, or 5000).
+3. ad502b & ad502b_thres: less than, more than, or about the same value based on the randomly
+assigned bracket thresholds (1500, 5000, or 40000).
+4. ad502c & ad502c_thres: less than, more than, or about the same value based on the randomly
+assigned bracket thresholds (5000 or 40000).
+
+9 | LASI WAVE 1 – DATA USER GUIDE
+
+5.7 Income Variables
+Data quality assessment indicated that economic data, particularly income data, was the most difficult
+part of LASI questionnaire for field investigators. There was a tendency among some
+households/individuals to underreport their actual income. In some cases, investigator typo error of
+adding more zeros inflated the income i.e. Rs. 5,000 became Rs. 50,000. Both extreme negative
+income and upper values make major difference to the state’s median income. In these cases, data
+cleaning and imputation were required. Household income data imputation was done in case the
+following two types of missing information.
+Case 1
+Households reporting zero income: If any households reported zero income from various sources
+namely, agricultural and allied activities, non-agricultural business or self-employed activities,
+wages/salary, pension, and government transfers, in that case, the cases were matched between the
+individual data file and the household data file. Income information was also collected at individual
+level (Please note that the work section of individual data file gives information about the income for
+each and every individual) and case-wise income data were merged accordingly for the households
+if income was reported in the individual survey. The total income of all individuals of a particular
+household was summed up and this value was replaced in the household section variable showing
+zero income.
+Secondly, in some of the households, zero income was reported for specific sources, essentially
+implying “missing values”. In this case, the median value of that particular SSU was imputed and
+missing values were replaced with source-wise income for the households.
+Third, there were outliers in the reported income (either very high income or very low income). In
+some of the households, income was reported either very high or very low (outliers) from single or
+multiple sources of income. With the help of box plots, data was visualised which depicted the
+presence of outliers. Further, frequency checks were conducted to detect and segregate outlier cases
+(households).
+For households with low or high outliers, work status of individuals, education, land holding & land
+size and business information available for the household were checked. Data was thoroughly
+scrutinised and income imputation was done based on the available information such as type of
+source of income, level of education, type of occupation, place of residence, family size, land use
+and availability of assets.
+Case 2
+Misreporting of income information: For example, screening questions which is the key for income
+from different sources at the household level, inconsistencies were checked with respective sources.
+Screening variables such as in001, in002, in003, in004, in005 which provides information about type
+of activity involved were checked and corrected in case of misreporting. If there was any income
+reported (different sources) for the later set of questions of the subsequent section and there were no
+missing values, then the screening question response was corrected as “1” (yes). In case of no income,
+then the screening variable outcome was corrected as ”2” (no).
+
+L A S I W A V E 1 – D A T A U S E R G U I D E | 10
+
+Comparison with other sources: In consideration of all these cases, the cleaning and imputation of
+income data was done and also the validation of the income data with other available government
+data (Central Statistics Office under the Ministry of Statistics and Programme Implementation) was
+compared. After cleaning and imputation of missing values, it was found that the rank correlation
+was more than 0.9 between LASI HH income and CSO (2017-18) income data across states of India.
+Table 7: Variables used for computing the source-wise income variables by using screening questions.
+Variables used for computation
+in103a in103b in103c in103d in103e in107.
+in107a_thres in107b_thres in107c_thres
+
+Computed variables
+Agriculture_income : Total income from agriculture
+
+in204_1_ in204_2_ in204_3_ in204_4_ in204_5_
+in204_6_ in204_7_ in204_8_ in204_9_ in204_10_
+in204_11_ in204_12_ in204_13_ in204_14_ in204_15_
+in204_16_ in204_17_ in204_18_ in204_19_ in204_20_
+in204a_thres_`o'_ in204b_thres_`o'_
+in204c_thres_`o'_
+
+Non_agriculture_bussiness_income: Total income
+from non- agricultural business
+
+in304_*_1_
+in304_*_2_
+in304_*_3_
+in304_*_4_
+in304_*_5_
+in304_*_6_
+in305a_thres in305b_thres in305c_thres
+
+Wages_salary_income: Total income from wages
+and salaries
+
+in402a_*_
+in402b_*_
+in402c_*_
+in402d_*_
+in402e_*_
+In403a_thres in403b_thres in403c_thres
+
+Pension_income: Total income from pension
+
+in702a in702b in702c in702d in702e in702f in702g
+in702h in702i in702j in702k in702l in702m
+in703a_thres in703b_thres in703c_thres
+in602a in602a_thres in602b in602b_thres in602c
+in602c_thres
+Sum of Agriculture income,
+Non_agriculture_bussiness_income,
+Wages_salary_income, Pension_income,
+Government_transfers, Other_HH_income
+
+Government_transfers: Total income from govt.
+transfers
+Other_HH_income: Total income from other
+sources
+Total_HH_income: Total household income-from all
+sources
+
+5.8 MPCE computation
+In the LASI survey, data on consumption expenditure are collected using the abridged version of the
+consumption schedule of the National Sample Survey (NSS). Sets of 11 and 29 questions on the
+expenditures on food and non-food items, respectively, was used to canvas the sample households.
+Food expenditure was collected based on a reference period of seven days, and non-food expenditure
+was collected based on reference periods of 30 days and 365 days. Food and non-food expenditures
+have been standardised to the 30-day reference period. The monthly per capita consumption
+expenditure (MPCE quintile) is computed and used as the summary measure of consumption.
+Monthly per capita consumption expenditure = Total consumption expenditure/Household size.
+Please note that for calculation of monthly per capita consumption expenditure (MPCE) population
+weight (weight*household size) was used.
+
+11 | L A S I W A V E 1 – D A T A U S E R G U I D E
+
+6. Merging of Data
+The all datasets (household roster, household, individual, biomarker and community) can be merged
+using a prim_key or hhid or ssuid variables given in the datasets as required.
+Note: The count mismatch on merging the individual & housing datasets is possible because there
+are some households where LASI household (housing sections) information has been collected but
+LASI eligible individual has not been interviewed from that household (due to refusal/un-availability
+etc.) and vice versa. Therefore, on merging individual & housing datasets, only matched cases will
+show data from both the files.
+Data merge summary for your referenceHousing dataset count- 43,584
+Individual dataset count- 73,396 (from 43,359 distinct households)
+On merge, matched rows from Individual dataset- 72,270 and from Housing dataset- 42,484
+The mismatch count on merging Household and Individual datasetOn merging Housing and Individual datasets
+
+Mismatch count
+
+Housing data available but no Individual
+data
+
+The housing sections data from 1,100 households
+are available but no LASI eligible individual has
+been interviewed from these households, so no
+individual sections data available for these
+households.
+
+Individual data available but no Housing
+data
+
+The individual sections data for 1,126
+individuals are available but their corresponding
+875 distinct households housing sections data
+not available.
+
+7. Accessing the Data
+7.1 Data Registration
+The LASI released the data through the IIPS website (www.iipsindia.ac.in/lasi ). A data request form
+is available on IIPS website (https://iipsindia.ac.in/content/data-request ), which every user need to
+submit along with a copy of valid photo identity card. The request will be processed by ICT Centre
+of IIPS.
+
+L A S I W A V E 1 – D A T A U S E R G U I D E | 12
+
+References
+International Institute for Population Sciences (IIPS), NPHCE, MoHFW, Harvard T. H. Chan School
+of Public Health (HSPH) and University of Southern California (USC) (2020). Longitudinal
+Ageing Study in India (LASI)Wave 1, 2017-18, India Report, International Institute for
+Population Sciences, Mumbai.
+International Institute for Population Sciences (IIPS) and NPHCE, MoHFW (2020). Longitudinal Ageing
+Study in India (LASI) Wave 1, 2017-18, Factsheets – States/UTs, International Institute for
+Population Sciences, Mumbai.
+
+13 | L A S I W A V E 1 – D A T A U S E R G U I D E
+
+

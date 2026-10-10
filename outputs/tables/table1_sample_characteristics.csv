@@ -1,0 +1,40 @@
+Characteristic,Category,Unweighted_N,Weighted_Pct
+Age Group,45-59,34704,49.77
+Age Group,60-74,25022,38.8
+Age Group,75+,6880,11.42
+Sex,Female,35567,54.06
+Sex,Male,31039,45.94
+Place of Residence,Rural,43240,68.53
+Place of Residence,Urban,23366,31.47
+Social Group / Caste,General/None,16295,24.84
+Social Group / Caste,OBC,25212,46.66
+Social Group / Caste,SC,11014,19.66
+Social Group / Caste,ST,11746,8.84
+Marital Status,Divorced/Separated,1006,1.23
+Marital Status,Married/Partnered,49949,73.86
+Marital Status,Never Married,868,1.19
+Marital Status,Widowed,14780,23.72
+Educational Attainment,Graduate and above,3429,5.19
+Educational Attainment,Higher secondary/Diploma,3175,4.94
+Educational Attainment,Less than primary,7598,10.92
+Educational Attainment,Middle completed,6337,8.35
+Educational Attainment,No formal education,31350,50.62
+Educational Attainment,Primary completed,8761,12.05
+Educational Attainment,Secondary completed,5953,7.93
+Household MPCE Quintile,1,13181,20.86
+Household MPCE Quintile,2,13403,21.24
+Household MPCE Quintile,3,13371,20.49
+Household MPCE Quintile,4,13412,19.42
+Household MPCE Quintile,5,13239,17.99
+Childhood SES,Average,35438,49.32
+Childhood SES,Poor,25605,42.16
+Childhood SES,Pretty well-off,4848,7.77
+Childhood SES,Varied,394,0.76
+Childhood Health,Good,58272,87.46
+Childhood Health,Poor,7369,12.54
+Childhood Bedridden,No,62881,94.25
+Childhood Bedridden,Yes,3370,5.75
+Cumulative Disadvantage Score,0.0,34506,48.19
+Cumulative Disadvantage Score,1.0,26556,44.06
+Cumulative Disadvantage Score,2.0,4003,6.86
+Cumulative Disadvantage Score,3.0,466,0.88

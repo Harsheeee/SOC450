@@ -1,0 +1,17 @@
+Age_group,Outcome,Estimate,CI_lower,CI_upper,N
+45-59,Cognitive impairment (%),7.61,7.0,8.22,32301
+45-59,Depressive symptoms (%),26.28,24.99,27.58,34009
+45-59,"Mem+orient score (mean, 0-28)",17.01,16.85,17.17,32301
+45-59,CES-D score (mean),2.86,2.81,2.91,34009
+60-74,Cognitive impairment (%),15.61,14.58,16.65,22223
+60-74,Depressive symptoms (%),29.1,27.8,30.41,24370
+60-74,"Mem+orient score (mean, 0-28)",15.51,15.38,15.65,22223
+60-74,CES-D score (mean),3.01,2.95,3.06,24370
+75+,Cognitive impairment (%),28.85,26.2,31.5,5257
+75+,Depressive symptoms (%),34.18,31.02,37.33,6446
+75+,"Mem+orient score (mean, 0-28)",13.88,13.65,14.11,5257
+75+,CES-D score (mean),3.27,3.15,3.39,6446
+All,Cognitive impairment (%),12.79,12.03,13.54,59781
+All,Depressive symptoms (%),28.24,27.19,29.28,64825
+All,"Mem+orient score (mean, 0-28)",16.13,16.0,16.25,59781
+All,CES-D score (mean),2.96,2.92,3.0,64825

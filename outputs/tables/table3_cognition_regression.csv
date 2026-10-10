@@ -1,0 +1,17 @@
+Outcome,Model,Parameter,PR,CI_lower,CI_upper,p_value,N_obs
+Cognitive Impairment,Model 0: Unadjusted,"C(childhood_ses, Treatment('Pretty well-off'))[T.Average]",1.126,0.933,1.359,0.2165,60391
+Cognitive Impairment,Model 0: Unadjusted,"C(childhood_ses, Treatment('Pretty well-off'))[T.Poor]",1.93,1.562,2.383,0.0,60391
+Cognitive Impairment,Model 1: Demographics,"C(childhood_ses, Treatment('Pretty well-off'))[T.Average]",1.128,0.931,1.367,0.2186,58265
+Cognitive Impairment,Model 1: Demographics,"C(childhood_ses, Treatment('Pretty well-off'))[T.Poor]",1.653,1.334,2.049,0.0,58265
+Cognitive Impairment,Model 2: Adult SES (Primary),"C(childhood_ses, Treatment('Pretty well-off'))[T.Average]",0.853,0.736,0.989,0.035,58265
+Cognitive Impairment,Model 2: Adult SES (Primary),"C(childhood_ses, Treatment('Pretty well-off'))[T.Poor]",1.057,0.902,1.239,0.4909,58265
+Cognitive Impairment,Model 3: Adult Health,"C(childhood_ses, Treatment('Pretty well-off'))[T.Average]",0.855,0.738,0.991,0.0369,58254
+Cognitive Impairment,Model 3: Adult Health,"C(childhood_ses, Treatment('Pretty well-off'))[T.Poor]",1.036,0.886,1.212,0.6561,58254
+Cognitive Impairment,Model 0: Unadjusted,"C(childhood_health, Treatment('Good'))[T.Poor]",1.133,0.946,1.356,0.1751,60377
+Cognitive Impairment,Model 1: Demographics,"C(childhood_health, Treatment('Good'))[T.Poor]",1.103,0.94,1.294,0.2307,58253
+Cognitive Impairment,Model 2: Adult SES (Primary),"C(childhood_health, Treatment('Good'))[T.Poor]",1.058,0.894,1.252,0.5152,58253
+Cognitive Impairment,Model 3: Adult Health,"C(childhood_health, Treatment('Good'))[T.Poor]",1.051,0.893,1.237,0.5487,58243
+Cognitive Impairment,Model 0: Unadjusted,"C(childhood_bedridden, Treatment('No'))[T.Yes]",0.925,0.781,1.096,0.3691,60344
+Cognitive Impairment,Model 1: Demographics,"C(childhood_bedridden, Treatment('No'))[T.Yes]",0.97,0.829,1.135,0.7033,58221
+Cognitive Impairment,Model 2: Adult SES (Primary),"C(childhood_bedridden, Treatment('No'))[T.Yes]",1.024,0.873,1.201,0.7723,58221
+Cognitive Impairment,Model 3: Adult Health,"C(childhood_bedridden, Treatment('No'))[T.Yes]",1.005,0.849,1.191,0.9517,58210

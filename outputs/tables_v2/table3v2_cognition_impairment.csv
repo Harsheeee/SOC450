@@ -1,0 +1,17 @@
+Outcome,Exposure,Model,Estimate,CI_lower,CI_upper,p_value,Metric,N
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood SES: Average (vs well-off),Model 0: Unadjusted,0.969,0.818,1.147,0.7111,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood SES: Average (vs well-off),Model 1: Demographics + state,0.978,0.841,1.138,0.7766,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood SES: Average (vs well-off),Model 2: + Adult SES (Primary),0.797,0.703,0.905,0.0004,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood SES: Average (vs well-off),Model 3: + Adult health (Pathway),0.804,0.71,0.912,0.0007,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood SES: Poor (vs well-off),Model 0: Unadjusted,1.611,1.327,1.955,0.0,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood SES: Poor (vs well-off),Model 1: Demographics + state,1.356,1.156,1.59,0.0002,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood SES: Poor (vs well-off),Model 2: + Adult SES (Primary),0.928,0.818,1.052,0.241,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood SES: Poor (vs well-off),Model 3: + Adult health (Pathway),0.912,0.805,1.033,0.1477,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 0: Unadjusted,0.974,0.813,1.166,0.7727,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 1: Demographics + state,0.975,0.85,1.118,0.7193,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 2: + Adult SES (Primary),0.949,0.82,1.099,0.4867,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood health: Fair/Poor/Very poor (vs Good/Very good),Model 3: + Adult health (Pathway),0.948,0.823,1.092,0.4576,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood bedridden ≥1 month (vs No),Model 0: Unadjusted,0.904,0.769,1.063,0.2218,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood bedridden ≥1 month (vs No),Model 1: Demographics + state,0.938,0.808,1.09,0.4044,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood bedridden ≥1 month (vs No),Model 2: + Adult SES (Primary),1.005,0.86,1.176,0.9466,PR,57245
+"Cognitive impairment (lowest weighted decile, mem+orient)",Childhood bedridden ≥1 month (vs No),Model 3: + Adult health (Pathway),0.986,0.838,1.161,0.8682,PR,57245

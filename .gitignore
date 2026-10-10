@@ -1,0 +1,56 @@
+# Python environment and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+*.egg-info/
+
+# Raw Microdata (Restricted access, large files >1GB)
+# Download official LASI Wave 1 data from IIPS / Gateway to Global Aging
+dataset/*.dta
+dataset/*.pdf
+data_intermediate/*
+!data_intermediate/.gitkeep
+data_analysis/*.csv
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor and IDE configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# LaTeX auxiliary files (generated during compilation)
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.synctex.gz
+
+# Temporary directories and packages
+tmp/
+scratch/
+*.zip
+report/*.html

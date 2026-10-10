@@ -1,0 +1,5 @@
+Age_Group,N_Eligible,Depression_Prev_Weighted_Pct,Depression_Prev_SE,CESD_Score_Mean,Cognitive_Imp_Prev_Weighted_Pct,Cognitive_Imp_SE,Cognitive_Score_Mean
+Overall,66606,28.24,0.18,2.96,11.64,2.7,24.7
+45-59,34704,26.28,0.24,2.86,6.7,3.53,26.1
+60-74,25022,29.1,0.29,3.01,13.7,4.29,23.8
+75+,6880,34.18,0.59,3.27,29.17,9.27,20.93
