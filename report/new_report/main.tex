@@ -1,0 +1,84 @@
+\documentclass[11pt,a4paper]{article}
+
+%% ── Page Layout and Geometry ──────────────────────────────────────────
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+%% ── Math and Fonts ────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb}
+\usepackage{microtype}
+
+%% ── Graphics and Colors ───────────────────────────────────────────────
+\usepackage{graphicx}
+\graphicspath{{figures/}{report/figures/}{./}}
+\usepackage{xcolor}
+\definecolor{navyblue}{RGB}{16, 44, 87}
+\definecolor{darkslate}{RGB}{35, 45, 60}
+\definecolor{lightgrey}{RGB}{245, 247, 250}
+\definecolor{accentblue}{RGB}{30, 86, 160}
+
+%% ── Tables and Captions ───────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{font={small,stretch=1.15},labelfont={bf,color=navyblue},skip=8pt}
+
+%% ── Lists and Formatting ──────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist{itemsep=3pt,topsep=4pt}
+\usepackage{float}
+\usepackage{titlesec}
+
+%% ── Section Header Styling ───────────────────────────────────────────
+\titleformat{\section}{\large\bfseries\color{navyblue}}{\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries\color{darkslate}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\small\bfseries\color{darkslate}}{\thesubsubsection}{1em}{}
+
+%% ── Hyperlinks ────────────────────────────────────────────────────────
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentblue,
+    citecolor=accentblue,
+    urlcolor=accentblue,
+    pdfauthor={SOC450 Research Group},
+    pdftitle={Early-Life Disadvantage and Later-Life Mental and Cognitive Health in India}
+}
+
+%% ── Document Body ─────────────────────────────────────────────────────
+\begin{document}
+
+\input{sections/00_cover_and_abstract}
+\newpage
+
+\input{sections/01_introduction}
+\newpage
+
+\input{sections/02_conceptual_primer}
+\newpage
+
+\input{sections/03_data_and_methodology}
+\newpage
+
+\input{sections/04_descriptive_results}
+\newpage
+
+\input{sections/05_primary_regression_results}
+\newpage
+
+\input{sections/06_age_heterogeneity_and_extension}
+\newpage
+
+\input{sections/07_sensitivity_analyses}
+\newpage
+
+\input{sections/08_discussion_and_policy}
+\newpage
+
+\input{sections/09_conclusions_and_references}
+
+\end{document}

@@ -39,24 +39,30 @@ echo "[Step 2/5] Fitting sequential survey-weighted models, interactions & IPW..
 $PYTHON code/08_models_v2.py
 
 # Step 3: Visualizations & Forest Plots
-echo "[Step 3/5] Generating sequential model forest plots..."
+echo "[Step 3/6] Generating sequential model forest plots..."
 $PYTHON code/09_forest_plot_v2.py
 
-# Step 4: Markdown Research Report
-echo "[Step 4/5] Compiling Markdown research report..."
-$PYTHON code/10_generate_report_v2.py
+# Step 4: Social Mobility Trajectory Models
+echo "[Step 4/6] Estimating life-course social mobility models & figures..."
+$PYTHON code/12_social_mobility.py
 
-# Step 5: LaTeX Master Document
-echo "[Step 5/5] Generating publication LaTeX report..."
+# Step 5: Continuous Cognitive Sensitivity Extension
+if [ -f "extension/01_cognitive_sensitivity.py" ]; then
+    echo "[Step 5/6] Running continuous cognitive domain sensitivity extension..."
+    $PYTHON extension/01_cognitive_sensitivity.py
+fi
+
+# Step 6: Reports
+echo "[Step 6/6] Compiling summary research reports..."
+$PYTHON code/10_generate_report_v2.py
 $PYTHON code/11_generate_latex_report.py
 
 echo "========================================================================"
 echo "Replication pipeline completed successfully!"
 echo "Outputs available in:"
 echo " - Tables:     outputs/tables_v2/"
-echo " - Figures:    outputs/figures_v2/ and report/figures/"
-echo " - Report:     report/final_research_report_v2.md"
-echo " - LaTeX:      report/final_research_report.tex"
-echo " - PDF:        report/final_research_report_v2.pdf"
+echo " - Figures:    outputs/figures_v2/ and report/new_report/figures/"
+echo " - LaTeX:      report/new_report/main.tex (Master Modular Manuscript)"
+echo " - Monolithic: report/final_research_report.tex & report/final_research_report_v2.md"
 echo "========================================================================"
 

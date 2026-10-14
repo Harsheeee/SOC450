@@ -1,0 +1,25 @@
+Outcome,Model,Trajectory,PR,CI_lower,CI_upper,p_value,N
+Cognitive Impairment,Model 0: Unadjusted,Persistently Affluent (Reference),1.0,1.0,1.0,,57245
+Cognitive Impairment,Model 0: Unadjusted,Downwardly Mobile,1.525,1.329,1.751,0.0,57245
+Cognitive Impairment,Model 0: Unadjusted,Upwardly Mobile,1.763,1.537,2.023,0.0,57245
+Cognitive Impairment,Model 0: Unadjusted,Persistently Poor,2.184,1.901,2.51,0.0,57245
+Cognitive Impairment,Model A: Demographics + State,Persistently Affluent (Reference),1.0,1.0,1.0,,57245
+Cognitive Impairment,Model A: Demographics + State,Downwardly Mobile,1.427,1.273,1.6,0.0,57245
+Cognitive Impairment,Model A: Demographics + State,Upwardly Mobile,1.505,1.332,1.7,0.0,57245
+Cognitive Impairment,Model A: Demographics + State,Persistently Poor,1.752,1.562,1.964,0.0,57245
+Cognitive Impairment,Model B: + Adult Education,Persistently Affluent (Reference),1.0,1.0,1.0,,57245
+Cognitive Impairment,Model B: + Adult Education,Downwardly Mobile,1.184,1.072,1.308,0.0009,57245
+Cognitive Impairment,Model B: + Adult Education,Upwardly Mobile,1.196,1.072,1.333,0.0013,57245
+Cognitive Impairment,Model B: + Adult Education,Persistently Poor,1.278,1.149,1.421,0.0,57245
+Depressive Symptoms,Model 0: Unadjusted,Persistently Affluent (Reference),1.0,1.0,1.0,,62047
+Depressive Symptoms,Model 0: Unadjusted,Downwardly Mobile,1.076,0.996,1.163,0.0646,62047
+Depressive Symptoms,Model 0: Unadjusted,Upwardly Mobile,1.1,1.011,1.198,0.0271,62047
+Depressive Symptoms,Model 0: Unadjusted,Persistently Poor,1.116,1.025,1.215,0.0113,62047
+Depressive Symptoms,Model A: Demographics + State,Persistently Affluent (Reference),1.0,1.0,1.0,,62047
+Depressive Symptoms,Model A: Demographics + State,Downwardly Mobile,1.104,1.015,1.201,0.0209,62047
+Depressive Symptoms,Model A: Demographics + State,Upwardly Mobile,1.147,1.037,1.268,0.0076,62047
+Depressive Symptoms,Model A: Demographics + State,Persistently Poor,1.177,1.07,1.296,0.0009,62047
+Depressive Symptoms,Model B: + Adult Education,Persistently Affluent (Reference),1.0,1.0,1.0,,62047
+Depressive Symptoms,Model B: + Adult Education,Downwardly Mobile,1.064,0.975,1.161,0.1624,62047
+Depressive Symptoms,Model B: + Adult Education,Upwardly Mobile,1.099,0.995,1.214,0.0624,62047
+Depressive Symptoms,Model B: + Adult Education,Persistently Poor,1.105,0.998,1.223,0.0537,62047

@@ -1,0 +1,129 @@
+%% =========================================================================
+%% Section 7: Methodological Sensitivity and Robustness Analyses
+%% =========================================================================
+
+\section{Methodological Sensitivity and Robustness Analyses}
+
+To establish that our empirical findings are not artifacts of specific analytical choices, variable cutoffs, or sample definitions, we subjected all models to an extensive suite of sensitivity and robustness tests.
+
+\subsection{Response Modeling and Inverse-Probability Weighting (IPW)}
+As documented in the methodology section, 7.8\% of eligible non-proxy respondents had incomplete direct cognitive assessments, with missingness concentrated among adults aged 75+ (19.9\%) and unschooled respondents (13.3\%). If individuals with missing cognitive scores had systematic, unobserved cognitive deficits correlated with early childhood poverty, complete-case analyses could potentially suffer from selection bias.
+
+To address this, we estimated a multivariable survey-weighted logistic response model predicting complete cognitive assessment among all direct interviewees ($N = 66{,}606$) as a function of childhood exposures, demographic characteristics, state fixed effects, adult education, consumption expenditure, and physical health conditions (Table~\ref{tab:ipw_response}).
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Multivariable Logistic Model Predicting Complete Cognitive Assessment ($\mathbf{N=66{,}606}$).}}
+\label{tab:ipw_response}
+\resizebox{0.88\textwidth}{!}{%
+\begin{tabular}{lccc}
+\toprule
+\textbf{Predictor Variable} & \textbf{Comparison Level (vs. Reference)} & \textbf{Odds Ratio (OR)} & \textbf{\textit{p}-value} \\
+\midrule
+Gender & Female (vs. Male) & 0.903 & $0.003$ \\
+Sector & Urban (vs. Rural) & 1.188 & $<0.001$ \\
+Social Group (Caste) & Scheduled Tribe (vs. General/None) & 0.718 & $<0.001$ \\
+                     & Scheduled Caste (vs. General/None) & 1.021 & $0.693$ \\
+                     & Other Backward Classes (vs. General) & 1.017 & $0.711$ \\
+\addlinespace
+Educational Attainment & Less than primary (vs. None) & 1.624 & $<0.001$ \\
+                       & Primary completed (vs. None) & 2.025 & $<0.001$ \\
+                       & Middle completed (vs. None)  & 2.289 & $<0.001$ \\
+                       & Secondary completed (vs. None) & 3.277 & $<0.001$ \\
+                       & Higher secondary/Diploma (vs. None) & 3.574 & $<0.001$ \\
+                       & Graduate and above (vs. None) & 4.168 & $<0.001$ \\
+\addlinespace
+Household MPCE Quintile & Quintile 2 (vs. Quintile 1, Poorest) & 1.063 & $0.165$ \\
+                        & Quintile 3 (vs. Quintile 1)          & 1.135 & $0.005$ \\
+                        & Quintile 4 (vs. Quintile 1)          & 1.347 & $<0.001$ \\
+                        & Quintile 5 (vs. Quintile 1, Richest) & 1.381 & $<0.001$ \\
+\addlinespace
+General Physical Health & Poor Self-Rated Health (vs. Excellent) & 0.567 & $<0.001$ \\
+Childhood SES           & Poor Childhood SES (vs. Well-off)    & 1.148 & $0.026$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+The response model demonstrates that missingness is \textbf{strongly informative}: higher education increases test completion odds up to 4-fold ($\text{OR} = 4.17, p < 0.001$), while Scheduled Tribe respondents ($\text{OR} = 0.72, p < 0.001$) and individuals in poor health ($\text{OR} = 0.57, p < 0.001$) are substantially less likely to complete the battery. 
+
+To correct for this non-random response pattern, inverse-probability weights ($w_i^{\text{IPW}}$) were calculated and trimmed at the 99th percentile to prevent extreme weights, and applied to re-estimate primary Model B (Table~\ref{tab:ipw}).
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Comparison of Complete-Case vs. Inverse-Probability-Weighted (IPW) Model B Cognitive Estimates ($\mathbf{N=57{,}245}$).}}
+\label{tab:ipw}
+\resizebox{0.85\textwidth}{!}{%
+\begin{tabular}{lcc}
+\toprule
+\textbf{Childhood Exposure Parameter} & \textbf{Complete-Case APR (95\% CI)} & \textbf{IPW-Adjusted APR (95\% CI)} \\
+\midrule
+Childhood SES: Average & 0.797 (0.703 -- 0.905) & 0.799 (0.708 -- 0.903) \\
+Childhood SES: Poor & \textbf{0.928 (0.818 -- 1.052)} & \textbf{0.928 (0.821 -- 1.049)} \\
+\midrule
+Childhood health: Fair/Poor/Very poor & 0.949 (0.820 -- 1.099) & 0.942 (0.811 -- 1.094) \\
+Childhood health: Poor/Very poor (orig) & 1.070 (0.813 -- 1.408) & 1.051 (0.801 -- 1.378) \\
+Childhood bedridden $\ge$1 month & 1.005 (0.860 -- 1.176) & 1.003 (0.861 -- 1.169) \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+As shown in Table~\ref{tab:ipw}, the complete-case and IPW-adjusted effect estimates are \textbf{virtually identical down to the third decimal place} (Poor childhood SES $\text{APR} = 0.928$ in both specifications). This demonstrates that under the standard Missing at Random (MAR) assumption, differential test completion does not distort the substantive conclusion that early childhood SES associations with memory-orientation impairment attenuate to the null.
+
+\subsection{The Cognitive Battery Conundrum: Sensitivity to Test Construction}
+A pivotal methodological finding of this study is that conclusions regarding cognitive attenuation in low- and middle-income countries depend critically on \textbf{how the cognitive battery is constructed}. Table~\ref{tab:s4a} compares childhood SES associations across four alternative definitions of the cognitive outcome.
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Sensitivity to Cognitive Outcome Definition: Prevalence Ratios (95\% CI) for Poor Childhood SES (vs. Well-off).}}
+\label{tab:s4a}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcc}
+\toprule
+\textbf{Cognitive Outcome Definition} & \textbf{Model A PR (95\% CI)} & \textbf{Model B PR (95\% CI)} \\
+\midrule
+\textbf{Primary Battery:} Lowest weighted decile, mem+orient (0--28) & 1.356 (1.156--1.590)$^{***}$ & \textbf{0.928 (0.818--1.052)} \\
+\textbf{Skip-Aware Full Battery:} Lowest decile (\% of max administered) & 1.970 (1.604--2.420)$^{***}$ & \textbf{1.294 (1.068--1.569)$^{**}$} \\
+\textbf{Schooling-Stratum Decile:} Mem+orient, stratum-specific decile & 0.903 (0.781--1.045) & \textbf{1.001 (0.858--1.167)} \\
+\textbf{Original Composite:} Literacy-unadjusted composite (skips scored 0) & 1.653 (1.343--2.035)$^{***}$ & \textbf{1.044 (0.891--1.222)} \\
+\bottomrule
+\multicolumn{3}{l}{\footnotesize $^{***}\ p < 0.001$, $^{**}\ p < 0.01$. Model A: age, sex, residence, caste, state FE. Model B: + adult education and MPCE.} \\
+\end{tabular}%
+}
+\end{table}
+
+The comparisons in Table~\ref{tab:s4a} yield vital insights into measurement confounding:
+\begin{enumerate}
+    \item \textbf{Residual Confounding in Full Battery:} When complex arithmetic (serial 7s, backward counting) and graphic drawing tasks are included (row 2), poor childhood SES remains significantly associated with impairment ($\text{APR} = 1.294$, 95\% CI: 1.068--1.569, $p = 0.009$) even after adult education adjustment. This occurs because pencil-and-paper and mental calculation tasks capture procedural literacy and test familiarity that standard categorical education controls cannot fully absorb.
+    \item \textbf{Complete Equalization in Schooling-Stratum Deciles:} When cognitive impairment is defined relative only to peers with identical schooling (row 3), the childhood SES penalty disappears entirely even in Model A ($\text{PR} = 0.903, p = 0.171$) and is precisely null in Model B ($\text{PR} = 1.001, p = 0.991$). This confirms that childhood socioeconomic disparities in cognition operate almost exclusively through differential access to schooling.
+    \item \textbf{Primary Battery Appropriateness:} Our primary memory-and-orientation metric (row 1) avoids both the artifactual confounding of arithmetic tests and the insensitivity of within-stratum definitions, offering a fair and culturally robust measure of neuro-cognitive health.
+\end{enumerate}
+
+\subsection{Stratification by Adult Schooling Status (Schooling-Specific Models)}
+To isolate whether childhood poverty leaves cognitive traces independent of formal educational attainment, we stratified the common analytic sample into respondents who never attended school versus those with any formal schooling.
+
+\begin{enumerate}
+    \item \textbf{Adults with No Formal Education ($n = 25{,}684$):} Among unschooled elders, poor childhood SES was not associated with binary cognitive impairment ($\text{APR} = 0.909$, 95\% CI: 0.788--1.048, $p = 0.188$). However, on the continuous memory-orientation scale, poor childhood SES was associated with a \textbf{statistically significant memory deficit} of \textbf{$-0.386$ points} (95\% CI: $-0.725$ to $-0.047$, $p = 0.026$). This reveals that among individuals who never had the protective benefit of formal schooling, early poverty leaves a subtle, persistent deficit in episodic recall capacity.
+    \item \textbf{Adults with Formal Schooling ($n = 31{,}561$):} Among adults who attended school, poor childhood SES showed no association with binary cognitive impairment ($\text{APR} = 0.992$, 95\% CI: 0.761--1.292, $p = 0.950$) and no significant deficit on the continuous scale ($\beta = -0.183$, 95\% CI: $-0.469$ to $+0.102$, $p = 0.208$). Acquiring formal education effectively insulated individuals from childhood socioeconomic deficits across all cognitive metrics.
+\end{enumerate}
+
+\subsection{Modified Poisson vs. Logistic Regression: Preventing Risk Exaggeration}
+To illustrate why modified Poisson regression was methodologically required, we compared our primary Poisson Prevalence Ratios (PR) with Adjusted Odds Ratios (AOR) from conventional logistic regression:
+\begin{itemize}
+    \item For depressive symptoms (weighted prevalence 28.2\%), poor childhood health produced an \textbf{Adjusted Odds Ratio of 1.33} (95\% CI: 1.12--1.58).
+    \item In contrast, the modified Poisson model produced an \textbf{Adjusted Prevalence Ratio of 1.20} (95\% CI: 1.07--1.34).
+\end{itemize}
+Because more than a quarter of the population has depressive symptoms, the Odds Ratio overstates the relative risk elevation by 65\% ($+33\%$ vs. $+20\%$). Modified Poisson regression provides policymakers with the true, uninflated relative increase in disease burden.
+
+\subsection{Additional Robustness Checks}
+All substantive conclusions remained invariant across several additional checks:
+\begin{itemize}
+    \item \textbf{Continuous Depression Scale:} Using continuous CES-D scores (0--10) in survey linear regressions, poor childhood health was associated with a $+0.365$ point elevation ($p < 0.001$), poor childhood SES with a $+0.324$ point elevation ($p < 0.001$), and bedridden illness with a $+0.210$ point elevation ($p = 0.004$).
+    \item \textbf{Exclusion of Centenarians:} Re-running models after excluding 58 centenarians (aged $\ge 100$) produced identical estimates for depression ($\text{APR} = 1.207$, 95\% CI: 1.031--1.414, $p = 0.019, N = 62{,}011$) and cognition ($\text{APR} = 0.928$, 95\% CI: 0.818--1.052, $p = 0.242, N = 57{,}226$).
+    \item \textbf{Varied Childhood SES:} Retaining the 394 respondents who reported that their childhood finances ``varied'' as a distinct category yielded $\text{APR} = 1.180$ (95\% CI: 0.889--1.566, $p = 0.253$) for depression and $\text{APR} = 1.392$ (95\% CI: 0.933--2.076, $p = 0.105$) for cognition, with primary coefficients remaining unchanged.
+    \item \textbf{Original Childhood Health Coding:} Applying the narrow published dichotomy (Poor/Very poor [1.6\%] vs. the rest [98.4\%]) yielded a stronger association with depression ($\text{APR} = 1.42$, 95\% CI: 1.21--1.66, $p < 0.001$) and remained null for cognition ($\text{APR} = 1.07, p = 0.629$).
+\end{itemize}

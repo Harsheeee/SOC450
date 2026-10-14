@@ -1,0 +1,59 @@
+%% =========================================================================
+%% Section 2: Conceptual Primer and Methodological Glossary
+%% =========================================================================
+
+\section{Conceptual Primer: Understanding the Study in Simple Terms}
+
+To make the empirical findings of this project accessible to students, interdisciplinary scholars, and policymakers, this section provides intuitive, non-technical explanations of the core epidemiological, survey, and statistical concepts utilized throughout the report. While the underlying mathematics is rigorous, the substantive ideas are straightforward and grounded in common sense.
+
+\subsection{Life-Course Concepts: How Childhood Shapes Old Age}
+
+\begin{description}[leftmargin=0.5cm, style=nextline]
+    \item[\textbf{1. The Biological Scarring Idea (Sensitive Period):}]
+    Think of the human body during the first few years of life as a newly cast concrete foundation. If the foundation cures under severe stress—such as prolonged childhood starvation, severe malaria, or severe domestic distress—micro-fissures become permanently embedded within its internal structure. Decades later, when the structure experiences the normal physical wear and tear of old age, those hidden fissures re-open. In biological terms, early physiological shocks can permanently reprogram the nervous system, stress hormones, and blood vessels, leaving an individual more prone to depression or vascular decline 50 to 70 years later, even if they become wealthy in adult life.
+
+    \item[\textbf{2. The Chain of Hardship (Cumulative Disadvantage):}]
+    This is the familiar ``domino effect'' of poverty. A child born into an impoverished village often leaves school early to help support the family. Without formal schooling, that individual spends 40 years performing demanding, low-wage manual labor. Low wages mean substandard housing, poor drinking water, limited medical care, and continuous financial anxiety. By the time this individual reaches age 60, their physical and mental capacities have been worn down not by a single shock, but by the relentless accumulation of small daily hardships over a lifetime.
+
+    \item[\textbf{3. The Survivor Paradox (Selective Survival or Mortality Selection):}]
+    In mid-20th-century India, before modern antibiotics, universal vaccination, and primary healthcare clinics existed, infant and child mortality rates were tragically high. Children born into extreme poverty faced severe risks of dying before reaching adulthood. Consequently, the impoverished individuals who successfully survived all the way to age 75 or 80 in our survey represent an exceptionally robust, biologically resilient subgroup. Conversely, wealthy children faced lower childhood mortality, so less hardy individuals among the wealthy survived into late life. In a survey taken today, this can make the poorest 80-year-olds look surprisingly healthy or mentally sharp compared to their wealthy peers—a statistical illusion known as \textbf{mortality selection} or \textbf{survivor bias}.
+
+    \item[\textbf{4. Cross-Sectional Snapshot (Why We Talk About ``Associations'', Not ``Causes''):}]
+    The LASI Wave 1 survey is a cross-sectional study: it took a single snapshot of the Indian population between 2017 and 2018. We interviewed 45-year-olds, 65-year-olds, and 85-year-olds at the exact same moment in time. Because we did not follow the same individuals forward year after year as they aged, we cannot observe individual cognitive decline happening in real time. Therefore, scientific honesty requires that we speak strictly of \textbf{cross-sectional associations} rather than claiming that childhood poverty definitively \textit{caused} dementia in any specific person.
+\end{description}
+
+\subsection{Survey Methodology: How We Accurately Sampled India}
+
+\begin{description}[leftmargin=0.5cm, style=nextline]
+    \item[\textbf{1. Why Not a Simple Random Sample? (Clusters and Strata):}]
+    India has over 1.4 billion residents. Surveyors cannot simply pull random names from a national registry and travel across the country to find them. Instead, LASI used \textbf{multistage stratified cluster sampling}. First, India was divided into 72 regional ``buckets'' (called \textbf{strata}), separating the rural and urban areas of every State and Union Territory. Within each stratum, surveyors randomly picked specific rural villages and urban neighborhoods (called \textbf{clusters} or Secondary Sampling Units, SSUIDs). Interviewers then surveyed households within those selected villages. This ensures that every corner of India, from rural Nagaland to urban Mumbai, is fairly represented.
+
+    \item[\textbf{2. Sampling Weights (Making Every Voice Count Proportionally):}]
+    If surveyors interviewed the same number of people in a tiny state like Goa (population 1.5 million) as in a massive state like Uttar Pradesh (population 230 million), simply adding up the raw responses would heavily over-represent Goa. To fix this, every participant is assigned a mathematical \textbf{survey weight}. A participant from an oversampled small state represents a smaller group of citizens, while a participant from an undersampled populous state represents a larger group. When we calculate national percentages using these weights, the results accurately mirror the real demographic makeup of India.
+
+    \item[\textbf{3. Cluster-Robust Standard Errors (The ``Neighbor Effect''):}]
+    People who live in the same village often share the exact same water well, breathe the same air, experience the same local crop failures, and visit the same local clinic. Their health answers are therefore correlated with one another. If a statistician ignored this clustering and assumed everyone was completely independent, the statistical margin of error would look artificially tiny, leading to false confidence. We used \textbf{Taylor series linearization} to adjust our standard errors for village-level clustering, ensuring that all reported confidence intervals and $p$-values are statistically trustworthy.
+
+    \item[\textbf{4. Proxy Interviews:}]
+    When an older adult was bedridden, speech-impaired, severely demented, or deaf, an informed family member (a \textbf{proxy}) answered the survey questions on their behalf. However, a family member cannot perform a memory recall test for someone else. Therefore, proxy respondents ($N=705$) were legitimately excluded from direct cognitive testing, a nuance we carefully account for in our models.
+\end{description}
+
+\subsection{Clinical Metrics and Test Measurement}
+
+\begin{description}[leftmargin=0.5cm, style=nextline]
+    \item[\textbf{1. Measuring Depression: The 10-Item CES-D Scale:}]
+    Depression in large population surveys cannot be diagnosed through private clinical psychiatric evaluations. Instead, researchers use the internationally validated \textbf{CES-D-10 scale}. Surveyors ask 10 simple questions about how the person felt during the past week: Did you feel depressed? Was everything an effort? Was your sleep restless? Did you feel lonely? Did you feel happy? Responses are scored from 0 to 10. A score of \textbf{4 or higher} is the clinical benchmark indicating significant depressive symptoms warranting psychological attention.
+
+    \item[\textbf{2. Measuring Cognition and The ``Item-Skip'' Challenge:}]
+    In standard cognitive tests designed in Western countries, participants are asked to count backwards from 100 by sevens ($100, 93, 86\dots$), write sentences, or read instructions. In India, over 50\% of older adults never had the opportunity to attend school and cannot read or perform formal mental arithmetic. Official LASI survey administration guidelines correctly directed interviewers to skip these arithmetic tasks for illiterate elders so as not to cause distress. However, if an analyst marks these skipped questions as ``zero points'' (failures), the test no longer measures cognitive brain health; it simply measures whether the person had the privilege of going to school! To address this measurement challenge, our primary cognitive test focuses on \textbf{episodic memory} (remembering common spoken words) and \textbf{orientation} (knowing what day, month, and place you are in)—tasks that can be administered universally regardless of formal schooling.
+\end{description}
+
+\subsection{Statistical Measures in Plain English}
+
+\begin{description}[leftmargin=0.5cm, style=nextline]
+    \item[\textbf{1. Prevalence Ratio (PR) vs. Odds Ratio (OR):}]
+    In popular media and medical reports, researchers frequently report \textbf{Odds Ratios}. However, when a health condition is common (like depression, which affects 28\% of older Indians), Odds Ratios drastically exaggerate the true risk. An Odds Ratio of $1.50$ sounds like a 50\% increase in risk, but the actual proportion of depressed people might only rise by 20\%. To provide clear, honest numbers, we used \textbf{Modified Poisson Regression}, which gives the \textbf{Prevalence Ratio (PR)}. A PR of $1.20$ means exactly what it sounds like: the group has a \textbf{20\% higher rate of depression} than the reference group.
+
+    \item[\textbf{2. Monthly Per Capita Consumption Expenditure (MPCE):}]
+    In rural India, asking an older farmer ``What was your income last year?'' yields unreliable answers due to irregular harvests, seasonal wages, and barter economies. Economists therefore use \textbf{MPCE}—the total amount the household spent on food, clothing, energy, and healthcare over the past month, divided by family size. It is the gold-standard indicator of actual material living standards in India.
+\end{description}
