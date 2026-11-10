@@ -1,0 +1,25 @@
+Exposure,Category,Outcome,Unweighted_N,Weighted_Prev_Pct,SE
+childhood_ses,Poor,cesd_depression,25001,29.47,0.29
+childhood_ses,Pretty well-off,cesd_depression,4743,24.8,0.63
+childhood_ses,Average,cesd_depression,34643,27.61,0.24
+childhood_ses,Varied,cesd_depression,378,35.66,2.46
+childhood_ses,Poor,cognitive_impairment,22947,15.41,0.24
+childhood_ses,Pretty well-off,cognitive_impairment,4467,7.99,0.41
+childhood_ses,Average,cognitive_impairment,32977,8.99,0.16
+childhood_ses,Varied,cognitive_impairment,358,17.32,2.0
+childhood_health,Poor,cesd_depression,7288,36.6,0.56
+childhood_health,Good,cesd_depression,57504,27.07,0.19
+childhood_health,Poor,cognitive_impairment,6827,13.16,0.41
+childhood_health,Good,cognitive_impairment,53932,11.42,0.14
+childhood_bedridden,No,cesd_depression,61435,27.97,0.18
+childhood_bedridden,Yes,cesd_depression,3306,32.29,0.81
+childhood_bedridden,No,cognitive_impairment,57617,11.64,0.13
+childhood_bedridden,Yes,cognitive_impairment,3103,10.72,0.56
+cumulative_disadvantage,2.0,cesd_depression,3957,34.92,0.76
+cumulative_disadvantage,1.0,cesd_depression,26230,29.28,0.28
+cumulative_disadvantage,0.0,cesd_depression,34043,26.05,0.24
+cumulative_disadvantage,3.0,cesd_depression,464,42.91,2.3
+cumulative_disadvantage,2.0,cognitive_impairment,3636,15.26,0.6
+cumulative_disadvantage,1.0,cognitive_impairment,24263,14.08,0.22
+cumulative_disadvantage,0.0,cognitive_impairment,32356,8.8,0.16
+cumulative_disadvantage,3.0,cognitive_impairment,435,15.28,1.73

@@ -1,0 +1,9 @@
+Outcome,Trajectory,pred_prev_pct,lo,hi
+Cognitive Impairment,Persistently Affluent,10.86,10.21,11.8
+Cognitive Impairment,Downwardly Mobile,12.86,12.07,13.99
+Cognitive Impairment,Upwardly Mobile,12.98,12.2,14.17
+Cognitive Impairment,Persistently Poor,13.87,13.03,15.08
+Depressive Symptoms,Persistently Affluent,26.58,25.28,28.45
+Depressive Symptoms,Downwardly Mobile,28.28,26.79,30.19
+Depressive Symptoms,Upwardly Mobile,29.21,27.55,31.39
+Depressive Symptoms,Persistently Poor,29.37,27.72,31.39

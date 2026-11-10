@@ -1,0 +1,17 @@
+Variable,Level,N,Pct_missing_cognition
+age_group,45-59,34566,6.6
+age_group,60-74,24772,10.3
+age_group,75+,6563,19.9
+education,Graduate and above,3414,2.9
+education,Higher secondary/Diploma,3159,3.3
+education,Less than primary,7526,9.3
+education,Middle completed,6301,4.9
+education,No formal education,30873,13.3
+education,Primary completed,8710,6.5
+education,Secondary completed,5916,4.0
+childhood_ses,Average,35098,7.3
+childhood_ses,Poor,25309,11.2
+childhood_ses,Pretty well-off,4808,8.7
+childhood_ses,Varied,389,10.3
+sex,Female,35191,10.7
+sex,Male,30710,7.7

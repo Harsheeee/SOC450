@@ -1,0 +1,9 @@
+Stage,N,Exclusion_Reason
+1. Raw Wave 1 Individual Records,73396,None (Full survey release)
+2. Age >= 45 Target Population,66606,"Excluded younger spouses (age < 45, N = 6,790)"
+3. Valid Childhood SES,66285,Missing ht235 (N = 321)
+4. Valid Childhood Health,65641,Missing ht231 (N = 965)
+5. Valid Childhood Bedridden,66251,Missing ht233 (N = 355)
+6. Direct Interview (Cognitive Eligible),65901,"Proxy interviews (rproxy = 1, N = 705)"
+7. Valid Cognitive Composite Score,60782,Incomplete cognitive test battery
+8. Valid CES-D Depression Score,64825,Incomplete CES-D items (>= 3 items missing)

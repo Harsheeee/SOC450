@@ -1,0 +1,11 @@
+Analysis,Outcome,Exposure,Estimand,Estimate,CI_lower,CI_upper,p_value,N_obs
+Continuous Cognition (WLS),Cognitive Score (0-43),Childhood SES[T.Average],Beta (Mean Diff),-0.026,-0.307,0.256,0.8574,58265
+Continuous Cognition (WLS),Cognitive Score (0-43),Childhood SES[T.Poor],Beta (Mean Diff),-0.862,-1.176,-0.549,0.0,58265
+Continuous Cognition (WLS),Cognitive Score (0-43),Childhood Health: Poor vs Good,Beta (Mean Diff),-0.388,-0.774,-0.001,0.0495,58253
+Continuous Depression (WLS),CES-D Score (0-10),Childhood SES[T.Average],Beta (Mean Diff),0.183,0.014,0.352,0.0333,62123
+Continuous Depression (WLS),CES-D Score (0-10),Childhood SES[T.Poor],Beta (Mean Diff),0.197,0.025,0.369,0.0249,62123
+Continuous Depression (WLS),CES-D Score (0-10),Childhood Health: Poor vs Good,Beta (Mean Diff),0.477,0.378,0.575,0.0,62107
+Logistic Regression (Sensitivity),Cognitive Impairment,Childhood SES[T.Average],Adjusted Odds Ratio (AOR),0.824,0.678,1.001,0.0508,58265
+Logistic Regression (Sensitivity),Cognitive Impairment,Childhood SES[T.Poor],Adjusted Odds Ratio (AOR),1.103,0.892,1.364,0.366,58265
+Logistic Regression (Sensitivity),Depressive Symptoms (CES-D >= 4),Childhood Health: Poor vs Good,Adjusted Odds Ratio (AOR),1.489,1.284,1.727,0.0,62107
+Dose-Response (Cumulative Score),Depressive Symptoms (CES-D >= 4),Per 1-unit increase in Childhood Disadvantage (0 to 3),Adjusted Prevalence Ratio (APR),1.113,1.068,1.16,0.0,62058

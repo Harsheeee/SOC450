@@ -1,0 +1,17 @@
+Outcome,Model,Parameter,PR,CI_lower,CI_upper,p_value,N_obs
+Depressive Symptoms,Model 0: Unadjusted,"C(childhood_ses, Treatment('Pretty well-off'))[T.Average]",1.113,0.948,1.308,0.1909,64387
+Depressive Symptoms,Model 0: Unadjusted,"C(childhood_ses, Treatment('Pretty well-off'))[T.Poor]",1.188,1.017,1.388,0.0294,64387
+Depressive Symptoms,Model 1: Demographics,"C(childhood_ses, Treatment('Pretty well-off'))[T.Average]",1.109,0.935,1.316,0.2341,62123
+Depressive Symptoms,Model 1: Demographics,"C(childhood_ses, Treatment('Pretty well-off'))[T.Poor]",1.161,0.979,1.376,0.086,62123
+Depressive Symptoms,Model 2: Adult SES (Primary),"C(childhood_ses, Treatment('Pretty well-off'))[T.Average]",1.056,0.911,1.224,0.4695,62123
+Depressive Symptoms,Model 2: Adult SES (Primary),"C(childhood_ses, Treatment('Pretty well-off'))[T.Poor]",1.07,0.924,1.239,0.3672,62123
+Depressive Symptoms,Model 3: Adult Health,"C(childhood_ses, Treatment('Pretty well-off'))[T.Average]",1.05,0.911,1.211,0.4972,62111
+Depressive Symptoms,Model 3: Adult Health,"C(childhood_ses, Treatment('Pretty well-off'))[T.Poor]",1.022,0.889,1.175,0.7572,62111
+Depressive Symptoms,Model 0: Unadjusted,"C(childhood_health, Treatment('Good'))[T.Poor]",1.34,1.217,1.474,0.0,64369
+Depressive Symptoms,Model 1: Demographics,"C(childhood_health, Treatment('Good'))[T.Poor]",1.322,1.196,1.461,0.0,62107
+Depressive Symptoms,Model 2: Adult SES (Primary),"C(childhood_health, Treatment('Good'))[T.Poor]",1.306,1.185,1.44,0.0,62107
+Depressive Symptoms,Model 3: Adult Health,"C(childhood_health, Treatment('Good'))[T.Poor]",1.288,1.167,1.422,0.0,62096
+Depressive Symptoms,Model 0: Unadjusted,"C(childhood_bedridden, Treatment('No'))[T.Yes]",1.149,1.019,1.295,0.0233,64331
+Depressive Symptoms,Model 1: Demographics,"C(childhood_bedridden, Treatment('No'))[T.Yes]",1.156,1.032,1.295,0.0124,62070
+Depressive Symptoms,Model 2: Adult SES (Primary),"C(childhood_bedridden, Treatment('No'))[T.Yes]",1.175,1.059,1.303,0.0023,62070
+Depressive Symptoms,Model 3: Adult Health,"C(childhood_bedridden, Treatment('No'))[T.Yes]",1.129,1.022,1.247,0.0168,62058
